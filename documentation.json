@@ -2,6 +2,39 @@
     "pipes": [],
     "interfaces": [
         {
+            "name": "IArguments",
+            "id": "interface-IArguments-07848214a0d9665115676cd22e041ec618cdf209fe5141b48c4d6a12af6edb2e149357bbdf1eec63dbec2b37d159d37f7a4629495f2f4f8b1719fcb55cc3094e",
+            "file": "src/stories/components/carousel/carousel.component.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import { Component, Input } from '@angular/core';\r\n\r\nexport interface IArguments {\r\n  width: number | 'full';\r\n  height: number | 'full';\r\n}\r\n\r\n@Component({\r\n  selector: 'app-carousel',\r\n  standalone: true,\r\n  imports: [],\r\n  templateUrl: './carousel.component.html',\r\n  styleUrl: './carousel.component.css',\r\n})\r\nexport class CarouselComponent {\r\n  @Input() numberOfItems: number = 0;\r\n  @Input() args: IArguments = {\r\n    height: 'full',\r\n    width: 'full',\r\n  };\r\n\r\n  constructor() {\r\n    this.args = {\r\n      ...this.args,\r\n      height: this.args.height ?? 'full',\r\n      width: this.args.width ?? 'full',\r\n    };\r\n  }\r\n}\r\n",
+            "properties": [
+                {
+                    "name": "height",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number | \"full\"",
+                    "optional": false,
+                    "description": "",
+                    "line": 5
+                },
+                {
+                    "name": "width",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number | \"full\"",
+                    "optional": false,
+                    "description": "",
+                    "line": 4
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "methods": [],
+            "extends": []
+        },
+        {
             "name": "User",
             "id": "interface-User-d4821beac0e4a852e513391b7470981c4353fdd95a18628bb68136c8695b489ee15b926e2e5031bc26cf30e1508e0a362c3ee13a06734702b4d15af140e485d5",
             "file": "src/stories/user.ts",
@@ -87,8 +120,8 @@
         },
         {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-86e2311c54fbca7431c12e070d0fd5b0ebe343eec0553a392f182ba0e04a8f86613233d26ee47718fd0e7a65078f580c76a1fcc928ce55de81193d6618025bc4",
-            "file": "src/stories/button.component.ts",
+            "id": "component-ButtonComponent-2f280ee4741c3fa635a934c9ce52a0a1c940f5af2ff56246c3b3c62c6358ed5bf12949e5b3ff80d76709f1bdebfddd534ad65b13f963393f8b3e9e852f07d0d8",
+            "file": "src/stories/components/basics/button/button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -99,8 +132,9 @@
                 "./button.css"
             ],
             "styles": [],
-            "template": "<button   type=\"button\"\n   (click)=\"onClick.emit($event)\"\n   [ngClass]=\"classes\"\n   [ngStyle]=\"{ 'background-color': backgroundColor }\"\n >\n   {{ label }}\n </button>",
-            "templateUrl": [],
+            "templateUrl": [
+                "./button.component.html"
+            ],
             "viewProviders": [],
             "hostDirectives": [],
             "inputsClass": [
@@ -110,7 +144,7 @@
                     "deprecationMessage": "",
                     "rawdescription": "\n\nWhat background color to use\n",
                     "description": "<p>What background color to use</p>\n",
-                    "line": 29,
+                    "line": 22,
                     "type": "string",
                     "decorators": []
                 },
@@ -121,15 +155,15 @@
                     "deprecationMessage": "",
                     "jsdoctags": [
                         {
-                            "pos": 798,
-                            "end": 811,
+                            "pos": 651,
+                            "end": 664,
                             "flags": 16842752,
                             "modifierFlagsCache": 0,
                             "transformFlags": 0,
                             "kind": 334,
                             "tagName": {
-                                "pos": 799,
-                                "end": 807,
+                                "pos": 652,
+                                "end": 660,
                                 "flags": 16842752,
                                 "modifierFlagsCache": 0,
                                 "transformFlags": 0,
@@ -141,7 +175,7 @@
                     ],
                     "rawdescription": "\n\nButton contents\n\n",
                     "description": "<p>Button contents</p>\n",
-                    "line": 43,
+                    "line": 36,
                     "type": "string",
                     "decorators": []
                 },
@@ -152,7 +186,7 @@
                     "deprecationMessage": "",
                     "rawdescription": "\n\nIs this the principal call to action on the page?\n",
                     "description": "<p>Is this the principal call to action on the page?</p>\n",
-                    "line": 23,
+                    "line": 16,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -163,7 +197,7 @@
                     "deprecationMessage": "",
                     "rawdescription": "\n\nHow large should the button be?\n",
                     "description": "<p>How large should the button be?</p>\n",
-                    "line": 35,
+                    "line": 28,
                     "type": "\"small\" | \"medium\" | \"large\"",
                     "decorators": []
                 }
@@ -176,7 +210,7 @@
                     "deprecationMessage": "",
                     "rawdescription": "\n\nOptional click handler\n",
                     "description": "<p>Optional click handler</p>\n",
-                    "line": 49,
+                    "line": 42,
                     "type": "EventEmitter"
                 }
             ],
@@ -196,7 +230,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component, Input, Output, EventEmitter } from '@angular/core';\n\n@Component({\n  selector: 'storybook-button',\n  standalone: true,\n  imports: [CommonModule],\n  template: ` <button\n    type=\"button\"\n    (click)=\"onClick.emit($event)\"\n    [ngClass]=\"classes\"\n    [ngStyle]=\"{ 'background-color': backgroundColor }\"\n  >\n    {{ label }}\n  </button>`,\n  styleUrls: ['./button.css'],\n})\nexport class ButtonComponent {\n  /**\n   * Is this the principal call to action on the page?\n   */\n  @Input()\n  primary = false;\n\n  /**\n   * What background color to use\n   */\n  @Input()\n  backgroundColor?: string;\n\n  /**\n   * How large should the button be?\n   */\n  @Input()\n  size: 'small' | 'medium' | 'large' = 'medium';\n\n  /**\n   * Button contents\n   *\n   * @required\n   */\n  @Input()\n  label = 'Button';\n\n  /**\n   * Optional click handler\n   */\n  @Output()\n  onClick = new EventEmitter<Event>();\n\n  public get classes(): string[] {\n    const mode = this.primary ? 'storybook-button--primary' : 'storybook-button--secondary';\n\n    return ['storybook-button', `storybook-button--${this.size}`, mode];\n  }\n}\n",
+            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component, Input, Output, EventEmitter } from '@angular/core';\n\n@Component({\n  selector: 'storybook-button',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.css'],\n})\nexport class ButtonComponent {\n  /**\n   * Is this the principal call to action on the page?\n   */\n  @Input()\n  primary = false;\n\n  /**\n   * What background color to use\n   */\n  @Input()\n  backgroundColor?: string;\n\n  /**\n   * How large should the button be?\n   */\n  @Input()\n  size: 'small' | 'medium' | 'large' = 'medium';\n\n  /**\n   * Button contents\n   *\n   * @required\n   */\n  @Input()\n  label = 'Button';\n\n  /**\n   * Optional click handler\n   */\n  @Output()\n  onClick = new EventEmitter<Event>();\n\n  public get classes(): string[] {\n    const mode = this.primary\n      ? 'storybook-button--primary'\n      : 'storybook-button--secondary';\n\n    return ['storybook-button', `storybook-button--${this.size}`, mode];\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -213,66 +247,50 @@
                         "name": "classes",
                         "type": "[]",
                         "returnType": "string[]",
-                        "line": 51
+                        "line": 44
                     }
                 }
-            }
+            },
+            "templateData": "<button\r\n  type=\"button\"\r\n  (click)=\"onClick.emit($event)\"\r\n  [ngClass]=\"classes\"\r\n  [ngStyle]=\"{ 'background-color': backgroundColor }\"\r\n>\r\n  {{ label }}\r\n</button>\r\n"
         },
         {
-            "name": "HeaderComponent",
-            "id": "component-HeaderComponent-cad94b233ec8e80ceb541e7972c5f9737e08237b4e137112f3987ca48ee0cce5c0d57798d41daa5d4d24d6bdbb2df1606ab68cca2aa0a1785e38f99f3cac0729",
-            "file": "src/stories/header.component.ts",
+            "name": "CarouselComponent",
+            "id": "component-CarouselComponent-07848214a0d9665115676cd22e041ec618cdf209fe5141b48c4d6a12af6edb2e149357bbdf1eec63dbec2b37d159d37f7a4629495f2f4f8b1719fcb55cc3094e",
+            "file": "src/stories/components/carousel/carousel.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "storybook-header",
-            "styleUrls": [
-                "./header.css"
-            ],
+            "selector": "app-carousel",
+            "styleUrls": [],
             "styles": [],
-            "template": "<header>    <div class=\"storybook-header\">\n      <div>\n        <svg width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" xmlns=\"http://www.w3.org/2000/svg\">\n          <g fill=\"none\" fillRule=\"evenodd\">\n            <path\n              d=\"M10 0h12a10 10 0 0110 10v12a10 10 0 01-10 10H10A10 10 0 010 22V10A10 10 0 0110 0z\"\n              fill=\"#FFF\"\n            />\n            <path\n              d=\"M5.3 10.6l10.4 6v11.1l-10.4-6v-11zm11.4-6.2l9.7 5.5-9.7 5.6V4.4z\"\n              fill=\"#555AB9\"\n            />\n            <path\n              d=\"M27.2 10.6v11.2l-10.5 6V16.5l10.5-6zM15.7 4.4v11L6 10l9.7-5.5z\"\n              fill=\"#91BAF8\"\n            />\n          </g>\n        </svg>\n        <h1>Acme</h1>\n      </div>\n      <div>\n        <div *ngIf=\"user\">\n          <span class=\"welcome\">\n            Welcome, <b>{{ user.name }}</b\n            >!\n          </span>\n          <storybook-button\n            *ngIf=\"user\"\n            size=\"small\"\n            (onClick)=\"onLogout.emit($event)\"\n            label=\"Log out\"\n          ></storybook-button>\n        </div>\n        <div *ngIf=\"!user\">\n          <storybook-button\n            *ngIf=\"!user\"\n            size=\"small\"\n            class=\"margin-left\"\n            (onClick)=\"onLogin.emit($event)\"\n            label=\"Log in\"\n          ></storybook-button>\n          <storybook-button\n            *ngIf=\"!user\"\n            size=\"small\"\n            [primary]=\"true\"\n            class=\"margin-left\"\n            (onClick)=\"onCreateAccount.emit($event)\"\n            label=\"Sign up\"\n          ></storybook-button>\n        </div>\n      </div>\n    </div>\n  </header>",
-            "templateUrl": [],
+            "templateUrl": [
+                "./carousel.component.html"
+            ],
             "viewProviders": [],
             "hostDirectives": [],
             "inputsClass": [
                 {
-                    "name": "user",
-                    "defaultValue": "null",
+                    "name": "args",
+                    "defaultValue": "{\r\n    height: 'full',\r\n    width: 'full',\r\n  }",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 69,
-                    "type": "User | null",
+                    "line": 17,
+                    "type": "IArguments",
+                    "decorators": []
+                },
+                {
+                    "name": "numberOfItems",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 16,
+                    "type": "number",
                     "decorators": []
                 }
             ],
-            "outputsClass": [
-                {
-                    "name": "onCreateAccount",
-                    "defaultValue": "new EventEmitter<Event>()",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 78,
-                    "type": "EventEmitter"
-                },
-                {
-                    "name": "onLogin",
-                    "defaultValue": "new EventEmitter<Event>()",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 72,
-                    "type": "EventEmitter"
-                },
-                {
-                    "name": "onLogout",
-                    "defaultValue": "new EventEmitter<Event>()",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 75,
-                    "type": "EventEmitter"
-                }
-            ],
+            "outputsClass": [],
             "propertiesClass": [],
             "methodsClass": [],
             "deprecated": false,
@@ -280,92 +298,86 @@
             "hostBindings": [],
             "hostListeners": [],
             "standalone": true,
-            "imports": [
-                {
-                    "name": "CommonModule",
-                    "type": "module"
-                },
-                {
-                    "name": "ButtonComponent",
-                    "type": "component"
-                }
-            ],
+            "imports": [],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\nimport { ButtonComponent } from './button.component';\nimport type { User } from './user';\n\n@Component({\n  selector: 'storybook-header',\n  standalone: true,\n  imports: [CommonModule, ButtonComponent],\n  template: `<header>\n    <div class=\"storybook-header\">\n      <div>\n        <svg width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" xmlns=\"http://www.w3.org/2000/svg\">\n          <g fill=\"none\" fillRule=\"evenodd\">\n            <path\n              d=\"M10 0h12a10 10 0 0110 10v12a10 10 0 01-10 10H10A10 10 0 010 22V10A10 10 0 0110 0z\"\n              fill=\"#FFF\"\n            />\n            <path\n              d=\"M5.3 10.6l10.4 6v11.1l-10.4-6v-11zm11.4-6.2l9.7 5.5-9.7 5.6V4.4z\"\n              fill=\"#555AB9\"\n            />\n            <path\n              d=\"M27.2 10.6v11.2l-10.5 6V16.5l10.5-6zM15.7 4.4v11L6 10l9.7-5.5z\"\n              fill=\"#91BAF8\"\n            />\n          </g>\n        </svg>\n        <h1>Acme</h1>\n      </div>\n      <div>\n        <div *ngIf=\"user\">\n          <span class=\"welcome\">\n            Welcome, <b>{{ user.name }}</b\n            >!\n          </span>\n          <storybook-button\n            *ngIf=\"user\"\n            size=\"small\"\n            (onClick)=\"onLogout.emit($event)\"\n            label=\"Log out\"\n          ></storybook-button>\n        </div>\n        <div *ngIf=\"!user\">\n          <storybook-button\n            *ngIf=\"!user\"\n            size=\"small\"\n            class=\"margin-left\"\n            (onClick)=\"onLogin.emit($event)\"\n            label=\"Log in\"\n          ></storybook-button>\n          <storybook-button\n            *ngIf=\"!user\"\n            size=\"small\"\n            [primary]=\"true\"\n            class=\"margin-left\"\n            (onClick)=\"onCreateAccount.emit($event)\"\n            label=\"Sign up\"\n          ></storybook-button>\n        </div>\n      </div>\n    </div>\n  </header>`,\n  styleUrls: ['./header.css'],\n})\nexport class HeaderComponent {\n  @Input()\n  user: User | null = null;\n\n  @Output()\n  onLogin = new EventEmitter<Event>();\n\n  @Output()\n  onLogout = new EventEmitter<Event>();\n\n  @Output()\n  onCreateAccount = new EventEmitter<Event>();\n}\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\r\n\r\nexport interface IArguments {\r\n  width: number | 'full';\r\n  height: number | 'full';\r\n}\r\n\r\n@Component({\r\n  selector: 'app-carousel',\r\n  standalone: true,\r\n  imports: [],\r\n  templateUrl: './carousel.component.html',\r\n  styleUrl: './carousel.component.css',\r\n})\r\nexport class CarouselComponent {\r\n  @Input() numberOfItems: number = 0;\r\n  @Input() args: IArguments = {\r\n    height: 'full',\r\n    width: 'full',\r\n  };\r\n\r\n  constructor() {\r\n    this.args = {\r\n      ...this.args,\r\n      height: this.args.height ?? 'full',\r\n      width: this.args.width ?? 'full',\r\n    };\r\n  }\r\n}\r\n",
+            "styleUrl": "./carousel.component.css",
             "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": ".storybook-header {\n  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;\n  border-bottom: 1px solid rgba(0, 0, 0, 0.1);\n  padding: 15px 20px;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n\n.storybook-header svg {\n  display: inline-block;\n  vertical-align: top;\n}\n\n.storybook-header h1 {\n  font-weight: 700;\n  font-size: 20px;\n  line-height: 1;\n  margin: 6px 0 6px 10px;\n  display: inline-block;\n  vertical-align: top;\n}\n\n.storybook-header button + button {\n  margin-left: 10px;\n}\n\n.storybook-header .welcome {\n  color: #333;\n  font-size: 14px;\n  margin-right: 10px;\n}\n",
-                    "styleUrl": "./header.css"
-                }
-            ],
+            "styleUrlsData": "",
             "stylesData": "",
-            "extends": []
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 20
+            },
+            "extends": [],
+            "templateData": "<div\r\n  class=\"carousel-container\"\r\n  [style.height]=\"args.height === 'full' ? '100%' : args.height + 'px'\"\r\n  [style.width]=\"args.width === 'full' ? '100%' : args.width + 'px'\"\r\n>\r\n  @for (i of [].constructor(numberOfItems); track $index) {\r\n    <div>\r\n      <ng-content carousel-item></ng-content>\r\n    </div>\r\n  }\r\n</div>\r\n"
         },
         {
-            "name": "PageComponent",
-            "id": "component-PageComponent-d32b0f19628254ea3fc5526c4d4564ada1cc83cf936759006d90a46f5874b02a3359e331bddda20b22e74a616a6443c660602ba74dd38ebe1160759e0de6f7ba",
-            "file": "src/stories/page.component.ts",
+            "name": "ColorPaletteComponent",
+            "id": "component-ColorPaletteComponent-93cea0b7a37b6d33d656d42b1c1b96c01991b9faca3fb22899cf4f81ad64629133309abd18bd8adce8cce20604ad701baf498178b0da840b4ba7ad9fc046cf7b",
+            "file": "src/stories/design-system/color-pallete/color-pallete.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "storybook-page",
+            "selector": "storybook-color-palette",
             "styleUrls": [
-                "./page.css"
+                "./color-pallete.css"
             ],
             "styles": [],
-            "template": "<article>    <storybook-header\n      [user]=\"user\"\n      (onLogout)=\"doLogout()\"\n      (onLogin)=\"doLogin()\"\n      (onCreateAccount)=\"doCreateAccount()\"\n    ></storybook-header>\n    <section class=\"storybook-page\">\n      <h2>Pages in Storybook</h2>\n      <p>\n        We recommend building UIs with a\n        <a href=\"https://componentdriven.org\" target=\"_blank\" rel=\"noopener noreferrer\">\n          <strong>component-driven</strong>\n        </a>\n        process starting with atomic components and ending with pages.\n      </p>\n      <p>\n        Render pages with mock data. This makes it easy to build and review page states without\n        needing to navigate to them in your app. Here are some handy patterns for managing page data\n        in Storybook:\n      </p>\n      <ul>\n        <li>\n          Use a higher-level connected component. Storybook helps you compose such data from the\n          \"args\" of child component stories\n        </li>\n        <li>\n          Assemble data in the page component from your services. You can mock these services out\n          using Storybook.\n        </li>\n      </ul>\n      <p>\n        Get a guided tutorial on component-driven development at\n        <a href=\"https://storybook.js.org/tutorials/\" target=\"_blank\" rel=\"noopener noreferrer\">\n          Storybook tutorials\n        </a>\n        . Read more in the\n        <a href=\"https://storybook.js.org/docs\" target=\"_blank\" rel=\"noopener noreferrer\"> docs </a>\n        .\n      </p>\n      <div class=\"tip-wrapper\">\n        <span class=\"tip\">Tip</span> Adjust the width of the canvas with the\n        <svg width=\"10\" height=\"10\" viewBox=\"0 0 12 12\" xmlns=\"http://www.w3.org/2000/svg\">\n          <g fill=\"none\" fillRule=\"evenodd\">\n            <path\n              d=\"M1.5 5.2h4.8c.3 0 .5.2.5.4v5.1c-.1.2-.3.3-.4.3H1.4a.5.5 0 01-.5-.4V5.7c0-.3.2-.5.5-.5zm0-2.1h6.9c.3 0 .5.2.5.4v7a.5.5 0 01-1 0V4H1.5a.5.5 0 010-1zm0-2.1h9c.3 0 .5.2.5.4v9.1a.5.5 0 01-1 0V2H1.5a.5.5 0 010-1zm4.3 5.2H2V10h3.8V6.2z\"\n              id=\"a\"\n              fill=\"#999\"\n            />\n          </g>\n        </svg>\n        Viewports addon in the toolbar\n      </div>\n    </section>\n  </article>",
-            "templateUrl": [],
+            "templateUrl": [
+                "./color-pallete.component.html"
+            ],
             "viewProviders": [],
             "hostDirectives": [],
-            "inputsClass": [],
-            "outputsClass": [],
-            "propertiesClass": [
+            "inputsClass": [
                 {
-                    "name": "user",
-                    "defaultValue": "null",
+                    "name": "colors",
+                    "defaultValue": "[]",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "User | null",
-                    "optional": false,
-                    "description": "",
-                    "line": 69
+                    "line": 12,
+                    "type": "literal type[]",
+                    "decorators": []
                 }
             ],
+            "outputsClass": [],
+            "propertiesClass": [],
             "methodsClass": [
                 {
-                    "name": "doCreateAccount",
-                    "args": [],
+                    "name": "copyHex",
+                    "args": [
+                        {
+                            "name": "color",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 79,
+                    "line": 14,
                     "deprecated": false,
-                    "deprecationMessage": ""
-                },
-                {
-                    "name": "doLogin",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 75,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                },
-                {
-                    "name": "doLogout",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 71,
-                    "deprecated": false,
-                    "deprecationMessage": ""
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "color",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
                 }
             ],
             "deprecated": false,
@@ -377,25 +389,113 @@
                 {
                     "name": "CommonModule",
                     "type": "module"
-                },
-                {
-                    "name": "HeaderComponent",
-                    "type": "component"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\nimport { HeaderComponent } from './header.component';\nimport type { User } from './user';\n\n@Component({\n  selector: 'storybook-page',\n  standalone: true,\n  imports: [CommonModule, HeaderComponent],\n  template: `<article>\n    <storybook-header\n      [user]=\"user\"\n      (onLogout)=\"doLogout()\"\n      (onLogin)=\"doLogin()\"\n      (onCreateAccount)=\"doCreateAccount()\"\n    ></storybook-header>\n    <section class=\"storybook-page\">\n      <h2>Pages in Storybook</h2>\n      <p>\n        We recommend building UIs with a\n        <a href=\"https://componentdriven.org\" target=\"_blank\" rel=\"noopener noreferrer\">\n          <strong>component-driven</strong>\n        </a>\n        process starting with atomic components and ending with pages.\n      </p>\n      <p>\n        Render pages with mock data. This makes it easy to build and review page states without\n        needing to navigate to them in your app. Here are some handy patterns for managing page data\n        in Storybook:\n      </p>\n      <ul>\n        <li>\n          Use a higher-level connected component. Storybook helps you compose such data from the\n          \"args\" of child component stories\n        </li>\n        <li>\n          Assemble data in the page component from your services. You can mock these services out\n          using Storybook.\n        </li>\n      </ul>\n      <p>\n        Get a guided tutorial on component-driven development at\n        <a href=\"https://storybook.js.org/tutorials/\" target=\"_blank\" rel=\"noopener noreferrer\">\n          Storybook tutorials\n        </a>\n        . Read more in the\n        <a href=\"https://storybook.js.org/docs\" target=\"_blank\" rel=\"noopener noreferrer\"> docs </a>\n        .\n      </p>\n      <div class=\"tip-wrapper\">\n        <span class=\"tip\">Tip</span> Adjust the width of the canvas with the\n        <svg width=\"10\" height=\"10\" viewBox=\"0 0 12 12\" xmlns=\"http://www.w3.org/2000/svg\">\n          <g fill=\"none\" fillRule=\"evenodd\">\n            <path\n              d=\"M1.5 5.2h4.8c.3 0 .5.2.5.4v5.1c-.1.2-.3.3-.4.3H1.4a.5.5 0 01-.5-.4V5.7c0-.3.2-.5.5-.5zm0-2.1h6.9c.3 0 .5.2.5.4v7a.5.5 0 01-1 0V4H1.5a.5.5 0 010-1zm0-2.1h9c.3 0 .5.2.5.4v9.1a.5.5 0 01-1 0V2H1.5a.5.5 0 010-1zm4.3 5.2H2V10h3.8V6.2z\"\n              id=\"a\"\n              fill=\"#999\"\n            />\n          </g>\n        </svg>\n        Viewports addon in the toolbar\n      </div>\n    </section>\n  </article>`,\n  styleUrls: ['./page.css'],\n})\nexport class PageComponent {\n  user: User | null = null;\n\n  doLogout() {\n    this.user = null;\n  }\n\n  doLogin() {\n    this.user = { name: 'Jane Doe' };\n  }\n\n  doCreateAccount() {\n    this.user = { name: 'Jane Doe' };\n  }\n}\n",
+            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'storybook-color-palette',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './color-pallete.component.html',\n  styleUrls: ['./color-pallete.css'],\n})\nexport class ColorPaletteComponent {\n  @Input() colors: { name: string; hex: string }[] = [];\n\n  copyHex(color: string): void {\n    navigator.clipboard\n      .writeText(color)\n      .then(() => {\n        alert('Copied!');\n      })\n      .catch((err) => {\n        alert(`Error al copiar al portapapeles: ${err}` );\n      });\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".storybook-page {\n  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;\n  font-size: 14px;\n  line-height: 24px;\n  padding: 48px 20px;\n  margin: 0 auto;\n  max-width: 600px;\n  color: #333;\n}\n\n.storybook-page h2 {\n  font-weight: 700;\n  font-size: 32px;\n  line-height: 1;\n  margin: 0 0 4px;\n  display: inline-block;\n  vertical-align: top;\n}\n\n.storybook-page p {\n  margin: 1em 0;\n}\n\n.storybook-page a {\n  text-decoration: none;\n  color: #1ea7fd;\n}\n\n.storybook-page ul {\n  padding-left: 30px;\n  margin: 1em 0;\n}\n\n.storybook-page li {\n  margin-bottom: 8px;\n}\n\n.storybook-page .tip {\n  display: inline-block;\n  border-radius: 1em;\n  font-size: 11px;\n  line-height: 12px;\n  font-weight: 700;\n  background: #e7fdd8;\n  color: #66bf3c;\n  padding: 4px 12px;\n  margin-right: 10px;\n  vertical-align: top;\n}\n\n.storybook-page .tip-wrapper {\n  font-size: 13px;\n  line-height: 20px;\n  margin-top: 40px;\n  margin-bottom: 40px;\n}\n\n.storybook-page .tip-wrapper svg {\n  display: inline-block;\n  height: 12px;\n  width: 12px;\n  margin-right: 4px;\n  vertical-align: top;\n  margin-top: 3px;\n}\n\n.storybook-page .tip-wrapper svg path {\n  fill: #1ea7fd;\n}\n",
-                    "styleUrl": "./page.css"
+                    "data": ".color-table {\r\n  justify-self: center;\r\n  width: 60%;\r\n  border-collapse: collapse;\r\n  margin-top: 20px;\r\n  border-radius: 8px;\r\n  overflow: hidden;\r\n  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);\r\n}\r\n\r\n.color-table th,\r\n.color-table td {\r\n  padding: 12px 15px;\r\n  text-align: left;\r\n  font-size: 16px;\r\n  color: #333;\r\n}\r\n\r\n.color-table th {\r\n  background-color: #f5f5f5;\r\n  font-weight: bold;\r\n  text-transform: uppercase;\r\n  border-bottom: 2px solid #e0e0e0;\r\n}\r\n\r\n.color-table tr:nth-child(even) {\r\n  background-color: #f9f9f9;\r\n}\r\n\r\n.color-table tr:hover {\r\n  background-color: #f1f1f1;\r\n}\r\n\r\n.color-row {\r\n  cursor: pointer;\r\n}\r\n\r\n.color-box {\r\n  width: 40px;\r\n  height: 40px;\r\n  border-radius: 4px;\r\n}\r\n\r\n.color-table td {\r\n  font-family: \"Courier New\", Courier, monospace;\r\n  color: #777;\r\n}\r\n",
+                    "styleUrl": "./color-pallete.css"
                 }
             ],
             "stylesData": "",
-            "extends": []
+            "extends": [],
+            "templateData": "<h1>Paleta de Colores</h1>\r\n<p>\r\n  A continuación, se muestran los colores utilizados en el sistema de diseño:\r\n</p>\r\n<table class=\"color-table\">\r\n  <thead>\r\n    <tr>\r\n      <th>Nombre</th>\r\n      <th>Color</th>\r\n      <th>Hex</th>\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n    @for (color of colors; track $index) {\r\n      <tr class=\"color-row\" (click)=\"copyHex(color.hex)\">\r\n        <td>{{ color.name }}</td>\r\n        <td><div [style.background]=\"color.hex\" class=\"color-box\"></div></td>\r\n        <td>{{ color.hex }}</td>\r\n      </tr>\r\n    }\r\n  </tbody>\r\n</table>\r\n"
+        },
+        {
+            "name": "ColorPaletteComponent",
+            "id": "component-ColorPaletteComponent-93cea0b7a37b6d33d656d42b1c1b96c01991b9faca3fb22899cf4f81ad64629133309abd18bd8adce8cce20604ad701baf498178b0da840b4ba7ad9fc046cf7b-1",
+            "file": "src/stories/design-system/measuring/color-pallete.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "storybook-color-palette",
+            "styleUrls": [
+                "./color-pallete.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./color-pallete.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "colors",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "literal type[]",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "copyHex",
+                    "args": [
+                        {
+                            "name": "color",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 14,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "color",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'storybook-color-palette',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './color-pallete.component.html',\n  styleUrls: ['./color-pallete.css'],\n})\nexport class ColorPaletteComponent {\n  @Input() colors: { name: string; hex: string }[] = [];\n\n  copyHex(color: string): void {\n    navigator.clipboard\n      .writeText(color)\n      .then(() => {\n        alert('Copied!');\n      })\n      .catch((err) => {\n        alert(`Error al copiar al portapapeles: ${err}` );\n      });\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".color-table {\r\n  justify-self: center;\r\n  width: 60%;\r\n  border-collapse: collapse;\r\n  margin-top: 20px;\r\n  border-radius: 8px;\r\n  overflow: hidden;\r\n  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);\r\n}\r\n\r\n.color-table th,\r\n.color-table td {\r\n  padding: 12px 15px;\r\n  text-align: left;\r\n  font-size: 16px;\r\n  color: #333;\r\n}\r\n\r\n.color-table th {\r\n  background-color: #f5f5f5;\r\n  font-weight: bold;\r\n  text-transform: uppercase;\r\n  border-bottom: 2px solid #e0e0e0;\r\n}\r\n\r\n.color-table tr:nth-child(even) {\r\n  background-color: #f9f9f9;\r\n}\r\n\r\n.color-table tr:hover {\r\n  background-color: #f1f1f1;\r\n}\r\n\r\n.color-row {\r\n  cursor: pointer;\r\n}\r\n\r\n.color-box {\r\n  width: 40px;\r\n  height: 40px;\r\n  border-radius: 4px;\r\n}\r\n\r\n.color-table td {\r\n  font-family: \"Courier New\", Courier, monospace;\r\n  color: #777;\r\n}\r\n",
+                    "styleUrl": "./color-pallete.css"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "isDuplicate": true,
+            "duplicateId": 1,
+            "duplicateName": "ColorPaletteComponent-1",
+            "templateData": "<h1>Paleta de Colores</h1>\r\n<p>\r\n  A continuación, se muestran los colores utilizados en el sistema de diseño:\r\n</p>\r\n<table class=\"color-table\">\r\n  <thead>\r\n    <tr>\r\n      <th>Nombre</th>\r\n      <th>Color</th>\r\n      <th>Hex</th>\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n    @for (color of colors; track $index) {\r\n      <tr class=\"color-row\" (click)=\"copyHex(color.hex)\">\r\n        <td>{{ color.name }}</td>\r\n        <td><div [style.background]=\"color.hex\" class=\"color-box\"></div></td>\r\n        <td>{{ color.hex }}</td>\r\n      </tr>\r\n    }\r\n  </tbody>\r\n</table>\r\n"
         }
     ],
     "modules": [],
@@ -499,7 +599,7 @@
     },
     "routes": [],
     "coverage": {
-        "count": 9,
+        "count": 7,
         "status": "low",
         "files": [
             {
@@ -552,7 +652,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/stories/button.component.ts",
+                "filePath": "src/stories/components/basics/button/button.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "ButtonComponent",
@@ -561,21 +661,39 @@
                 "status": "very-good"
             },
             {
-                "filePath": "src/stories/header.component.ts",
+                "filePath": "src/stories/components/carousel/carousel.component.ts",
                 "type": "component",
                 "linktype": "component",
-                "name": "HeaderComponent",
+                "name": "CarouselComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/5",
+                "coverageCount": "0/4",
                 "status": "low"
             },
             {
-                "filePath": "src/stories/page.component.ts",
+                "filePath": "src/stories/components/carousel/carousel.component.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "IArguments",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/design-system/color-pallete/color-pallete.component.ts",
                 "type": "component",
                 "linktype": "component",
-                "name": "PageComponent",
+                "name": "ColorPaletteComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/5",
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/design-system/measuring/color-pallete.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ColorPaletteComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
                 "status": "low"
             },
             {

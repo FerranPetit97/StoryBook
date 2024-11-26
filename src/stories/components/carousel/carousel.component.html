@@ -1,0 +1,11 @@
+<div
+  class="carousel-container"
+  [style.height]="args.height === 'full' ? '100%' : args.height + 'px'"
+  [style.width]="args.width === 'full' ? '100%' : args.width + 'px'"
+>
+  @for (i of [].constructor(numberOfItems); track $index) {
+    <div>
+      <ng-content carousel-item></ng-content>
+    </div>
+  }
+</div>

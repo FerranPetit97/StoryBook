@@ -5,6 +5,14 @@ setCompodocJson(docJson);
 
 const preview: Preview = {
   parameters: {
+    options: {
+      storySort: {
+        order: [
+          'Design System', // La sección "Design System" aparecerá primero
+          'Basics',
+        ],
+      },
+    },
     controls: {
       matchers: {
         color: /(background|color)$/i,
