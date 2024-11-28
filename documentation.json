@@ -330,7 +330,7 @@
                     }
                 }
             },
-            "templateData": "<button\r\n  type=\"button\"\r\n  (click)=\"onClick.emit($event)\"\r\n  [ngClass]=\"classes\"\r\n  [ngStyle]=\"{ 'background-color': backgroundColor }\"\r\n>\r\n  {{ label }}\r\n</button>\r\n"
+            "templateData": "<button\r\n  type=\"button\"\r\n  (click)=\"onClick.emit($event)\"\r\n  [ngClass]=\"classes\"\r\n>\r\n  {{ label }}\r\n</button>\r\n"
         },
         {
             "name": "TypographyComponent",
