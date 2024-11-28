@@ -1,0 +1,95 @@
+<h1 class="typography-title">Tipografía del Sistema de Diseño</h1>
+<p class="typography-description">
+  Aquí se muestran las tres diferente tipografías que se utilizan según la
+  utilidad de cada una.
+</p>
+
+<table class="typography-table first-table">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Vista previa</th>
+      <th>Tipo</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (font of fonts; track $index) {
+      <tr class="typography-row">
+        <td>{{ font.name }}</td>
+        <td [ngStyle]="{ 'font-family': font.name }">{{ font.preview }}</td>
+        <td>
+          <div
+            [ngStyle]="{ 'background-color': getBackgroundColor(font.type) }"
+            class="type-square"
+          ></div>
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>
+
+<p class="typography-description">
+  A continuación, se muestran las categorías tipográficas definidas para los
+  diferentes elementos de HTML, incluyendo tamaños, pesos, alturas de línea y
+  colores.
+</p>
+
+@for (category of categories; track $index) {
+  <div class="typography-category">
+    <h2>{{ category.category }}</h2>
+    <table class="typography-table">
+      <thead>
+        <tr>
+          <th>Vista previa</th>
+          <th>Etiqueta</th>
+          <th>Tamaño</th>
+          <th>Peso</th>
+          <th>Altura de línea</th>
+          <th>Color</th>
+          <th>Tipo</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (style of category.styles; track $index) {
+          <tr class="typography-row">
+            <td [ngStyle]="{ 'font-family': getFontFamily(style.fontFamily) }">
+              <div
+                [ngStyle]="{
+                  'font-size': style.fontSize,
+                  'font-weight': style.fontWeight,
+                  'line-height': style.lineHeight,
+                  'background-color': style.backgroundColor
+                    ? style.backgroundColor
+                    : null,
+                  'border-radius': style.backgroundColor ? '8px' : null,
+                  width: style.backgroundColor ? '60px' : null,
+                  'text-align': style.backgroundColor ? 'center' : null,
+                  padding: style.backgroundColor ? '8px' : null,
+                  color: style.color,
+                }"
+              >
+                {{ style.name }}
+              </div>
+            </td>
+            <td>{{ style.element }}</td>
+            <td>{{ style.fontSize }}</td>
+            <td>{{ style.fontWeight }}</td>
+            <td>{{ style.lineHeight }}</td>
+            <td>
+              <span class="color-box" [style.background]="style.color"></span>
+              {{ style.color }}
+            </td>
+            <td>
+              <div
+                [ngStyle]="{
+                  'background-color': getBackgroundColor(style.fontFamily),
+                }"
+                class="type-square"
+              ></div>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+}

@@ -42,3 +42,6 @@ testem.log
 Thumbs.db
 
 *storybook.log
+
+/src/assets/fonts/Inter/static
+/src/assets/fonts/Playfair_Display/static

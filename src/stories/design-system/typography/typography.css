@@ -1,0 +1,75 @@
+
+.typography-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 16px 0 16px 0;
+}
+
+.typography-description {
+  font-size: 16px;
+  margin: 24px 0 24px 0;
+}
+
+.typography-table {
+  width: 70%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+  &.first-table {
+    width: 50%;
+  }
+}
+
+.typography-table th,
+.typography-table td {
+  padding: 12px 15px;
+  text-align: left;
+  color: #333;
+}
+
+.typography-table td {
+  height: 50px;
+}
+
+.typography-table th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.typography-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.typography-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.typography-row {
+  position: relative;
+  align-items: center;
+}
+
+.type-square {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+}
+
+.download-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid #3E8989;
+  background-image: url('../../../assets/icons/download.svg');
+  background-repeat: no-repeat;
+  background-size: 16px 16px;
+  background-position: center;
+
+  &:hover {
+    background-color: #dadada;
+  }
+}

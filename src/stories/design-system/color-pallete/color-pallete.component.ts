@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'storybook-color-palette',
+  selector: 'rlv-color-palette',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './color-pallete.component.html',
