@@ -15,6 +15,10 @@
   color: #333;
 }
 
+.color-table td {
+  width: 300px;
+}
+
 .color-table th {
   background-color: #f5f5f5;
   font-weight: bold;
@@ -45,6 +49,10 @@
 .color-table td {
   font-family: "Courier New", Courier, monospace;
   color: #777;
+}
+
+.color-table:last-child {
+  margin-bottom: 100px;
 }
 
 .badger-alert{

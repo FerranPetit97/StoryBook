@@ -196,7 +196,7 @@ const categories = [
         fontSize: '14px',
         fontWeight: '400',
         lineHeight: '1.4',
-        color: '#d63384',
+        color: '#ffffff',
         backgroundColor: '#3E8989',
         fontFamily: 3,
       },

@@ -1,0 +1,15 @@
+<button
+  [disabled]="disabled"
+  type="button"
+  (click)="onClick.emit($event)"
+  [ngClass]="classes"
+>
+  @if (loading) {
+  <div class="loader"></div>
+  } @else {
+    @if(icon.src){
+    <img [src]="icon.src" [alt]="icon.alt" class="icon-button" />
+    }
+    {{ label }}
+  }
+</button>
