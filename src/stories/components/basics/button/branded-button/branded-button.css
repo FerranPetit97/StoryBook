@@ -1,0 +1,34 @@
+.rlv-branded-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 0;
+  border-radius: 50px;
+  cursor: pointer;
+  line-height: 1;
+  height: 40px;
+  padding: 0 20px;
+  &:hover {
+    background-color: #316d6d;
+  }
+}
+
+.loader {
+  justify-self: center;
+  width: 1em;
+  height: 1em;
+  border: 0.15em solid #616161;
+  border-top: 0.15em solid #61616166;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
