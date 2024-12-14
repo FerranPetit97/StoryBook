@@ -9,8 +9,8 @@
     "test": "ng test",
     "serve:ssr:StoryBook": "node dist/story-book/server/server.mjs",
     "storybook": "ng run StoryBook:storybook",
-    "build-storybook": "ng run StoryBook:build-storybook",
-    "build-lib": "ng build relative",
+    "build:storybook": "ng run StoryBook:build-storybook",
+    "build:lib": "ng build relative",
     "vercel-build": "npm ci && npm run build:storybook"
   },
   "private": true,
