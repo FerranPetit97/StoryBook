@@ -7,8 +7,12 @@
     "declaration": true,
     "declarationMap": true,
     "inlineSources": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strict": true,
     "types": []
   },
+  "include": ["src/**/*.ts"],
   "exclude": [
     "**/*.spec.ts"
   ]
