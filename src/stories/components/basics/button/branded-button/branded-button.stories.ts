@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/angular';
-import { BrandedButtonComponent } from '@ferranpetit/relative';
+// import { BrandedButtonComponent } from '../../../../../../projects/relative/src/public-api';
+import { BrandedButtonComponent } from '@relative/public-api';
 
 const meta: Meta<BrandedButtonComponent> = {
   title: 'Basics/Branded Button',

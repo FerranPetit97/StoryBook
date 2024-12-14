@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/angular';
-import { CTAButtonComponent } from '@ferranpetit/relative';
+import { CTAButtonComponent } from '@relative/public-api';
 
 const meta: Meta<CTAButtonComponent> = {
   title: 'Basics/CTA Button',

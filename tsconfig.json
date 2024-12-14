@@ -15,15 +15,14 @@
     "declaration": false,
     "experimentalDecorators": true,
     "moduleResolution": "bundler",
-    "paths": {
-      "relative": [
-        "./dist/relative"
-      ]
-    },
     "importHelpers": true,
     "strictPropertyInitialization": false,
     "target": "ES2022",
     "module": "ES2022",
+    "baseUrl": "./",
+    "paths": {
+      "@relative/*": ["projects/relative/src/*"]
+    },
     "lib": ["ES2022", "dom"]
   },
   "angularCompilerOptions": {
