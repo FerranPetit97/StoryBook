@@ -9,7 +9,6 @@
     "inlineSources": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "strict": true,
     "types": []
   },
   "include": ["src/**/*.ts"],
