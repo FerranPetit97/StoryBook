@@ -7,6 +7,7 @@ import {
   AfterViewInit,
   ElementRef,
   ViewChild,
+  OnInit,
 } from '@angular/core';
 
 @Component({
@@ -17,13 +18,15 @@ import {
   styleUrls: ['./branded-button.css'],
 })
 export class BrandedButtonComponent implements AfterViewInit {
-  @ViewChild('button', { static: true }) button!: ElementRef<HTMLButtonElement>;
-
-  buttonWidth: number | null = null;
+  @ViewChild('buttonText') buttonRef!: ElementRef<HTMLDivElement>;
+  buttonMinWidth: string = '';
 
   ngAfterViewInit() {
-    const button = this.button.nativeElement;
-    this.buttonWidth = button.offsetWidth;
+    setTimeout(() => {
+      if (this.buttonRef) {
+        this.buttonMinWidth = `${this.buttonRef.nativeElement.offsetWidth + 40}px`;
+      }
+    });
   }
 
   @Input()

@@ -5,7 +5,6 @@ const config: StorybookConfig = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
   staticDirs: [{ from: '../public/assets', to: '/assets' }],
   addons: [
-    "@storybook/addon-onboarding",
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@chromatic-com/storybook",
@@ -19,8 +18,7 @@ const config: StorybookConfig = {
     if (config.resolve) {
       config.resolve.alias = {
         ...config.resolve.alias,
-        // Alias para apuntar a la librería dentro del monorepo
-        '@relative': path.resolve(__dirname, '../projects/relative/src'),
+        '@relative': path.resolve(__dirname, '../projects/relative/src/*'),
       };
     }
 

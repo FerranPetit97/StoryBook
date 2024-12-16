@@ -9,9 +9,6 @@
   line-height: 1;
   height: 40px;
   padding: 0 20px;
-  &:hover {
-    background-color: #316d6d;
-  }
 }
 
 .loader {

@@ -1,5 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  ViewChild,
+  ElementRef,
+} from '@angular/core';
 
 @Component({
   selector: 'rlv-cta-button',
@@ -9,6 +16,19 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./cta-button.css'],
 })
 export class CTAButtonComponent {
+  @ViewChild('buttonText') buttonRef!: ElementRef<HTMLDivElement>;
+  buttonMinWidth: string = '';
+
+  ngAfterViewInit() {
+    setTimeout(() => {
+      if (this.buttonRef) {
+        this.buttonMinWidth = `${
+          this.buttonRef.nativeElement.offsetWidth + this.extraPaddingWidth
+        }px`;
+      }
+    });
+  }
+
   @Input()
   type = 'primary';
 
@@ -50,5 +70,20 @@ export class CTAButtonComponent {
       width,
       disabled,
     ];
+  }
+
+  get extraPaddingWidth(): number {
+    let width = 40;
+
+    switch (this.size) {
+      case 'small':
+      case 'medium':
+      default:
+        width = 40;
+        break;
+      case 'large':
+        width = 48;
+    }
+    return width;
   }
 }

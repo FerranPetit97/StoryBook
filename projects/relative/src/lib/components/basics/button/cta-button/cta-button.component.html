@@ -3,13 +3,16 @@
   type="button"
   (click)="onClick.emit($event)"
   [ngClass]="classes"
+  [ngStyle]="{ 'min-width': buttonMinWidth }"
 >
   @if (loading) {
   <div class="loader"></div>
   } @else {
+  <div #buttonText>
     @if(icon.src){
     <img [src]="icon.src" [alt]="icon.alt" class="icon-button" />
     }
     {{ label }}
+  </div>
   }
 </button>

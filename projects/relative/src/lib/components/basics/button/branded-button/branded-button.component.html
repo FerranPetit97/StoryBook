@@ -1,18 +1,18 @@
 <button
-  type="button"
   class="rlv-branded-button"
   (click)="onClick.emit($event)"
   [ngStyle]="{
     'background-color': isHovered ? backgroundHover : backgroundColor,
     color: color,
-    'min-width': buttonWidth + 'px'
+    'min-width': buttonMinWidth
   }"
   (mouseenter)="isHovered = true"
   (mouseleave)="isHovered = false"
 >
   @if (loading) {
-  <div class="loader"></div>
+  <div  class="loader"></div>
   } @else {
-  {{ label }}
+  <div #buttonText>{{ label }}</div>
+
   }
 </button>

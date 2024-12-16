@@ -6,7 +6,7 @@ setCompodocJson(docJson);
 const preview: Preview = {
   parameters: {
     backgrounds: {
-      default: 'light', // Fondo por defecto
+      default: 'light',
       values: [
         { name: 'light', value: '#ffffff' },
         { name: 'dark', value: '#333333' },
@@ -16,7 +16,7 @@ const preview: Preview = {
     options: {
       storySort: {
         order: [
-          'Design System', // La sección "Design System" aparecerá primero
+          'Design System',
           'Basics',
         ],
       },

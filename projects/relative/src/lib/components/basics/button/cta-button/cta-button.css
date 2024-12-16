@@ -2,11 +2,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
   border: 0;
   border-radius: 50px;
   cursor: pointer;
   line-height: 1;
+
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
 }
 .rlv-cta-button--primary {
   color: white;
