@@ -2,9 +2,17 @@ import type { Meta, StoryObj } from '@storybook/angular';
 import { CTAButtonComponent } from '@relative/public-api';
 
 const meta: Meta<CTAButtonComponent> = {
-  title: 'Basics/CTA Button',
+  title: 'Buttons/CTA Button',
   component: CTAButtonComponent,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'El botón CTA (Call to Action) es el componente principal para destacar acciones clave dentro de la interfaz. Incluye estados interactivos (`hover`, `active`, `disabled`) y configuraciones como `size` y `loading`, tiene la opción de añadir un icono.',
+      },
+    },
+  },
   argTypes: {
     backgroundColor: { table: { disable: true } },
     type: {

@@ -14,6 +14,10 @@
   font-style: normal;
 }
 
+/* TODO: hacer un apartado para los colores principales para que sea mas dinamico.
+/* TODO: cuando tenga esto dinamico, se podría hacer la seleccion de los colores al instalar el package?
+
+/* General Typography */
 body,
 p,
 strong,
@@ -27,25 +31,84 @@ input,
 textarea,
 button {
   font-family: "Inter", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
+/* Encabezados */
+h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 36px;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 1.3;
+}
+
+h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+h4 {
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+h5 {
+  font-family: "Playfair Display", serif;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+h6 {
+  font-family: "Playfair Display", serif;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+/* Bloques de citas */
 blockquote {
   font-family: "Playfair Display", serif;
+  font-size: 18px;
+  font-style: italic;
+  line-height: 1.6;
+  padding-left: 20px;
+  border-left: 4px solid #ccc;
 }
 
-code,
+/* Código */
+code {
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  background-color: #f4f4f4;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
 pre {
   font-family: "Courier New", monospace;
+  font-size: 14px;
+  background-color: #f4f4f4;
+  padding: 12px;
+  border-radius: 4px;
+  overflow-x: auto;
 }
 
-button {
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 1.5px;
+/* Etiquetas pequeñas */
+small {
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  line-height: 1.4;
 }

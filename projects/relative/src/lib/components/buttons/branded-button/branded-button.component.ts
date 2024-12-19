@@ -6,8 +6,7 @@ import {
   EventEmitter,
   AfterViewInit,
   ElementRef,
-  ViewChild,
-  OnInit,
+  ViewChild
 } from '@angular/core';
 
 @Component({
@@ -24,7 +23,7 @@ export class BrandedButtonComponent implements AfterViewInit {
   ngAfterViewInit() {
     setTimeout(() => {
       if (this.buttonRef) {
-        this.buttonMinWidth = `${this.buttonRef.nativeElement.offsetWidth + 40}px`;
+        this.buttonMinWidth = `${this.buttonRef.nativeElement.offsetWidth + this.extraPaddingWidth}px`;
       }
     });
   }
@@ -42,16 +41,35 @@ export class BrandedButtonComponent implements AfterViewInit {
   color: string = 'white';
 
   @Input()
-  size: 'medium' = 'medium';
+  size: 'small' | 'medium' | 'large' = 'medium';
 
   @Input()
   label = 'Button';
-
-  @Input()
-  loading = false;
 
   @Output()
   onClick = new EventEmitter<Event>();
 
   isHovered = false;
+
+  get classes(): string[] {
+    return [
+      'rlv-branded-button',
+      `rlv-branded-button--${this.size}`,
+    ];
+  }
+
+  get extraPaddingWidth(): number {
+    let width = 40;
+
+    switch (this.size) {
+      case 'small':
+      case 'medium':
+      default:
+        width = 40;
+        break;
+      case 'large':
+        width = 48;
+    }
+    return width;
+  }
 }

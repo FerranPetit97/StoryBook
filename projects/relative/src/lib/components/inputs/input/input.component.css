@@ -1,0 +1,134 @@
+.input-text-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 400px;
+  min-width: 400px;
+  height: 50px;
+  padding: 0 0 0 8px;
+  margin-top: 20px;
+  border: 2px solid transparent;
+  border-bottom: 2px solid #3e8989;
+  border-radius: 8px 8px 0 0;
+  background-color: rgba(180, 180, 180, 0.2);
+
+  &.onFocus {
+    background-color: rgba(180, 180, 180, 0.25);
+    border-bottom: 3px solid #3e8989;
+  }
+
+  &.error {
+    border-bottom: 3px solid #e53935;
+  }
+
+  .input-text {
+    width: 100%;
+    height: 100%;
+    outline: none;
+    background-color: transparent;
+    border: 2px solid transparent;
+    z-index: 10;
+  }
+
+  .input-label {
+    position: absolute;
+
+    &.onFocus {
+      animation: goUp 0.2s linear forwards;
+    }
+
+    &.offFocus {
+      animation: goDown 0.2s linear forwards;
+    }
+  }
+
+  .eye-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+
+  .email-select {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    position: relative;
+    cursor: pointer;
+    height: 100%;
+    width: 180px;
+    padding: 0 2px 0 0;
+
+    .selected {
+      display: flex;
+      align-items: center;
+    }
+
+    .inner-select {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      top: 50px;
+      width: 102%;
+      background-color: rgba(180, 180, 180, 0.2);
+      border-radius: 0 0 8px 8px;
+
+      span {
+        padding: 4px 0 4px 8px;
+
+        &:hover {
+          background-color: rgba(180, 180, 180, 0.25);
+          border-radius: 8px;
+        }
+      }
+    }
+
+    .selected {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .icon {
+    width: 32px;
+    height: auto;
+
+    &.arrow {
+      transform: rotate(90deg) scale(0.4);
+    }
+  }
+}
+
+.alert {
+  font-size: 12px;
+  margin-left: 10px;
+
+  &.error {
+    color: #e53935;
+  }
+}
+
+@keyframes goUp {
+  0% {
+    transform: translate(0);
+    font-size: 16px;
+  }
+  100% {
+    transform: translate(-8px, -40px);
+    font-size: 14px;
+  }
+}
+
+@keyframes goDown {
+  0% {
+    transform: translate(-8px, -40px);
+    font-size: 14px;
+  }
+  100% {
+    transform: translate(0);
+    font-size: 16px;
+  }
+}

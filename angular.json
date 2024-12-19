@@ -119,7 +119,10 @@
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/relative/ng-package.json"
+            "project": "projects/relative/ng-package.json",
+            "assets": [
+              "src/lib/assets"
+            ]
           },
           "configurations": {
             "production": {
@@ -135,10 +138,7 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "tsConfig": "projects/relative/tsconfig.spec.json",
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ]
+            "polyfills": ["zone.js", "zone.js/testing"]
           }
         }
       }

@@ -1,6 +1,6 @@
 <button
-  class="rlv-branded-button"
   (click)="onClick.emit($event)"
+  [ngClass]="classes"
   [ngStyle]="{
     'background-color': isHovered ? backgroundHover : backgroundColor,
     color: color,
@@ -9,10 +9,5 @@
   (mouseenter)="isHovered = true"
   (mouseleave)="isHovered = false"
 >
-  @if (loading) {
-  <div  class="loader"></div>
-  } @else {
   <div #buttonText>{{ label }}</div>
-
-  }
 </button>

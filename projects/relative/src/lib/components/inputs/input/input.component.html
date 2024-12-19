@@ -1,0 +1,56 @@
+<div
+  class="input-text-container"
+  [ngClass]="{
+    onFocus: isFocused || !!value,
+    offFocus: !(isFocused || !!value),
+    error: required
+  }"
+>
+  @if(placeholder) {
+  <label
+    [ngClass]="isFocused || !!value ? 'onFocus' : 'offFocus'"
+    class="input-label"
+    >{{ placeholder }}{{ required ? "*" : "" }}</label
+  >
+  }
+  <input
+    class="input-text"
+    [type]="type"
+    [value]="value"
+    [disabled]="disabled"
+    (input)="onInputChange($event)"
+    (focus)="getFocus()"
+    (blur)="getFocus()"
+  />
+
+  @if(originalType === 'password') { @if(type === 'password') {
+  <div (click)="viewPassword()" class="eye-icon">
+    <img class="icon" src="./assets/icons/close.svg" />
+  </div>
+  } @else {
+  <div (click)="viewPassword()" class="eye-icon">
+    <img class="icon" src="./assets/icons/view.svg" />
+  </div>
+  } } @if(type === 'email') {
+  <div
+    (click)="openCloseSelect()"
+    (blur)="openCloseSelect()"
+    class="email-select"
+  >
+    <span class="selected">{{ sufixSelected }}</span>
+    @if(isSelectOpen) {
+    <div class="inner-select">
+      <span (click)="selectInput('&#64;gmail.com')">&#64;gmail.com</span>
+      <span (click)="selectInput('&#64;hotmail.com')">&#64;hotmail.com</span>
+      <span (click)="selectInput('&#64;outlook.com')">&#64;outlook.com</span>
+      <span (click)="selectInput('Otros')">Otros</span>
+    </div>
+
+    }
+    <img class="icon arrow" src="./assets/icons/arrow.svg" />
+  </div>
+  }
+</div>
+@if(required) {
+<span class="alert error">Valor requerido</span>
+}
