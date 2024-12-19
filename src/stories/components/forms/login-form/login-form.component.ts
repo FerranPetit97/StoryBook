@@ -25,12 +25,9 @@ export class LoginFormComponent {
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
     });
-    this.myForm.markAllAsTouched();
-
   }
 
   onSubmit(): void {
-    this.myForm.markAllAsTouched();
     if (this.myForm.valid) {
       console.log(this.myForm.value);
     } else {
