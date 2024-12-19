@@ -38,6 +38,7 @@ const meta: Meta<InputComponent> = {
       control: 'boolean',
       description: 'Deshabilita el input',
     },
+    valueChange: { action: 'valueChange', description: 'Valor final del input.' },
   },
 };
 
@@ -46,19 +47,21 @@ type Story = StoryObj<InputComponent>;
 
 export const Text: Story = {
   args: {
-    placeholder: 'Name',
+    placeholder: 'Nombre',
     type: 'text',
     required: false,
     disabled: false,
+    isTouched: false,
   },
 };
 
-export const Mail: Story = {
+export const EMail: Story = {
   args: {
     placeholder: 'Correo Electrónico',
     type: 'email',
     required: false,
     disabled: false,
+    isTouched: false,
   },
 };
 
@@ -68,6 +71,7 @@ export const Password: Story = {
     type: 'password',
     required: false,
     disabled: false,
+    isTouched: false,
   },
 };
 
@@ -77,5 +81,16 @@ export const Required: Story = {
     type: 'text',
     required: true,
     disabled: false,
+    isTouched: false,
+  },
+};
+
+export const Error: Story = {
+  args: {
+    placeholder: 'Name',
+    type: 'text',
+    required: false,
+    disabled: false,
+    isTouched: true,
   },
 };

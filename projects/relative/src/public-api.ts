@@ -10,4 +10,3 @@ export * from './lib/components/buttons/cta-button/cta-button.component';
 /* Inputs */
 
 export * from './lib/components/inputs/input/input.component';
-

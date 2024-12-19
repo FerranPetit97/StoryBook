@@ -212,6 +212,149 @@
             "templateData": "<h1>Paleta de Colores</h1>\r\n<p>\r\n  A continuación, se muestran los colores utilizados en el sistema de diseño:\r\n</p>\r\n<h2>Colores Base</h2>\r\n<table class=\"color-table\">\r\n  <thead>\r\n    <tr>\r\n      <th>Nombre</th>\r\n      <th>Color</th>\r\n      <th>Hex</th>\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n    @for (color of baseColors; track $index) {\r\n      <tr class=\"color-row\" (click)=\"copyHex(color.hex, $index)\">\r\n        <td>{{ color.name }}</td>\r\n        <td><div [style.background]=\"color.hex\" class=\"color-box\"></div></td>\r\n        <td>{{ color.hex }}</td>\r\n        <div [ngClass]=\"{ show: activeRow === $index && activeColor === color.hex }\" class=\"badger-alert\">Copied!</div>\r\n      </tr>\r\n    }\r\n  </tbody>\r\n</table>\r\n\r\n<h2>Colores Hover</h2>\r\n<table class=\"color-table\">\r\n  <thead>\r\n    <tr>\r\n      <th>Nombre</th>\r\n      <th>Color</th>\r\n      <th>Hex</th>\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n    @for (color of hoverColors; track $index) {\r\n      <tr class=\"color-row\" (click)=\"copyHex(color.hex, $index)\">\r\n        <td>{{ color.name }}</td>\r\n        <td><div [style.background]=\"color.hex\" class=\"color-box\"></div></td>\r\n        <td>{{ color.hex }}</td>\r\n        <div [ngClass]=\"{ show: activeRow === $index && activeColor === color.hex}\" class=\"badger-alert\">Copied!</div>\r\n      </tr>\r\n    }\r\n  </tbody>\r\n</table>\r\n"
         },
         {
+            "name": "LoginFormComponent",
+            "id": "component-LoginFormComponent-9767a2dd0c798aab60b108e35b589cc664c193f1d3316add1afc01167be372d1c5c1ed9d9fdedc96dc54484ed1e079d1ba922abdd0252d6803fc4671fead4ba9",
+            "file": "src/stories/components/forms/login-form/login-form.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "rlv-login-form",
+            "styleUrls": [
+                "./login-form.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./login-form.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "myForm",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "FormGroup",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 18
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 22,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "onSubmit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 30,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "valueChange",
+                    "args": [
+                        {
+                            "name": "value",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 38,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "value",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "InputComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "CTAButtonComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "ReactiveFormsModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\r\nimport {\r\n  FormBuilder,\r\n  FormGroup,\r\n  ReactiveFormsModule,\r\n  Validators,\r\n} from '@angular/forms';\r\nimport { CTAButtonComponent, InputComponent } from '@relative/public-api';\r\n\r\n@Component({\r\n  selector: 'rlv-login-form',\r\n  standalone: true,\r\n  imports: [InputComponent, CTAButtonComponent, ReactiveFormsModule],\r\n  templateUrl: './login-form.component.html',\r\n  styleUrls: ['./login-form.component.css'],\r\n})\r\nexport class LoginFormComponent {\r\n  myForm: FormGroup;\r\n\r\n  constructor(private fb: FormBuilder) {}\r\n\r\n  ngOnInit(): void {\r\n    this.myForm = this.fb.group({\r\n      name: ['', Validators.required],\r\n      email: ['', [Validators.required, Validators.email]],\r\n      password: ['', Validators.required],\r\n    });\r\n  }\r\n\r\n  onSubmit(): void {\r\n    if (this.myForm.valid) {\r\n      console.log(this.myForm.value);\r\n    } else {\r\n      console.log('Formulario no válido');\r\n    }\r\n  }\r\n\r\n  valueChange(value: any): void {\r\n    console.log(value);\r\n  }\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./login-form.component.css"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "fb",
+                        "type": "FormBuilder",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 18,
+                "jsdoctags": [
+                    {
+                        "name": "fb",
+                        "type": "FormBuilder",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "extends": [],
+            "templateData": "<form [formGroup]=\"myForm\" (ngSubmit)=\"onSubmit()\">\r\n  <rlv-input\r\n    formControlName=\"name\"\r\n    [placeholder]=\"'Nombre'\"\r\n    [type]=\"'text'\"\r\n    [disabled]=\"false\"\r\n    (valueChange)=\"valueChange($event)\"\r\n    required\r\n  ></rlv-input>\r\n  <rlv-input\r\n    formControlName=\"email\"\r\n    [placeholder]=\"'Correo Electrónico'\"\r\n    [type]=\"'email'\"\r\n    [disabled]=\"false\"\r\n    (valueChange)=\"valueChange($event)\"\r\n    required\r\n  ></rlv-input>\r\n  <rlv-input\r\n    formControlName=\"password\"\r\n    [placeholder]=\"'Contraseña'\"\r\n    [type]=\"'password'\"\r\n    [disabled]=\"false\"\r\n    (valueChange)=\"valueChange($event)\"\r\n    required\r\n  ></rlv-input>\r\n\r\n  <rlv-cta-button\r\n    type=\"submit\"\r\n    [type]=\"'primary'\"\r\n    [size]=\"'medium'\"\r\n    [label]=\"'Enviar'\"\r\n    [loading]=\"false\"\r\n    [fullWidth]=\"false\"\r\n    [disabled]=\"false\"\r\n  ></rlv-cta-button>\r\n</form>\r\n"
+        },
+        {
             "name": "TypographyComponent",
             "id": "component-TypographyComponent-213f9e3b89a63b9290d3230e704a0ff01b91404aa05d9308d5c39ebf2f174d1f32f33e4387e884e6abd813dfd8a1b87d40419a178f1eced9ff44f2cf040df14f",
             "file": "src/stories/design-system/typography/typography.component.ts",
@@ -385,6 +528,15 @@
                 "name": "bootstrap",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/forms/login-form/login-form.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "LoginFormComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
                 "status": "low"
             },
             {

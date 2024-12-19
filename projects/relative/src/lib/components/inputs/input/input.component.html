@@ -3,7 +3,7 @@
   [ngClass]="{
     onFocus: isFocused || !!value,
     offFocus: !(isFocused || !!value),
-    error: required
+    error: required && isTouched && !value.trim()
   }"
 >
   @if(placeholder) {
@@ -19,8 +19,9 @@
     [value]="value"
     [disabled]="disabled"
     (input)="onInputChange($event)"
-    (focus)="getFocus()"
-    (blur)="getFocus()"
+    (focus)="setFocus()"
+    (blur)="setFocus(); markAsTouched(); onBlur()"
+    [required]="required"
   />
 
   @if(originalType === 'password') { @if(type === 'password') {
@@ -51,6 +52,6 @@
   </div>
   }
 </div>
-@if(required) {
+@if(required && isTouched && !value.trim()) {
 <span class="alert error">Valor requerido</span>
 }
