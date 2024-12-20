@@ -3,12 +3,17 @@
   [ngClass]="{
     onFocus: isFocused || !!value,
     offFocus: !(isFocused || !!value),
-    error: required && isTouched && !value.trim()
+    error: hasError && !disabled && !value,
+    disable: disabled
   }"
 >
   @if(placeholder) {
   <label
-    [ngClass]="isFocused || !!value ? 'onFocus' : 'offFocus'"
+    [ngClass]="{
+      onFocus: isFocused || !!value,
+      offFocus: !(isFocused || !!value),
+      disable: disabled
+    }"
     class="input-label"
     >{{ placeholder }}{{ required ? "*" : "" }}</label
   >
@@ -20,31 +25,40 @@
     [disabled]="disabled"
     (input)="onInputChange($event)"
     (focus)="setFocus()"
-    (blur)="setFocus(); markAsTouched(); onBlur()"
+    (blur)="setFocus()"
     [required]="required"
   />
 
   @if(originalType === 'password') { @if(type === 'password') {
-  <div (click)="viewPassword()" class="eye-icon">
+  <div
+    (click)="viewPassword()"
+    class="eye-icon"
+    [ngStyle]="{ cursor: disabled ? 'not-allowed' : 'pointer' }"
+  >
     <img class="icon" src="./assets/icons/close.svg" />
   </div>
   } @else {
-  <div (click)="viewPassword()" class="eye-icon">
+  <div
+    (click)="viewPassword()"
+    class="eye-icon"
+    [ngStyle]="{ cursor: disabled ? 'not-allowed' : 'pointer' }"
+  >
     <img class="icon" src="./assets/icons/view.svg" />
   </div>
-  } } @if(type === 'email') {
+  } } @if(type === 'email' && selectedText !== 'other') {
   <div
     (click)="openCloseSelect()"
     (blur)="openCloseSelect()"
     class="email-select"
+    [ngStyle]="{ cursor: disabled ? 'not-allowed' : 'pointer' }"
   >
-    <span class="selected">{{ sufixSelected }}</span>
+    <span class="selected">{{ selectedText }}</span>
     @if(isSelectOpen) {
     <div class="inner-select">
       <span (click)="selectInput('&#64;gmail.com')">&#64;gmail.com</span>
       <span (click)="selectInput('&#64;hotmail.com')">&#64;hotmail.com</span>
       <span (click)="selectInput('&#64;outlook.com')">&#64;outlook.com</span>
-      <span (click)="selectInput('Otros')">Otros</span>
+      <span (click)="selectInput('other')">Otros</span>
     </div>
 
     }
@@ -52,6 +66,6 @@
   </div>
   }
 </div>
-@if(required && isTouched && !value.trim()) {
-<span class="alert error">Valor requerido</span>
+@if(hasError && !disabled && !value) {
+<span class="alert error">{{ hasError }}</span>
 }

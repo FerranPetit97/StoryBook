@@ -1,37 +1,48 @@
-<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
-  <rlv-input
-    formControlName="name"
-    [placeholder]="'Nombre'"
-    [type]="'text'"
-    [disabled]="false"
-    (valueChange)="valueChange($event)"
-    [required]="true"
-  ></rlv-input>
-  <rlv-input
-    formControlName="email"
-    [placeholder]="'Correo Electrónico'"
-    [type]="'email'"
-    [disabled]="false"
-    (valueChange)="valueChange($event)"
-    [required]="true"
-  ></rlv-input>
-  <rlv-input
-    formControlName="password"
-    [placeholder]="'Contraseña'"
-    [type]="'password'"
-    [disabled]="false"
-    (valueChange)="valueChange($event)"
-    [required]="true"
-  ></rlv-input>
-
-  <rlv-cta-button
-    class="submit-button"
-    type="submit"
-    [type]="'primary'"
-    [size]="'medium'"
-    [label]="'Enviar'"
-    [loading]="false"
-    [fullWidth]="false"
-    [disabled]="myForm.invalid"
-  ></rlv-cta-button>
-</form>
+<div class="form-container">
+  <form [formGroup]="form">
+    <rlv-input
+      formControlName="name"
+      [placeholder]="'Nombre'"
+      [value]="getFormControl('name').value"
+      [type]="'text'"
+      [required]="true"
+      [hasError]="getError('name')"
+    ></rlv-input>
+    <rlv-input
+      formControlName="email"
+      [placeholder]="'Correo Electrónico'"
+      [value]="getFormControl('email').value"
+      [type]="'email'"
+      [required]="true"
+      [hasError]="getError('email')"
+      (sufixSelected)="getSuffixEmail($event)"
+    ></rlv-input>
+    <rlv-input
+      formControlName="password"
+      [placeholder]="'Contraseña'"
+      [value]="getFormControl('password').value"
+      [type]="'password'"
+      [hasError]="getError('password')"
+      [required]="true"
+    ></rlv-input>
+    <div class="button-container">
+      <rlv-cta-button
+        class="reset-button"
+        type="button"
+        [type]="'raw'"
+        [size]="'medium'"
+        [label]="'Reset'"
+        (click)="resetForm()"
+      ></rlv-cta-button>
+      <rlv-cta-button
+        class="submit-button"
+        type="submit"
+        [type]="'primary'"
+        [size]="'medium'"
+        [label]="'Enviar'"
+        [loading]="loading"
+        (click)="onSubmit()"
+      ></rlv-cta-button>
+    </div>
+  </form>
+</div>

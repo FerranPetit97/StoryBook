@@ -38,7 +38,10 @@ const meta: Meta<InputComponent> = {
       control: 'boolean',
       description: 'Deshabilita el input',
     },
-    valueChange: { action: 'valueChange', description: 'Valor final del input.' },
+    valueChange: {
+      action: 'valueChange',
+      description: 'Valor final del input.',
+    },
   },
 };
 
@@ -51,7 +54,6 @@ export const Text: Story = {
     type: 'text',
     required: false,
     disabled: false,
-    isTouched: false,
   },
 };
 
@@ -61,7 +63,6 @@ export const EMail: Story = {
     type: 'email',
     required: false,
     disabled: false,
-    isTouched: false,
   },
 };
 
@@ -71,7 +72,6 @@ export const Password: Story = {
     type: 'password',
     required: false,
     disabled: false,
-    isTouched: false,
   },
 };
 
@@ -81,7 +81,6 @@ export const Required: Story = {
     type: 'text',
     required: true,
     disabled: false,
-    isTouched: false,
   },
 };
 
@@ -89,8 +88,8 @@ export const Error: Story = {
   args: {
     placeholder: 'Name',
     type: 'text',
-    required: false,
+    required: true,
     disabled: false,
-    isTouched: true,
+    hasError: 'Valor inválido',
   },
 };

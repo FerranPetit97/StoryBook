@@ -19,7 +19,7 @@
     width: 100%;
     height: 2px;
     background-color: #3e8989;
-    transition: all .2s ease;
+    transition: all 0.2s ease;
   }
 
   &.onFocus::after {
@@ -34,6 +34,11 @@
   &.error::after {
     height: 4px;
     background-color: #e53935;
+  }
+
+  &.disable::after {
+    height: 4px;
+    background-color: #e0e0e0;
   }
 
   .input-text {
@@ -55,6 +60,10 @@
     &.offFocus {
       animation: goDown 0.2s linear forwards;
     }
+
+    &.disable {
+      animation: goUp 0.2s linear forwards;
+    }
   }
 
   .eye-icon {
@@ -64,7 +73,6 @@
     width: 32px;
     height: 32px;
     margin-right: 10px;
-    cursor: pointer;
   }
 
   .email-select {
@@ -72,7 +80,6 @@
     align-items: center;
     gap: 4px;
     position: relative;
-    cursor: pointer;
     height: 100%;
     width: 180px;
     padding: 0 2px 0 0;
@@ -90,6 +97,7 @@
       width: 102%;
       background-color: rgba(180, 180, 180, 0.2);
       border-radius: 0 0 8px 8px;
+      z-index: 9999;
 
       span {
         padding: 4px 0 4px 8px;
@@ -119,7 +127,7 @@
 
 .alert {
   font-size: 12px;
-  margin-left: 10px;
+  margin: 5px 0 0 8px;
 
   &.error {
     color: #e53935;

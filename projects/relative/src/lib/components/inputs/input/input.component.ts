@@ -2,19 +2,15 @@ import { CommonModule } from '@angular/common';
 import {
   Component,
   EventEmitter,
+  HostListener,
   Input,
   OnInit,
   Output,
   forwardRef,
 } from '@angular/core';
-import {
-  AbstractControl,
-  ControlValueAccessor,
-  NG_VALIDATORS,
-  NG_VALUE_ACCESSOR,
-  ValidationErrors,
-  Validator,
-} from '@angular/forms';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+
+type suffixes = '@gmail.com' | '@hotmail.com' | '@outlook.com' | '';
 
 @Component({
   selector: 'rlv-input',
@@ -26,96 +22,77 @@ import {
       useExisting: forwardRef(() => InputComponent),
       multi: true,
     },
-    {
-      provide: NG_VALIDATORS,
-      useExisting: forwardRef(() => InputComponent),
-      multi: true,
-    },
   ],
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.css'],
 })
-export class InputComponent implements OnInit, ControlValueAccessor, Validator {
+export class InputComponent implements OnInit, ControlValueAccessor {
   @Input() required: boolean = false;
   @Input() placeholder: string = '';
   @Input() value: string = '';
   @Input() type: 'text' | 'password' | 'email';
   @Input() disabled: boolean = false;
+  @Input() hasError: string;
+  @Output() sufixSelected: EventEmitter<suffixes> =
+    new EventEmitter<suffixes>();
   @Output() valueChange: EventEmitter<string> = new EventEmitter<string>();
 
-  isTouched: boolean = false;
-  isFocused: boolean = false;
-  onChange: any = () => {};
-  onTouched: any = () => {};
+  selectedText: '@gmail.com' | '@hotmail.com' | '@outlook.com' | 'other';
+
+  isFocused = false;
+  onTouched: OnTouchFn = () => {};
+  onChange: OnChangeFn<string> = () => {};
 
   originalType: string;
-  sufixSelected: '@gmail.com' | '@hotmail.com' | '@outlook.com' | 'other' =
-    '@gmail.com';
   isSelectOpen: boolean = false;
 
-  ngOnInit(): void {
-    this.setOriginalType();
-    this.writeValue(this.value);
+  writeValue(value: string | null): void {
+    this.value = value || ''; // Si es null, se establece como una cadena vacía
   }
-
-  // Angular Forms Functions
-
-  writeValue(value: string): void {
-    this.value = value;
-    this.originalType = this.type;
-  }
-
-  registerOnChange(fn: any): void {
+  registerOnChange(fn: OnChangeFn<string>): void {
     this.onChange = fn;
   }
-
   registerOnTouched(fn: any): void {
     this.onTouched = fn;
   }
-
-  markAsTouched() {
-    this.isTouched = true;
-    this.onTouched();
+  setDisabledState?(isDisabled: boolean): void {
+    this.disabled = isDisabled;
   }
 
-  onBlur() {
-    this.isTouched = true;
-    this.onTouched();
+  ngOnInit(): void {
+    this.setOriginalType();
+    this.selectInput('@gmail.com');
   }
-
-  validate(control: AbstractControl): ValidationErrors | null {
-    if (this.required && !this.value.trim()) {
-      return { required: true };
-    }
-    return null;
-  }
-
-  // Own Functions
 
   setFocus(): void {
     this.isFocused = !this.isFocused;
+  }
+
+  openCloseSelect(): void {
+    if (this.disabled) return;
+    this.isSelectOpen = !this.isSelectOpen;
   }
 
   setOriginalType(): void {
     this.originalType = this.type;
   }
 
-  openCloseSelect(): void {
-    this.isSelectOpen = !this.isSelectOpen;
-  }
-
   viewPassword(): void {
+    if (this.disabled) return;
     this.type = this.type === 'password' ? 'text' : 'password';
   }
 
-  selectInput(selectedText: string) {
-    this.sufixSelected = selectedText as
-      | '@gmail.com'
-      | '@hotmail.com'
-      | '@outlook.com'
-      | 'other';
+  selectInput(
+    input: '@gmail.com' | '@hotmail.com' | '@outlook.com' | 'other'
+  ): void {
+    this.selectedText = input;
 
-    this.onInputChange();
+    if (this.selectedText === 'other') {
+      this.sufixSelected.emit('');
+      return;
+    }
+
+    this.sufixSelected.emit(this.selectedText);
   }
 
   onInputChange(event?: Event): void {
@@ -124,13 +101,10 @@ export class InputComponent implements OnInit, ControlValueAccessor, Validator {
       this.value = inputElement.value;
     }
 
-    if (this.type === 'email' && this.value.trim()) {
-      const finalValue = this.value + this.sufixSelected;
-      this.onChange(finalValue);
-      this.valueChange.emit(finalValue);
-    } else {
-      this.onChange(this.value);
-      this.valueChange.emit(this.value);
-    }
+    this.onChange(this.value); // Notifica al FormControl del cambio
+    this.valueChange.emit(this.value); // Emite el cambio hacia afuera
   }
 }
+
+type OnChangeFn<T> = (value: T) => void;
+type OnTouchFn = () => void;

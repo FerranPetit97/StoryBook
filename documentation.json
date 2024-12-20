@@ -213,7 +213,7 @@
         },
         {
             "name": "LoginFormComponent",
-            "id": "component-LoginFormComponent-9767a2dd0c798aab60b108e35b589cc664c193f1d3316add1afc01167be372d1c5c1ed9d9fdedc96dc54484ed1e079d1ba922abdd0252d6803fc4671fead4ba9",
+            "id": "component-LoginFormComponent-c23e974aeae6a28b1d5df1da99967b6ad84f01164e19d490a3373d72f0c7e0717c0309827f7602f1ab5ee2b425aebe26c590538d0d5a28e05b597e3bae2e27c7",
             "file": "src/stories/components/forms/login-form/login-form.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -234,24 +234,132 @@
             "outputsClass": [],
             "propertiesClass": [
                 {
-                    "name": "myForm",
+                    "name": "form",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "FormGroup",
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 18
+                    "line": 24
+                },
+                {
+                    "name": "loading",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 25
+                },
+                {
+                    "name": "sufixSelected",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "suffixes",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 27
                 }
             ],
             "methodsClass": [
+                {
+                    "name": "getFormControl",
+                    "args": [
+                        {
+                            "name": "value",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "FormControl",
+                    "typeParameters": [],
+                    "line": 58,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "value",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "getSuffixEmail",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "suffixes",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 66,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "suffixes",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "markFormGroupTouched",
+                    "args": [
+                        {
+                            "name": "form",
+                            "type": "FormGroup",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 71,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "form",
+                            "type": "FormGroup",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
                 {
                     "name": "ngOnInit",
                     "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 22,
+                    "line": 31,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -261,37 +369,19 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 30,
+                    "line": 39,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
                 {
-                    "name": "valueChange",
-                    "args": [
-                        {
-                            "name": "value",
-                            "type": "any",
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
+                    "name": "resetForm",
+                    "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 38,
+                    "line": 62,
                     "deprecated": false,
-                    "deprecationMessage": "",
-                    "jsdoctags": [
-                        {
-                            "name": "value",
-                            "type": "any",
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
+                    "deprecationMessage": ""
                 }
             ],
             "deprecated": false,
@@ -316,11 +406,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\r\nimport {\r\n  FormBuilder,\r\n  FormGroup,\r\n  ReactiveFormsModule,\r\n  Validators,\r\n} from '@angular/forms';\r\nimport { CTAButtonComponent, InputComponent } from '@relative/public-api';\r\n\r\n@Component({\r\n  selector: 'rlv-login-form',\r\n  standalone: true,\r\n  imports: [InputComponent, CTAButtonComponent, ReactiveFormsModule],\r\n  templateUrl: './login-form.component.html',\r\n  styleUrls: ['./login-form.component.css'],\r\n})\r\nexport class LoginFormComponent {\r\n  myForm: FormGroup;\r\n\r\n  constructor(private fb: FormBuilder) {}\r\n\r\n  ngOnInit(): void {\r\n    this.myForm = this.fb.group({\r\n      name: ['', Validators.required],\r\n      email: ['', [Validators.required, Validators.email]],\r\n      password: ['', Validators.required],\r\n    });\r\n  }\r\n\r\n  onSubmit(): void {\r\n    if (this.myForm.valid) {\r\n      console.log(this.myForm.value);\r\n    } else {\r\n      console.log('Formulario no válido');\r\n    }\r\n  }\r\n\r\n  valueChange(value: any): void {\r\n    console.log(value);\r\n  }\r\n}\r\n",
+            "sourceCode": "import { Component } from '@angular/core';\r\nimport {\r\n  FormBuilder,\r\n  FormControl,\r\n  FormGroup,\r\n  ReactiveFormsModule,\r\n  Validators,\r\n} from '@angular/forms';\r\nimport { CTAButtonComponent, InputComponent } from '@relative/public-api';\r\n\r\ntype suffixes = '@gmail.com' | '@hotmail.com' | '@outlook.com' | '';\r\n\r\n//TODO: tengo que documentar todo lo que hay que hacer para que los inputs esten integrados con el reactiveForms de angular\r\n//TODO: arreglar el tema del reset.\r\n\r\n@Component({\r\n  selector: 'rlv-login-form',\r\n  standalone: true,\r\n  imports: [InputComponent, CTAButtonComponent, ReactiveFormsModule],\r\n  templateUrl: './login-form.component.html',\r\n  styleUrls: ['./login-form.component.css'],\r\n})\r\nexport class LoginFormComponent {\r\n  form: FormGroup;\r\n  loading: boolean = false;\r\n\r\n  sufixSelected: suffixes;\r\n\r\n  constructor(private fb: FormBuilder) {}\r\n\r\n  ngOnInit(): void {\r\n    this.form = this.fb.group({\r\n      name: ['', Validators.required],\r\n      email: ['', [Validators.required]],\r\n      password: ['', Validators.required],\r\n    });\r\n  }\r\n\r\n  onSubmit(): void {\r\n    this.markFormGroupTouched(this.form);\r\n    this.loading = true;\r\n    setTimeout(() => {\r\n      this.loading = false;\r\n    }, 500);\r\n\r\n    console.log(this.form.value);\r\n    if (this.form.valid) {\r\n      this.getFormControl('email').setValue(\r\n        this.getFormControl('email').value + this.sufixSelected\r\n      );\r\n      console.log(this.form.value);\r\n      this.resetForm();\r\n    } else {\r\n      console.log('Formulario no válido');\r\n    }\r\n  }\r\n\r\n  getFormControl(value: string) {\r\n    return this.form.get(value) as FormControl;\r\n  }\r\n\r\n  resetForm() {\r\n    this.form.reset();\r\n  }\r\n\r\n  getSuffixEmail(event: suffixes) {\r\n    this.sufixSelected = event;\r\n  }\r\n\r\n\r\n  private markFormGroupTouched(form: FormGroup) {\r\n    Object.values(form.controls).forEach((control) => {\r\n      control.markAsTouched();\r\n\r\n      if ((control as any).controls) {\r\n        this.markFormGroupTouched(control as FormGroup);\r\n      }\r\n    });\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "",
+                    "data": ".form-container {\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  justify-content: center;\r\n  width: 100%;\r\n}\r\n\r\nform {\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  justify-content: center;\r\n  gap: 30px;\r\n  height: 800px;\r\n}\r\n\r\n.button-container {\r\n  display: flex;\r\n  justify-content: end;\r\n  gap: 10px;\r\n  width: 100%;\r\n  margin-top: 30px;\r\n}\r\n",
                     "styleUrl": "./login-form.component.css"
                 }
             ],
@@ -338,7 +428,7 @@
                         "deprecationMessage": ""
                     }
                 ],
-                "line": 18,
+                "line": 27,
                 "jsdoctags": [
                     {
                         "name": "fb",
@@ -352,7 +442,7 @@
                 ]
             },
             "extends": [],
-            "templateData": "<form [formGroup]=\"myForm\" (ngSubmit)=\"onSubmit()\">\r\n  <rlv-input\r\n    formControlName=\"name\"\r\n    [placeholder]=\"'Nombre'\"\r\n    [type]=\"'text'\"\r\n    [disabled]=\"false\"\r\n    (valueChange)=\"valueChange($event)\"\r\n    required\r\n  ></rlv-input>\r\n  <rlv-input\r\n    formControlName=\"email\"\r\n    [placeholder]=\"'Correo Electrónico'\"\r\n    [type]=\"'email'\"\r\n    [disabled]=\"false\"\r\n    (valueChange)=\"valueChange($event)\"\r\n    required\r\n  ></rlv-input>\r\n  <rlv-input\r\n    formControlName=\"password\"\r\n    [placeholder]=\"'Contraseña'\"\r\n    [type]=\"'password'\"\r\n    [disabled]=\"false\"\r\n    (valueChange)=\"valueChange($event)\"\r\n    required\r\n  ></rlv-input>\r\n\r\n  <rlv-cta-button\r\n    type=\"submit\"\r\n    [type]=\"'primary'\"\r\n    [size]=\"'medium'\"\r\n    [label]=\"'Enviar'\"\r\n    [loading]=\"false\"\r\n    [fullWidth]=\"false\"\r\n    [disabled]=\"false\"\r\n  ></rlv-cta-button>\r\n</form>\r\n"
+            "templateData": "<div class=\"form-container\">\r\n  <form [formGroup]=\"form\">\r\n    <rlv-input\r\n      formControlName=\"name\"\r\n      [placeholder]=\"'Nombre'\"\r\n      [value]=\"getFormControl('name').value\"\r\n      [type]=\"'text'\"\r\n      [required]=\"true\"\r\n      [control]=\"getFormControl('name')\"\r\n    ></rlv-input>\r\n    <rlv-input\r\n      formControlName=\"email\"\r\n      [placeholder]=\"'Correo Electrónico'\"\r\n      [value]=\"getFormControl('email').value\"\r\n      [type]=\"'email'\"\r\n      [required]=\"true\"\r\n      [control]=\"getFormControl('email')\"\r\n      (sufixSelected)=\"getSuffixEmail($event)\"\r\n    ></rlv-input>\r\n    <rlv-input\r\n      formControlName=\"password\"\r\n      [placeholder]=\"'Contraseña'\"\r\n      [value]=\"getFormControl('password').value\"\r\n      [type]=\"'password'\"\r\n      [required]=\"true\"\r\n      [control]=\"getFormControl('password')\"\r\n    ></rlv-input>\r\n    <div class=\"button-container\">\r\n      <rlv-cta-button\r\n        class=\"reset-button\"\r\n        type=\"button\"\r\n        [type]=\"'raw'\"\r\n        [size]=\"'medium'\"\r\n        [label]=\"'Reset'\"\r\n        (click)=\"resetForm()\"\r\n      ></rlv-cta-button>\r\n      <rlv-cta-button\r\n        class=\"submit-button\"\r\n        type=\"submit\"\r\n        [type]=\"'primary'\"\r\n        [size]=\"'medium'\"\r\n        [label]=\"'Enviar'\"\r\n        [loading]=\"loading\"\r\n        (click)=\"onSubmit()\"\r\n      ></rlv-cta-button>\r\n    </div>\r\n  </form>\r\n</div>\r\n"
         },
         {
             "name": "TypographyComponent",
@@ -495,7 +585,19 @@
             }
         ],
         "functions": [],
-        "typealiases": [],
+        "typealiases": [
+            {
+                "name": "suffixes",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "\"@gmail.com\" | \"@hotmail.com\" | \"@outlook.com\" | string",
+                "file": "src/stories/components/forms/login-form/login-form.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 192
+            }
+        ],
         "enumerations": [],
         "groupedVariables": {
             "src/main.server.ts": [
@@ -513,7 +615,21 @@
         },
         "groupedFunctions": {},
         "groupedEnumerations": {},
-        "groupedTypeAliases": {}
+        "groupedTypeAliases": {
+            "src/stories/components/forms/login-form/login-form.component.ts": [
+                {
+                    "name": "suffixes",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "\"@gmail.com\" | \"@hotmail.com\" | \"@outlook.com\" | string",
+                    "file": "src/stories/components/forms/login-form/login-form.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 192
+                }
+            ]
+        }
     },
     "routes": [],
     "coverage": {
@@ -536,7 +652,17 @@
                 "linktype": "component",
                 "name": "LoginFormComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/6",
+                "coverageCount": "0/11",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/forms/login-form/login-form.component.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "suffixes",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
