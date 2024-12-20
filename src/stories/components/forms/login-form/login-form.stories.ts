@@ -4,6 +4,7 @@ import { LoginFormComponent } from './login-form.component';
 const meta: Meta<LoginFormComponent> = {
   title: 'Forms/Login Form',
   component: LoginFormComponent,
+  tags: ['autodocs'],
   argTypes: {},
 };
 
