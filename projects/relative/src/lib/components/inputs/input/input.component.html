@@ -1,8 +1,8 @@
 <div
   class="input-text-container"
   [ngClass]="{
-    onFocus: isFocused || !!value,
-    offFocus: !(isFocused || !!value),
+    onFocus: isFocused,
+    offFocus: !(isFocused),
     error: hasError && !disabled && !value,
     disable: disabled
   }"

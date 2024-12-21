@@ -213,7 +213,7 @@
         },
         {
             "name": "LoginFormComponent",
-            "id": "component-LoginFormComponent-c23e974aeae6a28b1d5df1da99967b6ad84f01164e19d490a3373d72f0c7e0717c0309827f7602f1ab5ee2b425aebe26c590538d0d5a28e05b597e3bae2e27c7",
+            "id": "component-LoginFormComponent-c76346d04ccc2c7c281287c2733ed409069e79800ecc3e45fa058c0502dde986787d410fd629224bc700048fddae265d051d34d1d3d4c4438bae6b92feb4255e",
             "file": "src/stories/components/forms/login-form/login-form.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -241,7 +241,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 24
+                    "line": 23
                 },
                 {
                     "name": "loading",
@@ -252,7 +252,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 25
+                    "line": 24
                 },
                 {
                     "name": "sufixSelected",
@@ -262,10 +262,38 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 27
+                    "line": 26
                 }
             ],
             "methodsClass": [
+                {
+                    "name": "getError",
+                    "args": [
+                        {
+                            "name": "control",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "string",
+                    "typeParameters": [],
+                    "line": 74,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "control",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
                 {
                     "name": "getFormControl",
                     "args": [
@@ -279,7 +307,7 @@
                     "optional": false,
                     "returnType": "FormControl",
                     "typeParameters": [],
-                    "line": 58,
+                    "line": 62,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -307,7 +335,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 66,
+                    "line": 70,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -323,43 +351,12 @@
                     ]
                 },
                 {
-                    "name": "markFormGroupTouched",
-                    "args": [
-                        {
-                            "name": "form",
-                            "type": "FormGroup",
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 71,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "modifierKind": [
-                        123
-                    ],
-                    "jsdoctags": [
-                        {
-                            "name": "form",
-                            "type": "FormGroup",
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                },
-                {
                     "name": "ngOnInit",
                     "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 31,
+                    "line": 30,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -369,7 +366,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 39,
+                    "line": 38,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -379,7 +376,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 62,
+                    "line": 66,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -406,7 +403,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\r\nimport {\r\n  FormBuilder,\r\n  FormControl,\r\n  FormGroup,\r\n  ReactiveFormsModule,\r\n  Validators,\r\n} from '@angular/forms';\r\nimport { CTAButtonComponent, InputComponent } from '@relative/public-api';\r\n\r\ntype suffixes = '@gmail.com' | '@hotmail.com' | '@outlook.com' | '';\r\n\r\n//TODO: tengo que documentar todo lo que hay que hacer para que los inputs esten integrados con el reactiveForms de angular\r\n//TODO: arreglar el tema del reset.\r\n\r\n@Component({\r\n  selector: 'rlv-login-form',\r\n  standalone: true,\r\n  imports: [InputComponent, CTAButtonComponent, ReactiveFormsModule],\r\n  templateUrl: './login-form.component.html',\r\n  styleUrls: ['./login-form.component.css'],\r\n})\r\nexport class LoginFormComponent {\r\n  form: FormGroup;\r\n  loading: boolean = false;\r\n\r\n  sufixSelected: suffixes;\r\n\r\n  constructor(private fb: FormBuilder) {}\r\n\r\n  ngOnInit(): void {\r\n    this.form = this.fb.group({\r\n      name: ['', Validators.required],\r\n      email: ['', [Validators.required]],\r\n      password: ['', Validators.required],\r\n    });\r\n  }\r\n\r\n  onSubmit(): void {\r\n    this.markFormGroupTouched(this.form);\r\n    this.loading = true;\r\n    setTimeout(() => {\r\n      this.loading = false;\r\n    }, 500);\r\n\r\n    console.log(this.form.value);\r\n    if (this.form.valid) {\r\n      this.getFormControl('email').setValue(\r\n        this.getFormControl('email').value + this.sufixSelected\r\n      );\r\n      console.log(this.form.value);\r\n      this.resetForm();\r\n    } else {\r\n      console.log('Formulario no válido');\r\n    }\r\n  }\r\n\r\n  getFormControl(value: string) {\r\n    return this.form.get(value) as FormControl;\r\n  }\r\n\r\n  resetForm() {\r\n    this.form.reset();\r\n  }\r\n\r\n  getSuffixEmail(event: suffixes) {\r\n    this.sufixSelected = event;\r\n  }\r\n\r\n\r\n  private markFormGroupTouched(form: FormGroup) {\r\n    Object.values(form.controls).forEach((control) => {\r\n      control.markAsTouched();\r\n\r\n      if ((control as any).controls) {\r\n        this.markFormGroupTouched(control as FormGroup);\r\n      }\r\n    });\r\n  }\r\n}\r\n",
+            "sourceCode": "import { Component } from '@angular/core';\r\nimport {\r\n  FormBuilder,\r\n  FormControl,\r\n  FormGroup,\r\n  ReactiveFormsModule,\r\n  Validators,\r\n} from '@angular/forms';\r\nimport { CTAButtonComponent, InputComponent } from '@relative/public-api';\r\n\r\ntype suffixes = '@gmail.com' | '@hotmail.com' | '@outlook.com' | '';\r\n\r\n//TODO: tengo que documentar todo lo que hay que hacer para que los inputs esten integrados con el reactiveForms de angular\r\n\r\n@Component({\r\n  selector: 'rlv-login-form',\r\n  standalone: true,\r\n  imports: [InputComponent, CTAButtonComponent, ReactiveFormsModule],\r\n  templateUrl: './login-form.component.html',\r\n  styleUrls: ['./login-form.component.css'],\r\n})\r\nexport class LoginFormComponent {\r\n  form: FormGroup;\r\n  loading: boolean = false;\r\n\r\n  sufixSelected: suffixes;\r\n\r\n  constructor(private fb: FormBuilder) {}\r\n\r\n  ngOnInit(): void {\r\n    this.form = this.fb.group({\r\n      name: [null, Validators.required],\r\n      email: [null, [Validators.required]],\r\n      password: [null, Validators.required],\r\n    });\r\n  }\r\n\r\n  onSubmit(): void {\r\n    this.loading = true;\r\n    setTimeout(() => {\r\n      this.loading = false;\r\n    }, 500);\r\n\r\n    this.form.markAllAsTouched();\r\n\r\n    console.log(this.form.value);\r\n    if (this.form.valid) {\r\n      if (this.sufixSelected) {\r\n        this.getFormControl('email').setValue(\r\n          this.getFormControl('email').value + this.sufixSelected\r\n        );\r\n      }\r\n      this.getFormControl('name').disable();\r\n      this.getFormControl('email').disable();\r\n      this.getFormControl('password').disable();\r\n      console.log(this.form.value);\r\n    } else {\r\n      console.log('Formulario no válido');\r\n    }\r\n  }\r\n\r\n  getFormControl(value: string) {\r\n    return this.form.get(value) as FormControl;\r\n  }\r\n\r\n  resetForm() {\r\n    this.form.reset();\r\n  }\r\n\r\n  getSuffixEmail(event: suffixes) {\r\n    this.sufixSelected = event;\r\n  }\r\n\r\n  getError(control: string): string {\r\n    if (\r\n      this.getFormControl(control).hasError('required') &&\r\n      this.getFormControl(control).touched\r\n    ) {\r\n      return 'Este campo es requerido';\r\n    }\r\n\r\n    return '';\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -428,7 +425,7 @@
                         "deprecationMessage": ""
                     }
                 ],
-                "line": 27,
+                "line": 26,
                 "jsdoctags": [
                     {
                         "name": "fb",
@@ -442,7 +439,7 @@
                 ]
             },
             "extends": [],
-            "templateData": "<div class=\"form-container\">\r\n  <form [formGroup]=\"form\">\r\n    <rlv-input\r\n      formControlName=\"name\"\r\n      [placeholder]=\"'Nombre'\"\r\n      [value]=\"getFormControl('name').value\"\r\n      [type]=\"'text'\"\r\n      [required]=\"true\"\r\n      [control]=\"getFormControl('name')\"\r\n    ></rlv-input>\r\n    <rlv-input\r\n      formControlName=\"email\"\r\n      [placeholder]=\"'Correo Electrónico'\"\r\n      [value]=\"getFormControl('email').value\"\r\n      [type]=\"'email'\"\r\n      [required]=\"true\"\r\n      [control]=\"getFormControl('email')\"\r\n      (sufixSelected)=\"getSuffixEmail($event)\"\r\n    ></rlv-input>\r\n    <rlv-input\r\n      formControlName=\"password\"\r\n      [placeholder]=\"'Contraseña'\"\r\n      [value]=\"getFormControl('password').value\"\r\n      [type]=\"'password'\"\r\n      [required]=\"true\"\r\n      [control]=\"getFormControl('password')\"\r\n    ></rlv-input>\r\n    <div class=\"button-container\">\r\n      <rlv-cta-button\r\n        class=\"reset-button\"\r\n        type=\"button\"\r\n        [type]=\"'raw'\"\r\n        [size]=\"'medium'\"\r\n        [label]=\"'Reset'\"\r\n        (click)=\"resetForm()\"\r\n      ></rlv-cta-button>\r\n      <rlv-cta-button\r\n        class=\"submit-button\"\r\n        type=\"submit\"\r\n        [type]=\"'primary'\"\r\n        [size]=\"'medium'\"\r\n        [label]=\"'Enviar'\"\r\n        [loading]=\"loading\"\r\n        (click)=\"onSubmit()\"\r\n      ></rlv-cta-button>\r\n    </div>\r\n  </form>\r\n</div>\r\n"
+            "templateData": "<div class=\"form-container\">\r\n  <form [formGroup]=\"form\">\r\n    <rlv-input\r\n      formControlName=\"name\"\r\n      [placeholder]=\"'Nombre'\"\r\n      [value]=\"getFormControl('name').value\"\r\n      [type]=\"'text'\"\r\n      [required]=\"true\"\r\n      [hasError]=\"getError('name')\"\r\n    ></rlv-input>\r\n    <rlv-input\r\n      formControlName=\"email\"\r\n      [placeholder]=\"'Correo Electrónico'\"\r\n      [value]=\"getFormControl('email').value\"\r\n      [type]=\"'email'\"\r\n      [required]=\"true\"\r\n      [hasError]=\"getError('email')\"\r\n      (sufixSelected)=\"getSuffixEmail($event)\"\r\n    ></rlv-input>\r\n    <rlv-input\r\n      formControlName=\"password\"\r\n      [placeholder]=\"'Contraseña'\"\r\n      [value]=\"getFormControl('password').value\"\r\n      [type]=\"'password'\"\r\n      [hasError]=\"getError('password')\"\r\n      [required]=\"true\"\r\n    ></rlv-input>\r\n    <div class=\"button-container\">\r\n      <rlv-cta-button\r\n        class=\"reset-button\"\r\n        type=\"button\"\r\n        [type]=\"'raw'\"\r\n        [size]=\"'medium'\"\r\n        [label]=\"'Reset'\"\r\n        (click)=\"resetForm()\"\r\n      ></rlv-cta-button>\r\n      <rlv-cta-button\r\n        class=\"submit-button\"\r\n        type=\"submit\"\r\n        [type]=\"'primary'\"\r\n        [size]=\"'medium'\"\r\n        [label]=\"'Enviar'\"\r\n        [loading]=\"loading\"\r\n        (click)=\"onSubmit()\"\r\n      ></rlv-cta-button>\r\n    </div>\r\n  </form>\r\n</div>\r\n"
         },
         {
             "name": "TypographyComponent",
