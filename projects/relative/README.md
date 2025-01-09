@@ -13,11 +13,11 @@ Change the version on `package.json`.
 
 ## Build
 
-Run `npm run build-lib` to build the project. The build artifacts will be stored in the `dist/` directory.
+Run `npm run build:lib` to build the project. The build artifacts will be stored in the `dist/` directory.
 
 ## Publishing
 
-After building your library with `npm run build-lib`, go to the dist folder `cd dist/relative` and run `npm publish --access public`.
+After building your library with `npm run build:lib`, go to the dist folder `cd dist/relative` and run `npm publish --access public`.
 
 ## Running unit tests
 

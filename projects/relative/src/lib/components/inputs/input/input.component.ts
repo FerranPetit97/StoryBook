@@ -39,7 +39,7 @@ export class InputComponent implements OnInit, ControlValueAccessor {
 
   selectedText: '@gmail.com' | '@hotmail.com' | '@outlook.com' | 'other';
 
-  isFocused = false;
+  isFocused: boolean;
   onTouched: OnTouchFn = () => {};
   onChange: OnChangeFn<string> = () => {};
 

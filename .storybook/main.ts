@@ -3,7 +3,7 @@ import * as path from 'path';
 
 const config: StorybookConfig = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
-  staticDirs: [{ from: '../public/assets', to: '/assets' }],
+  staticDirs: [{ from: '../public/assets', to: '/assets' }, { from: '../projects/relative/src/assets', to: '/assets' }],
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",

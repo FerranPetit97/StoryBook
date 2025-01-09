@@ -1,0 +1,41 @@
+<div class="input-container">
+  <div
+    class="input-text-container"
+    [ngClass]="{
+      onFocus: isFocused,
+      offFocus: !isFocused,
+      error: hasError && !disabled && !value,
+      disable: disabled
+    }"
+    [ngStyle]="{ width: width ? width + 'px' : '100%' }"
+  >
+    @if(placeholder) {
+    <label
+      [ngClass]="{
+        onFocus: isFocused || (!!value && isFocused !== undefined),
+        offFocus: !(isFocused || !!value) && isFocused !== undefined,
+        disable: disabled
+      }"
+      class="input-label"
+      >{{ placeholder }}</label
+    >
+    }
+    <input
+      class="input-text"
+      [value]="value"
+      [disabled]="disabled"
+      (input)="onInputChange($event)"
+      (focus)="setFocus()"
+      (blur)="setFocus()"
+    />
+    @if(icon){
+    <div class="icon-container">
+      <img [src]="icon.src" [alt]="icon.alt" />
+    </div>
+    }
+  </div>
+
+  @if(hasError && !disabled && !value) {
+  <span class="alert error">{{ hasError }}</span>
+  }
+</div>

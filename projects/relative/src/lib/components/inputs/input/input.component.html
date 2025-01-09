@@ -2,7 +2,7 @@
   class="input-text-container"
   [ngClass]="{
     onFocus: isFocused,
-    offFocus: !(isFocused),
+    offFocus: !isFocused,
     error: hasError && !disabled && !value,
     disable: disabled
   }"
@@ -10,8 +10,8 @@
   @if(placeholder) {
   <label
     [ngClass]="{
-      onFocus: isFocused || !!value,
-      offFocus: !(isFocused || !!value),
+      onFocus: isFocused || (!!value && isFocused !== undefined),
+      offFocus: !(isFocused || !!value) && isFocused !== undefined,
       disable: disabled
     }"
     class="input-label"
@@ -29,23 +29,22 @@
     [required]="required"
   />
 
-  @if(originalType === 'password') { @if(type === 'password') {
+  @if(originalType === 'password') {
   <div
     (click)="viewPassword()"
     class="eye-icon"
     [ngStyle]="{ cursor: disabled ? 'not-allowed' : 'pointer' }"
   >
-    <img class="icon" src="./assets/icons/close.svg" />
+    <img
+      class="icon"
+      [src]="
+        type === 'password'
+          ? './assets/icons/close.svg'
+          : './assets/icons/view.svg'
+      "
+    />
   </div>
-  } @else {
-  <div
-    (click)="viewPassword()"
-    class="eye-icon"
-    [ngStyle]="{ cursor: disabled ? 'not-allowed' : 'pointer' }"
-  >
-    <img class="icon" src="./assets/icons/view.svg" />
-  </div>
-  } } @if(type === 'email' && selectedText !== 'other') {
+  } @if(type === 'email' && selectedText !== 'other') {
   <div
     (click)="openCloseSelect()"
     (blur)="openCloseSelect()"
@@ -62,7 +61,7 @@
     </div>
 
     }
-    <img class="icon arrow" src="./assets/icons/arrow.svg" />
+    <img class="icon arrow" src="assets/icons/arrow.svg" />
   </div>
   }
 </div>

@@ -17,7 +17,10 @@ const meta: Meta<BrandedButtonComponent> = {
     label: { control: 'text', description: 'Texto del botón.' },
     backgroundColor: { control: 'color', description: 'Color del botón.' },
     color: { control: 'color', description: 'Color del texto del botón.' },
-    backgroundHover: { control: 'color', description: 'Color del botón al pasar por encima.' },
+    backgroundHover: {
+      control: 'color',
+      description: 'Color del botón al pasar por encima.',
+    },
     size: {
       control: 'radio',
       options: ['large', 'medium', 'small'],
@@ -32,20 +35,20 @@ const meta: Meta<BrandedButtonComponent> = {
 export default meta;
 type Story = StoryObj<BrandedButtonComponent>;
 
-export const Large: Story = {
+export const Medium: Story = {
   args: {
     label: 'Button',
-    size: 'large',
+    size: 'medium',
     backgroundColor: '#3E8989',
     backgroundHover: '#316d6d',
     color: '#ffffff',
   },
 };
 
-export const Medium: Story = {
+export const Large: Story = {
   args: {
     label: 'Button',
-    size: 'medium',
+    size: 'large',
     backgroundColor: '#3E8989',
     backgroundHover: '#316d6d',
     color: '#ffffff',
