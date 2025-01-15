@@ -1,4 +1,4 @@
-import { ModalService } from '../../../services/modal.service';
+import { RLVModalService } from '../../services/modal.service';
 import { CommonModule } from '@angular/common';
 import {
   Component,
@@ -7,28 +7,28 @@ import {
   ViewChild,
   ViewContainerRef,
   inject,
+  Input,
 } from '@angular/core';
 
 @Component({
-  selector: 'app-modal',
+  selector: 'rlv-modal',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.css'],
 })
 export class ModalComponent {
+  @Input() title: string = 'Modal Title';
+  @Input() width: string = '400px';
+  @Input() height: string = '200px';
+
   @ViewChild('dynamicComponentContainer', {
     read: ViewContainerRef,
     static: true,
   })
   public viewContainerRef: ViewContainerRef;
 
-  width: string = '400px';
-  height: string = '200px';
-  title: string = 'Modal Title';
-  
-
-  modalService = inject(ModalService);
+  modalService = inject(RLVModalService);
 
   @Output() closeModal = new EventEmitter<void>();
 

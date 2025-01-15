@@ -1,16 +1,18 @@
 @import "projects/relative/src/assets/base.css";
 
 .rlv-branded-button {
+  box-shadow: 0px 0px 0px 1px #3e898933;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   gap: 8px;
-  border: 0;
-  border-radius: 10px;
-  cursor: pointer;
-  line-height: 1;
+  position: relative;
   height: 40px;
   padding: 0 20px;
+  cursor: pointer;
+  border: 0;
+  border-radius: 7.5px;
+  line-height: 1;
 }
 
 .rlv-branded-button--small {

@@ -8,11 +8,12 @@ import {
   ElementRef,
   ViewChild
 } from '@angular/core';
+import { ClickPressureDirective } from '@relative/public-api';
 
 @Component({
   selector: 'rlv-branded-button',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ClickPressureDirective],
   templateUrl: './branded-button.component.html',
   styleUrls: ['./branded-button.css'],
 })

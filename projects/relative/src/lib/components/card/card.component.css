@@ -1,0 +1,16 @@
+@import "projects/relative/src/assets/base.css";
+
+.card {
+  position: relative;
+  overflow: hidden;
+  min-width: 300px;
+  height: auto;
+  min-height: 100px;
+  padding: 16px;
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+.clickable {
+  cursor: pointer;
+}

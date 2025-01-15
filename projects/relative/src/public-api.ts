@@ -14,6 +14,12 @@ export * from './lib/components/inputs/input-alter/input-alter.component';
 
 /* Modals */
 
-export * from './lib/components/modal/component/modal.component';
-export * from './lib/components/modal/preview-modal.component';
 export * from './lib/services/modal.service';
+
+/* Cards */
+
+export * from './lib/components/card/card.component';
+
+/* Directives */
+
+export * from './lib/directives/clickPressure.directive';

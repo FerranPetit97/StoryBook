@@ -5,17 +5,17 @@ import {
   Type,
   createComponent,
 } from '@angular/core';
-import { ModalComponent } from '../components/modal/component/modal.component';
+import { ModalComponent } from '../components/modal/modal.component';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ModalService {
+export class RLVModalService {
   private modalComponentRef: ComponentRef<ModalComponent>;
 
   constructor(private appRef: ApplicationRef) {}
 
-  open<T>(component: Type<T>, inputs?: Partial<T>): ComponentRef<T> | void {
+  open<T>(component: Type<T>, options?: Partial<T>): ComponentRef<T> | void {
     const modalComponentRef = createComponent(ModalComponent, {
       environmentInjector: this.appRef.injector,
     });
@@ -37,9 +37,9 @@ export class ModalService {
     });
 
     // Set inputs
-    if (inputs) {
-      (Object.keys(inputs) as (keyof T)[]).forEach(inputName => {
-        (dynamicComponentRef.instance[inputName] as any) = inputs[inputName];
+    if (options) {
+      (Object.keys(options) as (keyof T)[]).forEach(inputName => {
+        (dynamicComponentRef.instance[inputName] as any) = options[inputName];
       });
     }
 
