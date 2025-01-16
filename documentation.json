@@ -37,48 +37,13 @@
             "extends": []
         },
         {
-            "name": "ILink",
-            "id": "interface-ILink-09bbebff7cf2defb120fb28df2667e94eeb6e839bc495d424572033db6b581f865579741ddd20c36e48c462a483d7666b71d7a3dcfbb6e35e9504968c33e4f35",
-            "file": "projects/relative/src/lib/components/card/card.component.ts",
-            "deprecated": false,
-            "deprecationMessage": "",
-            "type": "interface",
-            "sourceCode": "import { CommonModule } from '@angular/common';\r\nimport {\r\n  Component,\r\n  ElementRef,\r\n  Input, ViewChild\r\n} from '@angular/core';\r\nimport { ClickPressureDirective } from '@relative/lib/directives/clickPressure.directive';\r\n\r\ninterface IOptions {\r\n  width?: number | string;\r\n  backgroundColor?: string;\r\n  boxShadowColor?: string;\r\n  clickable?: boolean;\r\n}\r\n\r\ninterface ILink {\r\n  text: string;\r\n  url: string;\r\n}\r\n\r\n@Component({\r\n  selector: 'rlv-card',\r\n  standalone: true,\r\n  imports: [CommonModule, ClickPressureDirective],\r\n  templateUrl: './card.component.html',\r\n  styleUrl: './card.component.css',\r\n})\r\nexport class CardComponent {\r\n  @ViewChild('cardElement', { static: true }) cardElement!: ElementRef;\r\n  @Input() options: IOptions;\r\n  @Input() link: ILink;\r\n\r\n  clickPressColor: string = '#8B8B8B';\r\n\r\n  init() {\r\n    if (this.options.clickable) {\r\n      this.clickPressColor = '#000';\r\n    }\r\n  }\r\n\r\n  relocation() {\r\n    if (this.options.clickable && this.link.url) {\r\n      location.href = this.link.url;\r\n    }\r\n  }\r\n\r\n  get styles() {\r\n    return {\r\n      width: this.options.width,\r\n      'background-color': this.options.backgroundColor,\r\n      'box-shadow': '0 2px 4px 2px ' + this.options.boxShadowColor,\r\n    };\r\n  }\r\n\r\n  get classes() {\r\n    return {\r\n      clickable: this.options.clickable,\r\n    };\r\n  }\r\n}\r\n",
-            "properties": [
-                {
-                    "name": "text",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 17
-                },
-                {
-                    "name": "url",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 18
-                }
-            ],
-            "indexSignatures": [],
-            "kind": 171,
-            "methods": [],
-            "extends": []
-        },
-        {
             "name": "IOptions",
-            "id": "interface-IOptions-09bbebff7cf2defb120fb28df2667e94eeb6e839bc495d424572033db6b581f865579741ddd20c36e48c462a483d7666b71d7a3dcfbb6e35e9504968c33e4f35",
+            "id": "interface-IOptions-1e016d5ca6fc29c5e992047b561b8117d4709ea794b483440b93c4b735ba447c60a0b0c90299818b65dadab1e0e09f1175a88bc0a3d3fd623410f4bf3034285b",
             "file": "projects/relative/src/lib/components/card/card.component.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "import { CommonModule } from '@angular/common';\r\nimport {\r\n  Component,\r\n  ElementRef,\r\n  Input, ViewChild\r\n} from '@angular/core';\r\nimport { ClickPressureDirective } from '@relative/lib/directives/clickPressure.directive';\r\n\r\ninterface IOptions {\r\n  width?: number | string;\r\n  backgroundColor?: string;\r\n  boxShadowColor?: string;\r\n  clickable?: boolean;\r\n}\r\n\r\ninterface ILink {\r\n  text: string;\r\n  url: string;\r\n}\r\n\r\n@Component({\r\n  selector: 'rlv-card',\r\n  standalone: true,\r\n  imports: [CommonModule, ClickPressureDirective],\r\n  templateUrl: './card.component.html',\r\n  styleUrl: './card.component.css',\r\n})\r\nexport class CardComponent {\r\n  @ViewChild('cardElement', { static: true }) cardElement!: ElementRef;\r\n  @Input() options: IOptions;\r\n  @Input() link: ILink;\r\n\r\n  clickPressColor: string = '#8B8B8B';\r\n\r\n  init() {\r\n    if (this.options.clickable) {\r\n      this.clickPressColor = '#000';\r\n    }\r\n  }\r\n\r\n  relocation() {\r\n    if (this.options.clickable && this.link.url) {\r\n      location.href = this.link.url;\r\n    }\r\n  }\r\n\r\n  get styles() {\r\n    return {\r\n      width: this.options.width,\r\n      'background-color': this.options.backgroundColor,\r\n      'box-shadow': '0 2px 4px 2px ' + this.options.boxShadowColor,\r\n    };\r\n  }\r\n\r\n  get classes() {\r\n    return {\r\n      clickable: this.options.clickable,\r\n    };\r\n  }\r\n}\r\n",
+            "sourceCode": "import { CommonModule } from '@angular/common';\r\nimport {\r\n  Component,\r\n  ElementRef,\r\n  Input, ViewChild\r\n} from '@angular/core';\r\nimport { ClickPressureDirective } from '@relative/lib/directives/clickPressure.directive';\r\n\r\ninterface IOptions {\r\n  width?: number | string;\r\n  color?: string;\r\n  backgroundColor?: string;\r\n  boxShadowColor?: string;\r\n  clickable?: boolean;\r\n}\r\n\r\n@Component({\r\n  selector: 'rlv-card',\r\n  standalone: true,\r\n  imports: [CommonModule, ClickPressureDirective],\r\n  templateUrl: './card.component.html',\r\n  styleUrl: './card.component.css',\r\n})\r\nexport class CardComponent {\r\n  @ViewChild('cardElement', { static: true }) cardElement!: ElementRef;\r\n  @Input() options: IOptions;\r\n  @Input() link: string;\r\n\r\n  clickPressColor: string = '#8B8B8B';\r\n\r\n  relocation() {\r\n    if (this.options.clickable && this.link) {\r\n      location.href = this.link;\r\n    }\r\n  }\r\n\r\n  get styles() {\r\n    return {\r\n      width: this.options.width,\r\n      color: this.options.color,\r\n      'background-color': this.options.backgroundColor,\r\n      'box-shadow': '0 2px 4px 2px ' + this.options.boxShadowColor,\r\n    };\r\n  }\r\n\r\n  get classes() {\r\n    return {\r\n      clickable: this.options.clickable,\r\n    };\r\n  }\r\n}\r\n",
             "properties": [
                 {
                     "name": "backgroundColor",
@@ -88,7 +53,7 @@
                     "indexKey": "",
                     "optional": true,
                     "description": "",
-                    "line": 11
+                    "line": 12
                 },
                 {
                     "name": "boxShadowColor",
@@ -98,7 +63,7 @@
                     "indexKey": "",
                     "optional": true,
                     "description": "",
-                    "line": 12
+                    "line": 13
                 },
                 {
                     "name": "clickable",
@@ -108,7 +73,17 @@
                     "indexKey": "",
                     "optional": true,
                     "description": "",
-                    "line": 13
+                    "line": 14
+                },
+                {
+                    "name": "color",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": true,
+                    "description": "",
+                    "line": 11
                 },
                 {
                     "name": "width",
@@ -127,13 +102,58 @@
             "extends": []
         },
         {
+            "name": "ModalOptions",
+            "id": "interface-ModalOptions-17a6c72232249d6f29251497e92f89ab934fe9405ef4bdd7591dd0e787a711e208c422de9e28fed1fd83c4e5586f3a53e211550ff12d6131d3bd440f9d34ba00",
+            "file": "projects/relative/src/lib/components/modal/interfaces/modal-options.interface.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "export interface ModalOptions {\r\n  width?: string;\r\n  height?: string;\r\n  backgroundColor?: string;\r\n}\r\n",
+            "properties": [
+                {
+                    "name": "backgroundColor",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": true,
+                    "description": "",
+                    "line": 4
+                },
+                {
+                    "name": "height",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": true,
+                    "description": "",
+                    "line": 3
+                },
+                {
+                    "name": "width",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": true,
+                    "description": "",
+                    "line": 2
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "methods": [],
+            "extends": []
+        },
+        {
             "name": "User",
-            "id": "interface-User-d4821beac0e4a852e513391b7470981c4353fdd95a18628bb68136c8695b489ee15b926e2e5031bc26cf30e1508e0a362c3ee13a06734702b4d15af140e485d5",
+            "id": "interface-User-23c11020a2831beb3fa02ee911a75b64009c31bb46f73a01145c2560cb13b7f7e641105b678bd8fb01a5a199117001f3da4a78351d29d85d213ed7b82982091f",
             "file": "src/stories/user.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "export interface User {\n  name: string;\n}\n",
+            "sourceCode": "export interface User {\r\n  name: string;\r\n}\r\n",
             "properties": [
                 {
                     "name": "name",
@@ -155,18 +175,19 @@
     "injectables": [
         {
             "name": "RLVModalService",
-            "id": "injectable-RLVModalService-acc0073e6f282b89a6d4087a1e95cee348d9eb5d16e63776432061339cc73940c1e690c2bc6f126e95dc5259b1937c6c057d8872a0f3d40b295cd85e52c18b71",
+            "id": "injectable-RLVModalService-a0ba14494d88f75b98f7dd776e6f6e8dfb7bb81f710acb2ce1cff2de64205f801b0c43e438c55b0a0b8967385848711df39d51e1289b595a1d84c85f9b2587a6",
             "file": "projects/relative/src/lib/services/modal.service.ts",
             "properties": [
                 {
-                    "name": "modalComponentRef",
+                    "name": "modalRef",
+                    "defaultValue": "null",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "ComponentRef<ModalComponent>",
+                    "type": "ComponentRef<ModalComponent> | null",
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 14,
+                    "line": 9,
                     "modifierKind": [
                         123
                     ]
@@ -174,56 +195,56 @@
             ],
             "methods": [
                 {
-                    "name": "close",
+                    "name": "closeModal",
                     "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 53,
+                    "line": 37,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
                 {
-                    "name": "open",
+                    "name": "openModal",
                     "args": [
                         {
-                            "name": "component",
-                            "type": "Type<T>",
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        },
-                        {
-                            "name": "options",
-                            "type": "Partial<T>",
+                            "name": "dynamicComponent",
+                            "type": "any",
                             "deprecated": false,
                             "deprecationMessage": "",
                             "optional": true
+                        },
+                        {
+                            "name": "options",
+                            "type": "ModalOptions",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "defaultValue": "{}"
                         }
                     ],
                     "optional": false,
-                    "returnType": "ComponentRef | void",
-                    "typeParameters": [
-                        "T"
-                    ],
-                    "line": 18,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 16,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
                         {
-                            "name": "component",
-                            "type": "Type<T>",
+                            "name": "dynamicComponent",
+                            "type": "any",
                             "deprecated": false,
                             "deprecationMessage": "",
+                            "optional": true,
                             "tagName": {
                                 "text": "param"
                             }
                         },
                         {
                             "name": "options",
-                            "type": "Partial<T>",
+                            "type": "ModalOptions",
                             "deprecated": false,
                             "deprecationMessage": "",
-                            "optional": true,
+                            "defaultValue": "{}",
                             "tagName": {
                                 "text": "param"
                             }
@@ -235,7 +256,7 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import {\r\n  Injectable,\r\n  ComponentRef,\r\n  ApplicationRef,\r\n  Type,\r\n  createComponent,\r\n} from '@angular/core';\r\nimport { ModalComponent } from '../components/modal/modal.component';\r\n\r\n@Injectable({\r\n  providedIn: 'root',\r\n})\r\nexport class RLVModalService {\r\n  private modalComponentRef: ComponentRef<ModalComponent>;\r\n\r\n  constructor(private appRef: ApplicationRef) {}\r\n\r\n  open<T>(component: Type<T>, options?: Partial<T>): ComponentRef<T> | void {\r\n    const modalComponentRef = createComponent(ModalComponent, {\r\n      environmentInjector: this.appRef.injector,\r\n    });\r\n    this.modalComponentRef = modalComponentRef;\r\n\r\n    this.appRef.attachView(this.modalComponentRef.hostView);\r\n\r\n    const domElem = (this.modalComponentRef.hostView as any)\r\n      .rootNodes[0] as HTMLElement;\r\n    document.body.appendChild(domElem);\r\n\r\n    if (!this.modalComponentRef.instance.viewContainerRef) {\r\n      console.error('viewContainerRef is not available');\r\n      return;\r\n    }\r\n\r\n    const dynamicComponentRef = createComponent(component, {\r\n      environmentInjector: this.appRef.injector,\r\n    });\r\n\r\n    // Set inputs\r\n    if (options) {\r\n      (Object.keys(options) as (keyof T)[]).forEach(inputName => {\r\n        (dynamicComponentRef.instance[inputName] as any) = options[inputName];\r\n      });\r\n    }\r\n\r\n    this.modalComponentRef.instance.viewContainerRef.insert(\r\n      dynamicComponentRef.hostView\r\n    );\r\n\r\n    return dynamicComponentRef;\r\n  }\r\n\r\n  close() {\r\n    this.appRef.detachView(this.modalComponentRef.hostView);\r\n    this.modalComponentRef.destroy();\r\n  }\r\n}\r\n",
+            "sourceCode": "import { Injectable, ComponentRef, Injector, ApplicationRef } from '@angular/core';\r\nimport { ModalComponent } from '../components/modal/modal.component';\r\nimport { ModalOptions } from '../components/modal/interfaces/modal-options.interface';\r\n\r\n@Injectable({\r\n  providedIn: 'root',\r\n})\r\nexport class RLVModalService {\r\n  private modalRef: ComponentRef<ModalComponent> | null = null;\r\n\r\n  constructor(\r\n    private appRef: ApplicationRef,\r\n    private injector: Injector\r\n  ) {}\r\n\r\n  openModal( dynamicComponent?: any, options: ModalOptions = {}): void {\r\n    if (this.modalRef) {\r\n      this.closeModal(); // Cierra el modal existente si hay uno abierto\r\n    }\r\n\r\n    // Crear el componente del modal dinámicamente\r\n    const modalComponent = ModalComponent;\r\n    this.modalRef = this.appRef.bootstrap(modalComponent, { injector: this.injector });\r\n\r\n    // Pasar las opciones y el componente dinámico al modal\r\n    this.modalRef.instance.options = options;\r\n    this.modalRef.instance.dynamicComponent = dynamicComponent;\r\n\r\n    // Suscribirse al evento close\r\n    this.modalRef.instance.close.subscribe(() => this.closeModal());\r\n\r\n    // Insertar el modal en el DOM (body)\r\n    const domElem = (this.modalRef.hostView as any).rootNodes[0] as HTMLElement;\r\n    document.body.appendChild(domElem);\r\n  }\r\n\r\n  closeModal(): void {\r\n    if (this.modalRef) {\r\n      this.appRef.detachView(this.modalRef.hostView);\r\n      this.modalRef.destroy();\r\n      this.modalRef = null;\r\n    }\r\n  }\r\n}\r\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -247,13 +268,28 @@
                         "type": "ApplicationRef",
                         "deprecated": false,
                         "deprecationMessage": ""
+                    },
+                    {
+                        "name": "injector",
+                        "type": "Injector",
+                        "deprecated": false,
+                        "deprecationMessage": ""
                     }
                 ],
-                "line": 14,
+                "line": 9,
                 "jsdoctags": [
                     {
                         "name": "appRef",
                         "type": "ApplicationRef",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "injector",
+                        "type": "Injector",
                         "deprecated": false,
                         "deprecationMessage": "",
                         "tagName": {
@@ -272,23 +308,41 @@
     "directives": [
         {
             "name": "ClickPressureDirective",
-            "id": "directive-ClickPressureDirective-856a81c1822ebd8841af32dd24401ec5bc7c4715d59c1ed5482477c2dfc46da1d807ec388fedfd8403315c0f3a2275740ccc89754bf13144d5016ed833223417",
+            "id": "directive-ClickPressureDirective-12aeb67952dfca58cd4953c614f2ebc23fcbe00f68eda1917df89b260bbfb5348b9f3cdb332722348651dcb55c0436b3ce8a6f51ad5a8eda96add7a122a696b5",
             "file": "projects/relative/src/lib/directives/clickPressure.directive.ts",
             "type": "directive",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import {\r\n  Directive,\r\n  ElementRef,\r\n  HostListener,\r\n  Input,\r\n  Renderer2,\r\n} from '@angular/core';\r\n\r\n@Directive({\r\n  selector: '[clickPressure]',\r\n  standalone: true,\r\n})\r\nexport class ClickPressureDirective {\r\n  @Input() theme: string = '#ffffff';\r\n\r\n  constructor(private el: ElementRef, private renderer: Renderer2) {}\r\n\r\n  @HostListener('click', ['$event'])\r\n  mouseClick(event: MouseEvent): void {\r\n    const { clientX, clientY } = event;\r\n    this.createWave(clientX, clientY);\r\n    this.applyPressEffect(clientX, clientY);\r\n  }\r\n\r\n  private createWave(x: number, y: number): void {\r\n    // Crear el elemento para la onda\r\n    const wave = this.renderer.createElement('span');\r\n    this.renderer.addClass(wave, 'mouse-wave');\r\n\r\n    // Posicionar la onda en el lugar del ratón\r\n    this.renderer.setStyle(wave, 'left', `${x - 15}px`);\r\n    this.renderer.setStyle(wave, 'top', `${y - 15}px`);\r\n    this.renderer.setStyle(wave, 'background-color', `${this.theme}4d`);\r\n\r\n    // Añadir la onda al contenedor principal\r\n    this.renderer.appendChild(this.el.nativeElement, wave);\r\n\r\n    setTimeout(() => {\r\n      this.renderer.removeChild(this.el.nativeElement, wave);\r\n    }, 1000);\r\n  }\r\n\r\n  private applyPressEffect(x: number, y: number): void {\r\n    const rect = this.el.nativeElement.getBoundingClientRect();\r\n\r\n    // Calcular la posición relativa del clic dentro del elemento\r\n    const xPosition = x - rect.left - rect.width / 2; // Posición relativa al centro\r\n    const yPosition = y - rect.top - rect.height / 2; // Posición relativa al centro\r\n\r\n    // Ajustar la intensidad de la inclinación\r\n    const intensity = 10; // Cambia este valor para modificar el efecto\r\n    const rotateX = (yPosition * intensity) / rect.height;\r\n    const rotateY = -(xPosition * intensity) / rect.width;\r\n\r\n    // Aplicar la transformación 3D\r\n    this.renderer.setStyle(\r\n      this.el.nativeElement,\r\n      'transform',\r\n      `perspective(500px) rotateX(${-rotateX}deg) rotateY(${-rotateY}deg) scale(0.98)`\r\n    );\r\n    this.renderer.setStyle(\r\n      this.el.nativeElement,\r\n      'transition',\r\n      'transform 0.1s ease-out'\r\n    );\r\n\r\n    setTimeout(() => {\r\n      // Restaurar el estilo original\r\n      this.renderer.setStyle(\r\n        this.el.nativeElement,\r\n        'transform',\r\n        `perspective(500px) rotateX(0) rotateY(0) scale(1)`\r\n      );\r\n      this.renderer.setStyle(\r\n        this.el.nativeElement,\r\n        'transition',\r\n        'transform 0.3s ease-out'\r\n      );\r\n    }, 200);\r\n  }\r\n}\r\n",
+            "sourceCode": "import {\r\n  Directive,\r\n  ElementRef,\r\n  HostListener,\r\n  Input,\r\n  Renderer2,\r\n} from '@angular/core';\r\n\r\n@Directive({\r\n  selector: '[clickPressure]',\r\n  standalone: true,\r\n})\r\nexport class ClickPressureDirective {\r\n  @Input() actived: boolean = true;\r\n  @Input() theme: string = '#ffffff';\r\n  @Input() intensity: number = 10;\r\n\r\n  constructor(private el: ElementRef, private renderer: Renderer2) {}\r\n\r\n  @HostListener('click', ['$event'])\r\n  mouseClick(event: MouseEvent): void {\r\n    if (this.actived === false) return;\r\n\r\n    const { clientX, clientY } = event;\r\n    this.createWave(clientX, clientY);\r\n    this.applyPressEffect(clientX, clientY);\r\n  }\r\n\r\n  private createWave(x: number, y: number): void {\r\n    // Crear el elemento para la onda\r\n    const wave = this.renderer.createElement('span');\r\n    this.renderer.addClass(wave, 'mouse-wave');\r\n\r\n    // Posicionar la onda en el lugar del ratón\r\n    this.renderer.setStyle(wave, 'left', `${x}px`);\r\n    this.renderer.setStyle(wave, 'top', `${y}px`);\r\n    this.renderer.setStyle(wave, 'background-color', `${this.theme}4d`);\r\n\r\n    // Añadir la onda al contenedor principal\r\n    this.renderer.appendChild(this.el.nativeElement, wave);\r\n\r\n    setTimeout(() => {\r\n      this.renderer.removeChild(this.el.nativeElement, wave);\r\n    }, 1000);\r\n  }\r\n\r\n  private applyPressEffect(x: number, y: number): void {\r\n    const rect = this.el.nativeElement.getBoundingClientRect();\r\n\r\n    // Calcular la posición relativa del clic dentro del elemento\r\n    const xPosition = x - rect.left - rect.width / 2; // Posición relativa al centro\r\n    const yPosition = y - rect.top - rect.height / 2; // Posición relativa al centro\r\n\r\n    // Ajustar la intensidad de la inclinación\r\n    const rotateX = (yPosition * this.intensity) / rect.height;\r\n    const rotateY = -(xPosition * this.intensity) / rect.width;\r\n\r\n    // Aplicar la transformación 3D\r\n    this.renderer.setStyle(\r\n      this.el.nativeElement,\r\n      'transform',\r\n      `perspective(500px) rotateX(${-rotateX}deg) rotateY(${-rotateY}deg) scale(0.98)`\r\n    );\r\n    this.renderer.setStyle(\r\n      this.el.nativeElement,\r\n      'transition',\r\n      'transform 0.1s ease-out'\r\n    );\r\n\r\n    setTimeout(() => {\r\n      // Restaurar el estilo original\r\n      this.renderer.setStyle(\r\n        this.el.nativeElement,\r\n        'transform',\r\n        `perspective(500px) rotateX(0) rotateY(0) scale(1)`\r\n      );\r\n      this.renderer.setStyle(\r\n        this.el.nativeElement,\r\n        'transition',\r\n        'transform 0.3s ease-out'\r\n      );\r\n    }, 200);\r\n  }\r\n}\r\n",
             "selector": "[clickPressure]",
             "providers": [],
             "hostDirectives": [],
             "standalone": true,
             "inputsClass": [
                 {
+                    "name": "actived",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "intensity",
+                    "defaultValue": "10",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 16,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
                     "name": "theme",
                     "defaultValue": "'#ffffff'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 14,
+                    "line": 15,
                     "type": "string",
                     "decorators": []
                 }
@@ -313,7 +367,7 @@
                     ],
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 19
+                    "line": 21
                 }
             ],
             "propertiesClass": [],
@@ -337,7 +391,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 43,
+                    "line": 47,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -383,7 +437,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 25,
+                    "line": 29,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -423,7 +477,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 19,
+                    "line": 21,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "decorators": [
@@ -468,7 +522,7 @@
                         "deprecationMessage": ""
                     }
                 ],
-                "line": 14,
+                "line": 16,
                 "jsdoctags": [
                     {
                         "name": "el",
@@ -684,11 +738,11 @@
                     }
                 }
             },
-            "templateData": "<button\r\n  clickPressure\r\n  (click)=\"onClick.emit($event)\"\r\n  [ngClass]=\"classes\"\r\n  [ngStyle]=\"{\r\n    'background-color': isHovered ? backgroundHover : backgroundColor,\r\n    color: color,\r\n    'min-width': buttonMinWidth\r\n  }\"\r\n  (mouseenter)=\"isHovered = true\"\r\n  (mouseleave)=\"isHovered = false\"\r\n>\r\n  <div #buttonText>{{ label }}</div>\r\n</button>\r\n"
+            "templateData": "<button\r\n  clickPressure\r\n  [intensity]=\"25\"\r\n  (click)=\"onClick.emit($event)\"\r\n  [ngClass]=\"classes\"\r\n  [ngStyle]=\"{\r\n    'background-color': isHovered ? backgroundHover : backgroundColor,\r\n    color: color,\r\n    'min-width': buttonMinWidth\r\n  }\"\r\n  (mouseenter)=\"isHovered = true\"\r\n  (mouseleave)=\"isHovered = false\"\r\n>\r\n  <div #buttonText>{{ label }}</div>\r\n</button>\r\n"
         },
         {
             "name": "CardComponent",
-            "id": "component-CardComponent-09bbebff7cf2defb120fb28df2667e94eeb6e839bc495d424572033db6b581f865579741ddd20c36e48c462a483d7666b71d7a3dcfbb6e35e9504968c33e4f35",
+            "id": "component-CardComponent-1e016d5ca6fc29c5e992047b561b8117d4709ea794b483440b93c4b735ba447c60a0b0c90299818b65dadab1e0e09f1175a88bc0a3d3fd623410f4bf3034285b",
             "file": "projects/relative/src/lib/components/card/card.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -708,15 +762,15 @@
                     "name": "link",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 31,
-                    "type": "ILink",
+                    "line": 27,
+                    "type": "string",
                     "decorators": []
                 },
                 {
                     "name": "options",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 30,
+                    "line": 26,
                     "type": "IOptions",
                     "decorators": []
                 }
@@ -731,7 +785,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 29,
+                    "line": 25,
                     "decorators": [
                         {
                             "name": "ViewChild",
@@ -751,27 +805,17 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 33
+                    "line": 29
                 }
             ],
             "methodsClass": [
-                {
-                    "name": "init",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 35,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                },
                 {
                     "name": "relocation",
                     "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 41,
+                    "line": 31,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -794,7 +838,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { CommonModule } from '@angular/common';\r\nimport {\r\n  Component,\r\n  ElementRef,\r\n  Input, ViewChild\r\n} from '@angular/core';\r\nimport { ClickPressureDirective } from '@relative/lib/directives/clickPressure.directive';\r\n\r\ninterface IOptions {\r\n  width?: number | string;\r\n  backgroundColor?: string;\r\n  boxShadowColor?: string;\r\n  clickable?: boolean;\r\n}\r\n\r\ninterface ILink {\r\n  text: string;\r\n  url: string;\r\n}\r\n\r\n@Component({\r\n  selector: 'rlv-card',\r\n  standalone: true,\r\n  imports: [CommonModule, ClickPressureDirective],\r\n  templateUrl: './card.component.html',\r\n  styleUrl: './card.component.css',\r\n})\r\nexport class CardComponent {\r\n  @ViewChild('cardElement', { static: true }) cardElement!: ElementRef;\r\n  @Input() options: IOptions;\r\n  @Input() link: ILink;\r\n\r\n  clickPressColor: string = '#8B8B8B';\r\n\r\n  init() {\r\n    if (this.options.clickable) {\r\n      this.clickPressColor = '#000';\r\n    }\r\n  }\r\n\r\n  relocation() {\r\n    if (this.options.clickable && this.link.url) {\r\n      location.href = this.link.url;\r\n    }\r\n  }\r\n\r\n  get styles() {\r\n    return {\r\n      width: this.options.width,\r\n      'background-color': this.options.backgroundColor,\r\n      'box-shadow': '0 2px 4px 2px ' + this.options.boxShadowColor,\r\n    };\r\n  }\r\n\r\n  get classes() {\r\n    return {\r\n      clickable: this.options.clickable,\r\n    };\r\n  }\r\n}\r\n",
+            "sourceCode": "import { CommonModule } from '@angular/common';\r\nimport {\r\n  Component,\r\n  ElementRef,\r\n  Input, ViewChild\r\n} from '@angular/core';\r\nimport { ClickPressureDirective } from '@relative/lib/directives/clickPressure.directive';\r\n\r\ninterface IOptions {\r\n  width?: number | string;\r\n  color?: string;\r\n  backgroundColor?: string;\r\n  boxShadowColor?: string;\r\n  clickable?: boolean;\r\n}\r\n\r\n@Component({\r\n  selector: 'rlv-card',\r\n  standalone: true,\r\n  imports: [CommonModule, ClickPressureDirective],\r\n  templateUrl: './card.component.html',\r\n  styleUrl: './card.component.css',\r\n})\r\nexport class CardComponent {\r\n  @ViewChild('cardElement', { static: true }) cardElement!: ElementRef;\r\n  @Input() options: IOptions;\r\n  @Input() link: string;\r\n\r\n  clickPressColor: string = '#8B8B8B';\r\n\r\n  relocation() {\r\n    if (this.options.clickable && this.link) {\r\n      location.href = this.link;\r\n    }\r\n  }\r\n\r\n  get styles() {\r\n    return {\r\n      width: this.options.width,\r\n      color: this.options.color,\r\n      'background-color': this.options.backgroundColor,\r\n      'box-shadow': '0 2px 4px 2px ' + this.options.boxShadowColor,\r\n    };\r\n  }\r\n\r\n  get classes() {\r\n    return {\r\n      clickable: this.options.clickable,\r\n    };\r\n  }\r\n}\r\n",
             "styleUrl": "./card.component.css",
             "assetsDirs": [],
             "styleUrlsData": "",
@@ -807,7 +851,7 @@
                         "name": "styles",
                         "type": "",
                         "returnType": "",
-                        "line": 47
+                        "line": 37
                     }
                 },
                 "classes": {
@@ -816,15 +860,15 @@
                         "name": "classes",
                         "type": "",
                         "returnType": "",
-                        "line": 55
+                        "line": 46
                     }
                 }
             },
-            "templateData": "@if(options.clickable) {\r\n<div\r\n  clickPressure\r\n  [theme]=\"clickPressColor\"\r\n  (click)=\"relocation()\"\r\n  [ngStyle]=\"styles\"\r\n  [ngClass]=\"classes\"\r\n  class=\"card\"\r\n>\r\n  <div class=\"card-header\">\r\n    <ng-content select=\"#title\"></ng-content>\r\n  </div>\r\n  <div class=\"card-body\">\r\n    <ng-content select=\"#content\"></ng-content>\r\n  </div>\r\n  <div class=\"card-footer\">\r\n    <ng-content select=\"#footer\"></ng-content>\r\n  </div>\r\n</div>\r\n} @else {\r\n<div (click)=\"relocation()\" [ngStyle]=\"styles\" [ngClass]=\"classes\" class=\"card\">\r\n  <div class=\"card-header\">\r\n    <ng-content select=\"#title\"></ng-content>\r\n  </div>\r\n  <div class=\"card-body\">\r\n    <ng-content select=\"#content\"></ng-content>\r\n  </div>\r\n  <div class=\"card-footer\">\r\n    <ng-content select=\"#footer\"></ng-content>\r\n  </div>\r\n</div>\r\n}\r\n"
+            "templateData": "<div\r\n  clickPressure\r\n  [theme]=\"clickPressColor\"\r\n  [intensity]=\"8\"\r\n  [actived]=\"options.clickable ?? true\"\r\n  (click)=\"relocation()\"\r\n  [ngStyle]=\"styles\"\r\n  [ngClass]=\"classes\"\r\n  class=\"card\"\r\n>\r\n  <div class=\"card-header\">\r\n    <ng-content select=\"[header]\"></ng-content>\r\n  </div>\r\n  <div class=\"card-body\">\r\n    <ng-content select=\"[content]\"></ng-content>\r\n  </div>\r\n  <div class=\"card-footer\">\r\n    <ng-content select=\"[footer]\"></ng-content>\r\n  </div>\r\n</div>\r\n\r\n"
         },
         {
             "name": "ColorPaletteComponent",
-            "id": "component-ColorPaletteComponent-5edc25d9eac907f454333d9b31afd664d41014f9ab3ff0acddbe0459b4737242b8d5c9b6f661765503bd006b1cfef6c684380e82e505fb7f63ae57c3543f3527",
+            "id": "component-ColorPaletteComponent-5ac9bb040af3fee80fe8d15f9dce27d19879a9d5dd351bd69e8d965898e29397b68808c9e1747fc8f6c119691fd56cbfbceaf822049e04f20e02a1077e80a5e0",
             "file": "src/stories/design-system/color-pallete/color-pallete.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -988,7 +1032,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'rlv-color-palette',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './color-pallete.component.html',\n  styleUrls: ['./color-pallete.css'],\n})\nexport class ColorPaletteComponent {\n  @Input() baseColors: { name: string; hex: string }[] = [];\n  \n  @Input() hoverColors: { name: string; hex: string }[] = [];\n\n  activeRow: number | null = null;\n  \n  activeColor: string | null = null;\n\n  copyHex(color: string, index: number): void {\n    if(this.activeRow !== null) return\n    navigator.clipboard\n      .writeText(color)\n      .then(() => {\n        this.showAlert(index, color);\n      })\n      .catch((err) => {\n        alert(`Error al copiar al portapapeles: ${err}`);\n      });\n  }\n\n  showAlert(index: number, color: string): void {\n    this.activeRow = index;\n    this.activeColor = color;\n\n    setTimeout(() => {\n      this.activeRow = null;\n    }, 1000);\n  }\n}\n",
+            "sourceCode": "import { CommonModule } from '@angular/common';\r\nimport { Component, Input } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'rlv-color-palette',\r\n  standalone: true,\r\n  imports: [CommonModule],\r\n  templateUrl: './color-pallete.component.html',\r\n  styleUrls: ['./color-pallete.css'],\r\n})\r\nexport class ColorPaletteComponent {\r\n  @Input() baseColors: { name: string; hex: string }[] = [];\r\n  \r\n  @Input() hoverColors: { name: string; hex: string }[] = [];\r\n\r\n  activeRow: number | null = null;\r\n  \r\n  activeColor: string | null = null;\r\n\r\n  copyHex(color: string, index: number): void {\r\n    if(this.activeRow !== null) return\r\n    navigator.clipboard\r\n      .writeText(color)\r\n      .then(() => {\r\n        this.showAlert(index, color);\r\n      })\r\n      .catch((err) => {\r\n        alert(`Error al copiar al portapapeles: ${err}`);\r\n      });\r\n  }\r\n\r\n  showAlert(index: number, color: string): void {\r\n    this.activeRow = index;\r\n    this.activeColor = color;\r\n\r\n    setTimeout(() => {\r\n      this.activeRow = null;\r\n    }, 1000);\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1002,7 +1046,7 @@
         },
         {
             "name": "CTAButtonComponent",
-            "id": "component-CTAButtonComponent-88d23902f74c77122c1196c82eca5f5676751e3840a666117fead7af75749dd7b96b35cc950b9d64996f169b87e3a8e8540d36b8c9bbcfd8fdbd59aae7e9cf49",
+            "id": "component-CTAButtonComponent-664e3077aeb4898dccba9823c00f7f5747a6ce5306b1a37756de44fef84307e2648c68082cb85c6eb88b6adeaa5ea25ffa913e3e9ae56a28ee5e8bcafb3b8df3",
             "file": "projects/relative/src/lib/components/buttons/cta-button/cta-button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1048,7 +1092,7 @@
                 },
                 {
                     "name": "icon",
-                    "defaultValue": "{\n    src: '',\n    alt: '',\n  }",
+                    "defaultValue": "{\r\n    src: '',\r\n    alt: '',\r\n  }",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "line": 55,
@@ -1164,11 +1208,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { CommonModule } from '@angular/common';\nimport {\n  Component,\n  Input,\n  Output,\n  EventEmitter,\n  ViewChild,\n  ElementRef,\n} from '@angular/core';\nimport { ClickPressureDirective } from '@relative/lib/directives/clickPressure.directive';\n\n@Component({\n  selector: 'rlv-cta-button',\n  standalone: true,\n  imports: [CommonModule, ClickPressureDirective],\n  templateUrl: './cta-button.component.html',\n  styleUrls: ['./cta-button.css'],\n})\nexport class CTAButtonComponent {\n  @ViewChild('buttonText') buttonRef!: ElementRef<HTMLDivElement>;\n  buttonMinWidth: string = '';\n\n  ngAfterViewInit() {\n    setTimeout(() => {\n      if (this.buttonRef) {\n        this.buttonMinWidth = `${\n          this.buttonRef.nativeElement.offsetWidth + this.extraPaddingWidth\n        }px`;\n      }\n    });\n  }\n\n  @Input()\n  type = 'primary';\n\n  @Input()\n  backgroundColor?: string;\n\n  @Input()\n  size: 'small' | 'medium' | 'large' = 'medium';\n\n  @Input()\n  label = 'Button';\n\n  @Input()\n  loading = false;\n\n  @Input()\n  fullWidth = false;\n\n  @Input()\n  disabled = false;\n\n  @Input()\n  icon: { src: string; alt: string } = {\n    src: '',\n    alt: '',\n  };\n\n  @Output()\n  onClick = new EventEmitter<Event>();\n\n  get classes(): string[] {\n    const width: string | null = this.fullWidth ? 'full' : '';\n    const disabled: string | null = this.disabled ? 'disabled' : '';\n\n    return [\n      'rlv-cta-button',\n      `rlv-cta-button--${this.size}`,\n      `rlv-cta-button--${this.type}`,\n      width,\n      disabled,\n    ];\n  }\n\n  get extraPaddingWidth(): number {\n    let width = 40;\n\n    switch (this.size) {\n      case 'small':\n      case 'medium':\n      default:\n        width = 40;\n        break;\n      case 'large':\n        width = 48;\n    }\n    return width;\n  }\n}\n",
+            "sourceCode": "import { CommonModule } from '@angular/common';\r\nimport {\r\n  Component,\r\n  Input,\r\n  Output,\r\n  EventEmitter,\r\n  ViewChild,\r\n  ElementRef,\r\n} from '@angular/core';\r\nimport { ClickPressureDirective } from '@relative/lib/directives/clickPressure.directive';\r\n\r\n@Component({\r\n  selector: 'rlv-cta-button',\r\n  standalone: true,\r\n  imports: [CommonModule, ClickPressureDirective],\r\n  templateUrl: './cta-button.component.html',\r\n  styleUrls: ['./cta-button.css'],\r\n})\r\nexport class CTAButtonComponent {\r\n  @ViewChild('buttonText') buttonRef!: ElementRef<HTMLDivElement>;\r\n  buttonMinWidth: string = '';\r\n\r\n  ngAfterViewInit() {\r\n    setTimeout(() => {\r\n      if (this.buttonRef) {\r\n        this.buttonMinWidth = `${\r\n          this.buttonRef.nativeElement.offsetWidth + this.extraPaddingWidth\r\n        }px`;\r\n      }\r\n    });\r\n  }\r\n\r\n  @Input()\r\n  type = 'primary';\r\n\r\n  @Input()\r\n  backgroundColor?: string;\r\n\r\n  @Input()\r\n  size: 'small' | 'medium' | 'large' = 'medium';\r\n\r\n  @Input()\r\n  label = 'Button';\r\n\r\n  @Input()\r\n  loading = false;\r\n\r\n  @Input()\r\n  fullWidth = false;\r\n\r\n  @Input()\r\n  disabled = false;\r\n\r\n  @Input()\r\n  icon: { src: string; alt: string } = {\r\n    src: '',\r\n    alt: '',\r\n  };\r\n\r\n  @Output()\r\n  onClick = new EventEmitter<Event>();\r\n\r\n  get classes(): string[] {\r\n    const width: string | null = this.fullWidth ? 'full' : '';\r\n    const disabled: string | null = this.disabled ? 'disabled' : '';\r\n\r\n    return [\r\n      'rlv-cta-button',\r\n      `rlv-cta-button--${this.size}`,\r\n      `rlv-cta-button--${this.type}`,\r\n      width,\r\n      disabled,\r\n    ];\r\n  }\r\n\r\n  get extraPaddingWidth(): number {\r\n    let width = 40;\r\n\r\n    switch (this.size) {\r\n      case 'small':\r\n      case 'medium':\r\n      default:\r\n        width = 40;\r\n        break;\r\n      case 'large':\r\n        width = 48;\r\n    }\r\n    return width;\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import \"projects/relative/src/assets/base.css\";\n\n.rlv-cta-button {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  position: relative;\n  overflow: hidden;\n  cursor: pointer;\n  border: 0;\n  border-radius: 7.5px;\n  line-height: 1;\n  div {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    gap: 8px;\n  }\n}\n.rlv-cta-button--primary {\n  box-shadow: 0px 0px 0px 1px #3e898933;\n  outline: none;\n  background-color: #3e8989;\n  color: white;\n  &:hover {\n    background-color: #316d6d;\n  }\n\n  &.disabled {\n    background-color: #a0a0a0;\n    cursor: not-allowed;\n  }\n\n  .icon-button {\n    filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%);\n  }\n}\n.rlv-cta-button--secondary {\n  box-shadow: #3e8989 0px 0px 0px 1px inset;\n  background-color: transparent;\n  color: #3e8989;\n  &:hover {\n    background-color: #3e898941;\n  }\n\n  &.disabled {\n    box-shadow: #a0a0a0 0px 0px 0px 1px inset;\n    background-color: transparent;\n    cursor: not-allowed;\n    color: #a0a0a0;\n  }\n\n  .icon-button {\n    filter: brightness(0) saturate(100%) invert(57%) sepia(5%) saturate(3464%);\n  }\n}\n.rlv-cta-button--tertiary {\n  box-shadow: #616161 0px 0px 0px 1px inset;\n  background-color: transparent;\n  color: #616161;\n  &:hover {\n    background-color: #61616141;\n  }\n\n  &.disabled {\n    box-shadow: #a0a0a0 0px 0px 0px 1px inset;\n    background-color: transparent;\n    cursor: not-allowed;\n    color: #a0a0a0;\n  }\n\n  .icon-button {\n    filter: brightness(0) saturate(100%) invert(38%) sepia(0%) saturate(1%);\n  }\n}\n.rlv-cta-button--raw {\n  background-color: transparent;\n  color: #616161;\n  &:hover {\n    color: #313131;\n    .icon-button {\n      filter: brightness(0) saturate(100%) invert(14%) sepia(37%) saturate(12%);\n    }\n  }\n\n  &.disabled {\n    cursor: not-allowed;\n    color: #a0a0a0;\n  }\n\n  .icon-button {\n    filter: brightness(0) saturate(100%) invert(38%) sepia(0%) saturate(1%);\n  }\n}\n.rlv-cta-button--primary--danger {\n  box-shadow: 0px 0px 0px 1px #e5393533;\n  background-color: #e53935;\n  color: white;\n  &:hover {\n    background-color: #b82e2b;\n  }\n\n  .icon-button {\n    filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%);\n  }\n}\n.rlv-cta-button--secondary--danger {\n  box-shadow: #e53935 0px 0px 0px 1px inset;\n  background-color: transparent;\n  color: #e53935;\n  &:hover {\n    background-color: #e5393541;\n  }\n\n  .icon-button {\n    filter: brightness(0) saturate(100%) invert(34%) sepia(74%) saturate(2141%);\n  }\n}\n.rlv-cta-button--raw--danger {\n  background-color: transparent;\n  color: #e53935;\n  &:hover {\n    color: #b82e2b;\n    .icon-button {\n      filter: brightness(0) saturate(100%) invert(46%) sepia(95%);\n    }\n  }\n\n  .icon-button {\n    filter: brightness(0) saturate(100%) invert(34%) sepia(74%) saturate(2141%);\n  }\n}\n.rlv-cta-button--small {\n  height: 32px;\n  padding: 0 20px;\n}\n.rlv-cta-button--medium {\n  height: 40px;\n  padding: 0 20px;\n}\n.rlv-cta-button--large {\n  height: 48px;\n  padding: 0 24px;\n}\n\n.full {\n  width: 100%;\n}\n\n.icon-button {\n  width: 24px;\n  height: 24px;\n}\n\n.loader {\n  justify-self: center;\n  width: 1em;\n  height: 1em;\n  animation: spin 1s linear infinite;\n  border: 0.15em solid #616161;\n  border-top: 0.15em solid #61616166;\n  border-radius: 50%;\n}\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n",
+                    "data": "@import \"projects/relative/src/assets/base.css\";\r\n\r\n.rlv-cta-button {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  position: relative;\r\n  overflow: hidden;\r\n  cursor: pointer;\r\n  border: 0;\r\n  border-radius: 7.5px;\r\n  line-height: 1;\r\n  div {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    gap: 8px;\r\n  }\r\n}\r\n.rlv-cta-button--primary {\r\n  box-shadow: 0px 0px 0px 1px #3e898933;\r\n  outline: none;\r\n  background-color: #3e8989;\r\n  color: white;\r\n  &:hover {\r\n    background-color: #316d6d;\r\n  }\r\n\r\n  &.disabled {\r\n    background-color: #a0a0a0;\r\n    cursor: not-allowed;\r\n  }\r\n\r\n  .icon-button {\r\n    filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%);\r\n  }\r\n}\r\n.rlv-cta-button--secondary {\r\n  box-shadow: #3e8989 0px 0px 0px 1px inset;\r\n  background-color: transparent;\r\n  color: #3e8989;\r\n  &:hover {\r\n    background-color: #3e898941;\r\n  }\r\n\r\n  &.disabled {\r\n    box-shadow: #a0a0a0 0px 0px 0px 1px inset;\r\n    background-color: transparent;\r\n    cursor: not-allowed;\r\n    color: #a0a0a0;\r\n  }\r\n\r\n  .icon-button {\r\n    filter: brightness(0) saturate(100%) invert(57%) sepia(5%) saturate(3464%);\r\n  }\r\n}\r\n.rlv-cta-button--tertiary {\r\n  box-shadow: #616161 0px 0px 0px 1px inset;\r\n  background-color: transparent;\r\n  color: #616161;\r\n  &:hover {\r\n    background-color: #61616141;\r\n  }\r\n\r\n  &.disabled {\r\n    box-shadow: #a0a0a0 0px 0px 0px 1px inset;\r\n    background-color: transparent;\r\n    cursor: not-allowed;\r\n    color: #a0a0a0;\r\n  }\r\n\r\n  .icon-button {\r\n    filter: brightness(0) saturate(100%) invert(38%) sepia(0%) saturate(1%);\r\n  }\r\n}\r\n.rlv-cta-button--raw {\r\n  background-color: transparent;\r\n  color: #616161;\r\n  &:hover {\r\n    color: #313131;\r\n    .icon-button {\r\n      filter: brightness(0) saturate(100%) invert(14%) sepia(37%) saturate(12%);\r\n    }\r\n  }\r\n\r\n  &.disabled {\r\n    cursor: not-allowed;\r\n    color: #a0a0a0;\r\n  }\r\n\r\n  .icon-button {\r\n    filter: brightness(0) saturate(100%) invert(38%) sepia(0%) saturate(1%);\r\n  }\r\n}\r\n.rlv-cta-button--primary--danger {\r\n  box-shadow: 0px 0px 0px 1px #e5393533;\r\n  background-color: #e53935;\r\n  color: white;\r\n  &:hover {\r\n    background-color: #b82e2b;\r\n  }\r\n\r\n  .icon-button {\r\n    filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%);\r\n  }\r\n}\r\n.rlv-cta-button--secondary--danger {\r\n  box-shadow: #e53935 0px 0px 0px 1px inset;\r\n  background-color: transparent;\r\n  color: #e53935;\r\n  &:hover {\r\n    background-color: #e5393541;\r\n  }\r\n\r\n  .icon-button {\r\n    filter: brightness(0) saturate(100%) invert(34%) sepia(74%) saturate(2141%);\r\n  }\r\n}\r\n.rlv-cta-button--raw--danger {\r\n  background-color: transparent;\r\n  color: #e53935;\r\n  &:hover {\r\n    color: #b82e2b;\r\n    .icon-button {\r\n      filter: brightness(0) saturate(100%) invert(46%) sepia(95%);\r\n    }\r\n  }\r\n\r\n  .icon-button {\r\n    filter: brightness(0) saturate(100%) invert(34%) sepia(74%) saturate(2141%);\r\n  }\r\n}\r\n.rlv-cta-button--small {\r\n  height: 32px;\r\n  padding: 0 20px;\r\n}\r\n.rlv-cta-button--medium {\r\n  height: 40px;\r\n  padding: 0 20px;\r\n}\r\n.rlv-cta-button--large {\r\n  height: 48px;\r\n  padding: 0 24px;\r\n}\r\n\r\n.full {\r\n  width: 100%;\r\n}\r\n\r\n.icon-button {\r\n  width: 24px;\r\n  height: 24px;\r\n}\r\n\r\n.loader {\r\n  justify-self: center;\r\n  width: 1em;\r\n  height: 1em;\r\n  animation: spin 1s linear infinite;\r\n  border: 0.15em solid #616161;\r\n  border-top: 0.15em solid #61616166;\r\n  border-radius: 50%;\r\n}\r\n\r\n@keyframes spin {\r\n  0% {\r\n    transform: rotate(0deg);\r\n  }\r\n  100% {\r\n    transform: rotate(360deg);\r\n  }\r\n}\r\n",
                     "styleUrl": "./cta-button.css"
                 }
             ],
@@ -1194,7 +1238,7 @@
                     }
                 }
             },
-            "templateData": "<button\r\n  clickPressure\r\n  [disabled]=\"disabled\"\r\n  (click)=\"onClick.emit($event)\"\r\n  [ngClass]=\"classes\"\r\n  [ngStyle]=\"{ 'min-width': buttonMinWidth }\"\r\n>\r\n  @if (loading) {\r\n  <div class=\"loader\"></div>\r\n  } @else {\r\n  <div #buttonText>\r\n    @if(icon.src){\r\n    <img [src]=\"icon.src\" [alt]=\"icon.alt\" class=\"icon-button\" />\r\n    }\r\n    {{ label }}\r\n  </div>\r\n  }\r\n</button>\r\n"
+            "templateData": "<button\r\n  clickPressure\r\n  [intensity]=\"25\"\r\n  [disabled]=\"disabled\"\r\n  (click)=\"onClick.emit($event)\"\r\n  [ngClass]=\"classes\"\r\n  [ngStyle]=\"{ 'min-width': buttonMinWidth }\"\r\n>\r\n  @if (loading) {\r\n  <div class=\"loader\"></div>\r\n  } @else {\r\n  <div #buttonText>\r\n    @if(icon.src){\r\n    <img [src]=\"icon.src\" [alt]=\"icon.alt\" class=\"icon-button\" />\r\n    }\r\n    {{ label }}\r\n  </div>\r\n  }\r\n</button>\r\n"
         },
         {
             "name": "InputAlterComponent",
@@ -2039,7 +2083,7 @@
         },
         {
             "name": "ModalComponent",
-            "id": "component-ModalComponent-b58a81499fe708fc0ae5970517293f2a2a20f097a6e9dedc8721eabbede8506a41a0dfa98c9ed93d3a5ccda014e63e2ef0e45bf2bc14816e6a599b33a41f7bcb",
+            "id": "component-ModalComponent-31fc45b2a35ee6a5b80dc65149d350f94a5c7048b6c6a90de3eae02f1c1ace35e7f4ed52f5f62248d4cee046addfa158997635d22c0219ef3d6f4fc0eb7a2d8c",
             "file": "projects/relative/src/lib/components/modal/modal.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2058,84 +2102,98 @@
             "hostDirectives": [],
             "inputsClass": [
                 {
-                    "name": "height",
-                    "defaultValue": "'200px'",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 23,
-                    "type": "string",
-                    "decorators": []
-                },
-                {
-                    "name": "title",
-                    "defaultValue": "'Modal Title'",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 21,
-                    "type": "string",
-                    "decorators": []
-                },
-                {
-                    "name": "width",
-                    "defaultValue": "'400px'",
+                    "name": "dynamicComponent",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "line": 22,
-                    "type": "string",
+                    "type": "any",
+                    "decorators": []
+                },
+                {
+                    "name": "options",
+                    "defaultValue": "{}",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 21,
+                    "type": "ModalOptions",
                     "decorators": []
                 }
             ],
             "outputsClass": [
                 {
-                    "name": "closeModal",
+                    "name": "close",
                     "defaultValue": "new EventEmitter<void>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 33,
+                    "line": 23,
                     "type": "EventEmitter"
                 }
             ],
             "propertiesClass": [
                 {
-                    "name": "modalService",
-                    "defaultValue": "inject(RLVModalService)",
+                    "name": "componentRef",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "",
+                    "type": "ComponentRef<any>",
                     "indexKey": "",
-                    "optional": false,
+                    "optional": true,
                     "description": "",
-                    "line": 31
+                    "line": 26,
+                    "modifierKind": [
+                        123
+                    ]
                 },
                 {
-                    "name": "viewContainerRef",
+                    "name": "containerRef",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "ViewContainerRef",
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 29,
+                    "line": 25,
                     "decorators": [
                         {
                             "name": "ViewChild",
-                            "stringifiedArguments": "'dynamicComponentContainer', {read: ViewContainerRef, static: true}"
+                            "stringifiedArguments": "'dynamicContainer', {read: ViewContainerRef}"
                         }
                     ],
                     "modifierKind": [
-                        170,
-                        125
+                        170
                     ]
                 }
             ],
             "methodsClass": [
                 {
-                    "name": "close",
+                    "name": "closeModal",
                     "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 35,
+                    "line": 43,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "loadDynamicComponent",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 36,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "ngAfterViewInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 30,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -2154,28 +2212,117 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { RLVModalService } from '../../services/modal.service';\r\nimport { CommonModule } from '@angular/common';\r\nimport {\r\n  Component,\r\n  Output,\r\n  EventEmitter,\r\n  ViewChild,\r\n  ViewContainerRef,\r\n  inject,\r\n  Input,\r\n} from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'rlv-modal',\r\n  standalone: true,\r\n  imports: [CommonModule],\r\n  templateUrl: './modal.component.html',\r\n  styleUrls: ['./modal.component.css'],\r\n})\r\nexport class ModalComponent {\r\n  @Input() title: string = 'Modal Title';\r\n  @Input() width: string = '400px';\r\n  @Input() height: string = '200px';\r\n\r\n  @ViewChild('dynamicComponentContainer', {\r\n    read: ViewContainerRef,\r\n    static: true,\r\n  })\r\n  public viewContainerRef: ViewContainerRef;\r\n\r\n  modalService = inject(RLVModalService);\r\n\r\n  @Output() closeModal = new EventEmitter<void>();\r\n\r\n  close() {\r\n    this.modalService.close();\r\n  }\r\n}\r\n",
+            "sourceCode": "import { CommonModule } from '@angular/common';\r\nimport {\r\n  Component,\r\n  Output,\r\n  EventEmitter, Input,\r\n  AfterViewInit,\r\n  ViewChild,\r\n  ViewContainerRef,\r\n  ComponentRef\r\n} from '@angular/core';\r\nimport { ModalOptions } from './interfaces/modal-options.interface';\r\n\r\n@Component({\r\n  selector: 'rlv-modal',\r\n  standalone: true,\r\n  imports: [CommonModule],\r\n  templateUrl: './modal.component.html',\r\n  styleUrls: ['./modal.component.css'],\r\n})\r\nexport class ModalComponent implements AfterViewInit{\r\n  @Input() options: ModalOptions = {}; // Un único input con opciones\r\n  @Input() dynamicComponent?: any; // Componente dinámico a renderizar\r\n  @Output() close = new EventEmitter<void>();\r\n\r\n  @ViewChild('dynamicContainer', { read: ViewContainerRef }) containerRef!: ViewContainerRef;\r\n  private componentRef?: ComponentRef<any>;\r\n\r\n  constructor() {}\r\n\r\n  ngAfterViewInit(): void {\r\n    if (this.dynamicComponent) {\r\n      this.loadDynamicComponent();\r\n    }\r\n  }\r\n\r\n  private loadDynamicComponent(): void {\r\n    if (this.dynamicComponent) {\r\n      this.containerRef.clear();\r\n      this.componentRef = this.containerRef.createComponent(this.dynamicComponent);\r\n    }\r\n  }\r\n\r\n  closeModal(): void {\r\n    this.componentRef?.destroy();\r\n    this.close.emit();\r\n  }\r\n\r\n  get styles(): { [key: string]: string } {\r\n    return {\r\n      width: this.options.width || '500px',\r\n      height: this.options.height || '300px',\r\n      'background-color': this.options.backgroundColor || '#ffffff',\r\n    };\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import \"projects/relative/src/assets/base.css\";\r\n\r\n.modal-background {\r\n  position: fixed;\r\n  top: 0;\r\n  left: 0;\r\n  width: 100%;\r\n  min-width: 100%;\r\n  height: 100%;\r\n  background: rgba(0, 0, 0, 0.5);\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  z-index: 999999;\r\n}\r\n\r\n.modal-content {\r\n  background: #fff;\r\n  padding: 20px;\r\n  border-radius: 8px;\r\n  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);\r\n}\r\n",
+                    "data": "@import \"projects/relative/src/assets/base.css\";\r\n\r\n.modal-overlay {\r\n  position: fixed;\r\n  top: 0;\r\n  left: 0;\r\n  width: 100vw;\r\n  height: 100vh;\r\n  background-color: rgba(0, 0, 0, 0.5);\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  z-index: 1000;\r\n}\r\n\r\n.modal-content {\r\n  position: relative;\r\n  padding: 20px;\r\n  border-radius: 8px;\r\n  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);\r\n}\r\n\r\n",
                     "styleUrl": "./modal.component.css"
                 }
             ],
             "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 26
+            },
             "extends": [],
-            "templateData": "<div class=\"modal-background\" (click)=\"close()\">\r\n  <div\r\n    [ngStyle]=\"{\r\n      width: width,\r\n      height: height\r\n    }\"\r\n    class=\"modal-content\"\r\n    (click)=\"$event.stopPropagation()\"\r\n  >\r\n    <h2>\r\n      {{ title }}\r\n    </h2>\r\n    <ng-container #dynamicComponentContainer></ng-container>\r\n  </div>\r\n</div>\r\n"
+            "implements": [
+                "AfterViewInit"
+            ],
+            "accessors": {
+                "styles": {
+                    "name": "styles",
+                    "getSignature": {
+                        "name": "styles",
+                        "type": "literal type",
+                        "returnType": "literal type",
+                        "line": 48
+                    }
+                }
+            },
+            "templateData": "<div \r\n  class=\"modal-overlay\"\r\n  (click)=\"closeModal()\"\r\n>\r\n  <div \r\n    class=\"modal-content\"\r\n    [ngStyle]=\"styles\"\r\n    (click)=\"$event.stopPropagation()\"\r\n  >\r\n    <ng-content></ng-content>\r\n    <ng-container #dynamicContainer></ng-container>\r\n    <button (click)=\"closeModal()\">Close</button>\r\n  </div>\r\n</div>\r\n"
+        },
+        {
+            "name": "ModalComponent",
+            "id": "component-ModalComponent-dbd2c427f8ea1214244c311bb6bcfce01cb67e3c6f689ac8311fd5b96aa76ec05669ea05e0efb2cfee6a7a062d2fd66a5fb2cdcb0ab0a82521051c023082b172-1",
+            "file": "src/stories/components/modal/components/modal/modal.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-modal",
+            "styleUrls": [
+                "./modal.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./modal.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "message",
+                    "defaultValue": "'¡Hola! Este es un componente dinámico cargado dentro del modal.'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 10
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-modal',\r\n  standalone: true,\r\n  templateUrl: './modal.component.html',\r\n  styleUrls: ['./modal.component.css']\r\n})\r\nexport class ModalComponent {\r\n  message = '¡Hola! Este es un componente dinámico cargado dentro del modal.';\r\n\r\n  constructor() {}\r\n}",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".container {\r\n  text-align: center;\r\n  padding: 20px;\r\n  border: 2px solid #007bff;\r\n  border-radius: 8px;\r\n  background-color: #e9f5ff;\r\n  color: #007bff;\r\n}\r\n\r\n.container h2 {\r\n  margin: 0;\r\n  font-size: 24px;\r\n  font-weight: bold;\r\n}\r\n\r\n.container p {\r\n  margin: 10px 0 0;\r\n  font-size: 16px;\r\n}\r\n",
+                    "styleUrl": "./modal.component.css"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 10
+            },
+            "extends": [],
+            "isDuplicate": true,
+            "duplicateId": 1,
+            "duplicateName": "ModalComponent-1",
+            "templateData": "<div class=\"container\">\r\n  <h2>{{ message }}</h2>\r\n  <p>Puedes personalizar este contenido como desees.</p>\r\n</div>\r\n"
         },
         {
             "name": "PreviewModalComponent",
-            "id": "component-PreviewModalComponent-0895f54ea36f9eb8c74a58f4650a2966e058ca61c355f0a3b5e7dc5e7287849b4120cccc7265a17e6cca252f45c1d165affccbc8ec146019bb19fdaf51c7aa17",
+            "id": "component-PreviewModalComponent-815469ad5ac29f5a0182a20ac2b2d4ee072d382e09ae1eadd9444e1abdbe14516761324e16a22177739ea3fe9c0d08134c87229a6dbda7da67b5088677dbfcb2",
             "file": "src/stories/components/modal/previewModal.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "rlv-preview-modal",
+            "selector": "app-preview-modal",
             "styleUrls": [],
             "styles": [],
             "templateUrl": [
@@ -2193,7 +2340,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 15,
+                    "line": 16,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -2212,7 +2359,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\r\nimport { RLVModalService } from '../../../../projects/relative/src/lib/services/modal.service';\r\nimport { CTAButtonComponent } from '@relative/public-api';\r\nimport { ModalComponent } from '@relative/lib/components/modal/modal.component';\r\n\r\n@Component({\r\n  selector: 'rlv-preview-modal',\r\n  standalone: true,\r\n  templateUrl: './previewModal.component.html',\r\n  imports: [CTAButtonComponent],\r\n})\r\nexport class PreviewModalComponent {\r\n  constructor(private readonly modalService: RLVModalService) {}\r\n\r\n  openModal() {\r\n    this.modalService.open(ModalComponent, {\r\n        \r\n    });\r\n  }\r\n}\r\n",
+            "sourceCode": "import { Component } from '@angular/core';\r\nimport { CTAButtonComponent, RLVModalService } from '@relative/public-api';\r\nimport { ModalOptions } from '@relative/public-api';\r\n\r\nimport { ModalComponent } from './components/modal/modal.component';\r\n\r\n@Component({\r\n  selector: 'app-preview-modal',\r\n  standalone: true,\r\n  templateUrl: './previewModal.component.html',\r\n  imports: [CTAButtonComponent],\r\n})\r\nexport class PreviewModalComponent {\r\n  constructor(private modalService: RLVModalService) {}\r\n\r\n  openModal(): void {\r\n    const options: ModalOptions = {\r\n      width: '600px',\r\n      height: '400px',\r\n      backgroundColor: 'lightblue',\r\n    };\r\n\r\n    this.modalService.openModal(ModalComponent, options);\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -2229,7 +2376,7 @@
                         "deprecationMessage": ""
                     }
                 ],
-                "line": 12,
+                "line": 13,
                 "jsdoctags": [
                     {
                         "name": "modalService",
@@ -2247,7 +2394,7 @@
         },
         {
             "name": "TypographyComponent",
-            "id": "component-TypographyComponent-213f9e3b89a63b9290d3230e704a0ff01b91404aa05d9308d5c39ebf2f174d1f32f33e4387e884e6abd813dfd8a1b87d40419a178f1eced9ff44f2cf040df14f",
+            "id": "component-TypographyComponent-bce9674e519c18a51e7b3c7f4d5a653ef564a6283bea97e67897af980c5c30f1679794b7ced18c7a5f315b4d1735babbd28bfff9f538654d540e9b1b0d88a79f",
             "file": "src/stories/design-system/typography/typography.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2358,7 +2505,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'rlv-typography',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './typography.component.html',\n  styleUrls: ['./typography.css'],\n})\nexport class TypographyComponent {\n  @Input() categories: {\n    category: string;\n    styles: {\n      name: string;\n      element: string;\n      fontFamily: number;\n      fontSize: string;\n      fontWeight: string;\n      lineHeight: string;\n      color: string;\n      backgroundColor: string;\n    }[];\n  }[] = [];\n\n  @Input() fonts: {\n    name: string;\n    preview: string;\n    type: number;\n    downloadLink: string;\n  }[] = [];\n\n  getFontFamily(fontFamily: number): string {\n    const DEFAULT = 'Inter';\n\n    const font = this.fonts.find((font) => fontFamily === font.type);\n\n    if (!font) return DEFAULT;\n\n    return font.name;\n  }\n\n  getBackgroundColor(type: number): string {\n    let color: string;\n\n    switch (type) {\n      case 2:\n        color = '#4caf50';\n\n        break;\n\n      case 3:\n        color = '#e53935';\n        break;\n\n      default:\n        color = '#3E8989';\n\n        break;\n    }\n\n    return color;\n  }\n}\n",
+            "sourceCode": "import { CommonModule } from '@angular/common';\r\nimport { Component, Input } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'rlv-typography',\r\n  standalone: true,\r\n  imports: [CommonModule],\r\n  templateUrl: './typography.component.html',\r\n  styleUrls: ['./typography.css'],\r\n})\r\nexport class TypographyComponent {\r\n  @Input() categories: {\r\n    category: string;\r\n    styles: {\r\n      name: string;\r\n      element: string;\r\n      fontFamily: number;\r\n      fontSize: string;\r\n      fontWeight: string;\r\n      lineHeight: string;\r\n      color: string;\r\n      backgroundColor: string;\r\n    }[];\r\n  }[] = [];\r\n\r\n  @Input() fonts: {\r\n    name: string;\r\n    preview: string;\r\n    type: number;\r\n    downloadLink: string;\r\n  }[] = [];\r\n\r\n  getFontFamily(fontFamily: number): string {\r\n    const DEFAULT = 'Inter';\r\n\r\n    const font = this.fonts.find((font) => fontFamily === font.type);\r\n\r\n    if (!font) return DEFAULT;\r\n\r\n    return font.name;\r\n  }\r\n\r\n  getBackgroundColor(type: number): string {\r\n    let color: string;\r\n\r\n    switch (type) {\r\n      case 2:\r\n        color = '#4caf50';\r\n\r\n        break;\r\n\r\n      case 3:\r\n        color = '#e53935';\r\n        break;\r\n\r\n      default:\r\n        color = '#3E8989';\r\n\r\n        break;\r\n    }\r\n\r\n    return color;\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -2529,16 +2676,7 @@
                 "linktype": "component",
                 "name": "CardComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/7",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/relative/src/lib/components/card/card.component.ts",
-                "type": "interface",
-                "linktype": "interface",
-                "name": "ILink",
-                "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/6",
                 "status": "low"
             },
             {
@@ -2547,7 +2685,7 @@
                 "linktype": "interface",
                 "name": "IOptions",
                 "coveragePercent": 0,
-                "coverageCount": "0/5",
+                "coverageCount": "0/6",
                 "status": "low"
             },
             {
@@ -2608,12 +2746,21 @@
                 "status": "low"
             },
             {
+                "filePath": "projects/relative/src/lib/components/modal/interfaces/modal-options.interface.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "ModalOptions",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
                 "filePath": "projects/relative/src/lib/components/modal/modal.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "ModalComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/8",
+                "coverageCount": "0/10",
                 "status": "low"
             },
             {
@@ -2622,7 +2769,7 @@
                 "linktype": "directive",
                 "name": "ClickPressureDirective",
                 "coveragePercent": 0,
-                "coverageCount": "0/7",
+                "coverageCount": "0/9",
                 "status": "low"
             },
             {
@@ -2661,6 +2808,15 @@
                 "name": "suffixes",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/modal/components/modal/modal.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ModalComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
                 "status": "low"
             },
             {

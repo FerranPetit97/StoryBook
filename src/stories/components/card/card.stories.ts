@@ -41,6 +41,7 @@ export const Card: Story = {
   args: {
     options: {
       width: '10px',
+      color: '#000000',
       backgroundColor: '#ffffff',
       boxShadowColor: 'rgba(0, 0, 0, 0.1)',
       clickable: true,
