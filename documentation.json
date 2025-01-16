@@ -38,12 +38,12 @@
         },
         {
             "name": "ILink",
-            "id": "interface-ILink-4b9a7402cf36171ac5b5ce44460d00e1e737aa36f5f888d768f7040712d7a630ebb4b94fa30724c8cc8408aaf9ecc5b13149299fe7f9a33e08e591d819f3e3b9",
+            "id": "interface-ILink-09bbebff7cf2defb120fb28df2667e94eeb6e839bc495d424572033db6b581f865579741ddd20c36e48c462a483d7666b71d7a3dcfbb6e35e9504968c33e4f35",
             "file": "projects/relative/src/lib/components/card/card.component.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "import { CommonModule } from '@angular/common';\r\nimport { Component, Input } from '@angular/core';\r\nimport { ClickPressureDirective } from '@relative/lib/directives/clickPressure.directive';\r\n\r\ninterface IOptions {\r\n  width?: number | string;\r\n  backgroundColor?: string;\r\n  boxShadowColor?: string;\r\n  clickable?: boolean;\r\n}\r\n\r\ninterface ILink {\r\n  text: string;\r\n  url: string;\r\n}\r\n\r\n@Component({\r\n  selector: 'rlv-card',\r\n  standalone: true,\r\n  imports: [CommonModule, ClickPressureDirective],\r\n  templateUrl: './card.component.html',\r\n  styleUrl: './card.component.css',\r\n})\r\nexport class CardComponent {\r\n  @Input() title: string;\r\n  @Input() options: IOptions;\r\n  @Input() link: ILink;\r\n\r\n  clickPressColor: string = '#8B8B8B';\r\n\r\n  relocation() {\r\n    if (this.options.clickable && this.link.url) {\r\n      location.href = this.link.url;\r\n    }\r\n  }\r\n\r\n  get styles() {\r\n    console.log('styles', this.options);\r\n    \r\n    return {\r\n      width: this.options.width,\r\n      'background-color': this.options.backgroundColor,\r\n      'box-shadow': '0 2px 4px 2px ' + this.options.boxShadowColor,\r\n    };\r\n  }\r\n\r\n  get classes() {\r\n    return {\r\n      clickable: this.options.clickable,\r\n    };\r\n  }\r\n}\r\n",
+            "sourceCode": "import { CommonModule } from '@angular/common';\r\nimport {\r\n  Component,\r\n  ElementRef,\r\n  Input, ViewChild\r\n} from '@angular/core';\r\nimport { ClickPressureDirective } from '@relative/lib/directives/clickPressure.directive';\r\n\r\ninterface IOptions {\r\n  width?: number | string;\r\n  backgroundColor?: string;\r\n  boxShadowColor?: string;\r\n  clickable?: boolean;\r\n}\r\n\r\ninterface ILink {\r\n  text: string;\r\n  url: string;\r\n}\r\n\r\n@Component({\r\n  selector: 'rlv-card',\r\n  standalone: true,\r\n  imports: [CommonModule, ClickPressureDirective],\r\n  templateUrl: './card.component.html',\r\n  styleUrl: './card.component.css',\r\n})\r\nexport class CardComponent {\r\n  @ViewChild('cardElement', { static: true }) cardElement!: ElementRef;\r\n  @Input() options: IOptions;\r\n  @Input() link: ILink;\r\n\r\n  clickPressColor: string = '#8B8B8B';\r\n\r\n  init() {\r\n    if (this.options.clickable) {\r\n      this.clickPressColor = '#000';\r\n    }\r\n  }\r\n\r\n  relocation() {\r\n    if (this.options.clickable && this.link.url) {\r\n      location.href = this.link.url;\r\n    }\r\n  }\r\n\r\n  get styles() {\r\n    return {\r\n      width: this.options.width,\r\n      'background-color': this.options.backgroundColor,\r\n      'box-shadow': '0 2px 4px 2px ' + this.options.boxShadowColor,\r\n    };\r\n  }\r\n\r\n  get classes() {\r\n    return {\r\n      clickable: this.options.clickable,\r\n    };\r\n  }\r\n}\r\n",
             "properties": [
                 {
                     "name": "text",
@@ -53,7 +53,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 13
+                    "line": 17
                 },
                 {
                     "name": "url",
@@ -63,7 +63,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 14
+                    "line": 18
                 }
             ],
             "indexSignatures": [],
@@ -73,12 +73,12 @@
         },
         {
             "name": "IOptions",
-            "id": "interface-IOptions-4b9a7402cf36171ac5b5ce44460d00e1e737aa36f5f888d768f7040712d7a630ebb4b94fa30724c8cc8408aaf9ecc5b13149299fe7f9a33e08e591d819f3e3b9",
+            "id": "interface-IOptions-09bbebff7cf2defb120fb28df2667e94eeb6e839bc495d424572033db6b581f865579741ddd20c36e48c462a483d7666b71d7a3dcfbb6e35e9504968c33e4f35",
             "file": "projects/relative/src/lib/components/card/card.component.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "import { CommonModule } from '@angular/common';\r\nimport { Component, Input } from '@angular/core';\r\nimport { ClickPressureDirective } from '@relative/lib/directives/clickPressure.directive';\r\n\r\ninterface IOptions {\r\n  width?: number | string;\r\n  backgroundColor?: string;\r\n  boxShadowColor?: string;\r\n  clickable?: boolean;\r\n}\r\n\r\ninterface ILink {\r\n  text: string;\r\n  url: string;\r\n}\r\n\r\n@Component({\r\n  selector: 'rlv-card',\r\n  standalone: true,\r\n  imports: [CommonModule, ClickPressureDirective],\r\n  templateUrl: './card.component.html',\r\n  styleUrl: './card.component.css',\r\n})\r\nexport class CardComponent {\r\n  @Input() title: string;\r\n  @Input() options: IOptions;\r\n  @Input() link: ILink;\r\n\r\n  clickPressColor: string = '#8B8B8B';\r\n\r\n  relocation() {\r\n    if (this.options.clickable && this.link.url) {\r\n      location.href = this.link.url;\r\n    }\r\n  }\r\n\r\n  get styles() {\r\n    console.log('styles', this.options);\r\n    \r\n    return {\r\n      width: this.options.width,\r\n      'background-color': this.options.backgroundColor,\r\n      'box-shadow': '0 2px 4px 2px ' + this.options.boxShadowColor,\r\n    };\r\n  }\r\n\r\n  get classes() {\r\n    return {\r\n      clickable: this.options.clickable,\r\n    };\r\n  }\r\n}\r\n",
+            "sourceCode": "import { CommonModule } from '@angular/common';\r\nimport {\r\n  Component,\r\n  ElementRef,\r\n  Input, ViewChild\r\n} from '@angular/core';\r\nimport { ClickPressureDirective } from '@relative/lib/directives/clickPressure.directive';\r\n\r\ninterface IOptions {\r\n  width?: number | string;\r\n  backgroundColor?: string;\r\n  boxShadowColor?: string;\r\n  clickable?: boolean;\r\n}\r\n\r\ninterface ILink {\r\n  text: string;\r\n  url: string;\r\n}\r\n\r\n@Component({\r\n  selector: 'rlv-card',\r\n  standalone: true,\r\n  imports: [CommonModule, ClickPressureDirective],\r\n  templateUrl: './card.component.html',\r\n  styleUrl: './card.component.css',\r\n})\r\nexport class CardComponent {\r\n  @ViewChild('cardElement', { static: true }) cardElement!: ElementRef;\r\n  @Input() options: IOptions;\r\n  @Input() link: ILink;\r\n\r\n  clickPressColor: string = '#8B8B8B';\r\n\r\n  init() {\r\n    if (this.options.clickable) {\r\n      this.clickPressColor = '#000';\r\n    }\r\n  }\r\n\r\n  relocation() {\r\n    if (this.options.clickable && this.link.url) {\r\n      location.href = this.link.url;\r\n    }\r\n  }\r\n\r\n  get styles() {\r\n    return {\r\n      width: this.options.width,\r\n      'background-color': this.options.backgroundColor,\r\n      'box-shadow': '0 2px 4px 2px ' + this.options.boxShadowColor,\r\n    };\r\n  }\r\n\r\n  get classes() {\r\n    return {\r\n      clickable: this.options.clickable,\r\n    };\r\n  }\r\n}\r\n",
             "properties": [
                 {
                     "name": "backgroundColor",
@@ -88,7 +88,7 @@
                     "indexKey": "",
                     "optional": true,
                     "description": "",
-                    "line": 7
+                    "line": 11
                 },
                 {
                     "name": "boxShadowColor",
@@ -98,7 +98,7 @@
                     "indexKey": "",
                     "optional": true,
                     "description": "",
-                    "line": 8
+                    "line": 12
                 },
                 {
                     "name": "clickable",
@@ -108,7 +108,7 @@
                     "indexKey": "",
                     "optional": true,
                     "description": "",
-                    "line": 9
+                    "line": 13
                 },
                 {
                     "name": "width",
@@ -118,7 +118,7 @@
                     "indexKey": "",
                     "optional": true,
                     "description": "",
-                    "line": 6
+                    "line": 10
                 }
             ],
             "indexSignatures": [],
@@ -272,12 +272,12 @@
     "directives": [
         {
             "name": "ClickPressureDirective",
-            "id": "directive-ClickPressureDirective-67cd4ddf196b63b64aedccb229df5bc1ea8cac20df59d5fa56accd3154917955cb779b797f391a4e03697a965745ce60a9e7084fff8ab48cf26d0ff6d0a57a16",
+            "id": "directive-ClickPressureDirective-856a81c1822ebd8841af32dd24401ec5bc7c4715d59c1ed5482477c2dfc46da1d807ec388fedfd8403315c0f3a2275740ccc89754bf13144d5016ed833223417",
             "file": "projects/relative/src/lib/directives/clickPressure.directive.ts",
             "type": "directive",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import {\r\n  Directive,\r\n  ElementRef,\r\n  HostListener,\r\n  Input,\r\n  Renderer2,\r\n} from '@angular/core';\r\n\r\n@Directive({\r\n  selector: '[clickPressure]',\r\n  standalone: true,\r\n})\r\nexport class ClickPressureDirective {\r\n  @Input() theme: string = '#ffffff';\r\n\r\n  constructor(private el: ElementRef, private renderer: Renderer2) {}\r\n\r\n  @HostListener('click', ['$event'])\r\n  mouseClick(event: MouseEvent): void {\r\n    const { clientX, clientY } = event;\r\n    this.createWave(clientX, clientY);\r\n    this.applyPressEffect(clientX, clientY);\r\n  }\r\n\r\n  private createWave(x: number, y: number): void {\r\n    // Crear el elemento para la onda\r\n    const wave = this.renderer.createElement('span');\r\n    this.renderer.addClass(wave, 'mouse-wave');\r\n\r\n    // Posicionar la onda en el lugar del ratón\r\n    this.renderer.setStyle(wave, 'left', `${x - 10}px`);\r\n    this.renderer.setStyle(wave, 'top', `${y - 10}px`);\r\n    this.renderer.setStyle(wave, 'background-color', `${this.theme}4d`);\r\n\r\n    // Añadir la onda al contenedor principal\r\n    this.renderer.appendChild(this.el.nativeElement, wave);\r\n\r\n    setTimeout(() => {\r\n      this.renderer.removeChild(this.el.nativeElement, wave);\r\n    }, 1000);\r\n  }\r\n\r\n  private applyPressEffect(x: number, y: number): void {\r\n    const rect = this.el.nativeElement.getBoundingClientRect();\r\n\r\n    // Calcular la posición relativa del clic dentro del elemento\r\n    const xPosition = x - rect.left - rect.width / 2; // Posición relativa al centro\r\n    const yPosition = y - rect.top - rect.height / 2; // Posición relativa al centro\r\n\r\n    // Ajustar la intensidad de la inclinación\r\n    const intensity = 10; // Cambia este valor para modificar el efecto\r\n    const rotateX = (yPosition * intensity) / rect.height;\r\n    const rotateY = -(xPosition * intensity) / rect.width;\r\n\r\n    console.log(rotateX, rotateY);\r\n\r\n    // Aplicar la transformación 3D\r\n    this.renderer.setStyle(\r\n      this.el.nativeElement,\r\n      'transform',\r\n      `perspective(500px) rotateX(${-rotateX}deg) rotateY(${-rotateY}deg) scale(0.98)`\r\n    );\r\n    this.renderer.setStyle(\r\n      this.el.nativeElement,\r\n      'transition',\r\n      'transform 0.1s ease-out'\r\n    );\r\n\r\n    setTimeout(() => {\r\n      // Restaurar el estilo original\r\n      this.renderer.setStyle(\r\n        this.el.nativeElement,\r\n        'transform',\r\n        `perspective(500px) rotateX(0) rotateY(0) scale(1)`\r\n      );\r\n      this.renderer.setStyle(\r\n        this.el.nativeElement,\r\n        'transition',\r\n        'transform 0.3s ease-out'\r\n      );\r\n    }, 200);\r\n  }\r\n}\r\n",
+            "sourceCode": "import {\r\n  Directive,\r\n  ElementRef,\r\n  HostListener,\r\n  Input,\r\n  Renderer2,\r\n} from '@angular/core';\r\n\r\n@Directive({\r\n  selector: '[clickPressure]',\r\n  standalone: true,\r\n})\r\nexport class ClickPressureDirective {\r\n  @Input() theme: string = '#ffffff';\r\n\r\n  constructor(private el: ElementRef, private renderer: Renderer2) {}\r\n\r\n  @HostListener('click', ['$event'])\r\n  mouseClick(event: MouseEvent): void {\r\n    const { clientX, clientY } = event;\r\n    this.createWave(clientX, clientY);\r\n    this.applyPressEffect(clientX, clientY);\r\n  }\r\n\r\n  private createWave(x: number, y: number): void {\r\n    // Crear el elemento para la onda\r\n    const wave = this.renderer.createElement('span');\r\n    this.renderer.addClass(wave, 'mouse-wave');\r\n\r\n    // Posicionar la onda en el lugar del ratón\r\n    this.renderer.setStyle(wave, 'left', `${x - 15}px`);\r\n    this.renderer.setStyle(wave, 'top', `${y - 15}px`);\r\n    this.renderer.setStyle(wave, 'background-color', `${this.theme}4d`);\r\n\r\n    // Añadir la onda al contenedor principal\r\n    this.renderer.appendChild(this.el.nativeElement, wave);\r\n\r\n    setTimeout(() => {\r\n      this.renderer.removeChild(this.el.nativeElement, wave);\r\n    }, 1000);\r\n  }\r\n\r\n  private applyPressEffect(x: number, y: number): void {\r\n    const rect = this.el.nativeElement.getBoundingClientRect();\r\n\r\n    // Calcular la posición relativa del clic dentro del elemento\r\n    const xPosition = x - rect.left - rect.width / 2; // Posición relativa al centro\r\n    const yPosition = y - rect.top - rect.height / 2; // Posición relativa al centro\r\n\r\n    // Ajustar la intensidad de la inclinación\r\n    const intensity = 10; // Cambia este valor para modificar el efecto\r\n    const rotateX = (yPosition * intensity) / rect.height;\r\n    const rotateY = -(xPosition * intensity) / rect.width;\r\n\r\n    // Aplicar la transformación 3D\r\n    this.renderer.setStyle(\r\n      this.el.nativeElement,\r\n      'transform',\r\n      `perspective(500px) rotateX(${-rotateX}deg) rotateY(${-rotateY}deg) scale(0.98)`\r\n    );\r\n    this.renderer.setStyle(\r\n      this.el.nativeElement,\r\n      'transition',\r\n      'transform 0.1s ease-out'\r\n    );\r\n\r\n    setTimeout(() => {\r\n      // Restaurar el estilo original\r\n      this.renderer.setStyle(\r\n        this.el.nativeElement,\r\n        'transform',\r\n        `perspective(500px) rotateX(0) rotateY(0) scale(1)`\r\n      );\r\n      this.renderer.setStyle(\r\n        this.el.nativeElement,\r\n        'transition',\r\n        'transform 0.3s ease-out'\r\n      );\r\n    }, 200);\r\n  }\r\n}\r\n",
             "selector": "[clickPressure]",
             "providers": [],
             "hostDirectives": [],
@@ -655,7 +655,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import \"projects/relative/src/assets/base.css\";\r\n\r\n.rlv-branded-button {\r\n  box-shadow: 0px 0px 0px 1px #3e898933;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  gap: 8px;\r\n  position: relative;\r\n  height: 40px;\r\n  padding: 0 20px;\r\n  cursor: pointer;\r\n  border: 0;\r\n  border-radius: 7.5px;\r\n  line-height: 1;\r\n  &&::before {\r\n    content: \"\";\r\n    position: absolute;\r\n    z-index: 1;\r\n    width: 100%;\r\n    height: 100%;\r\n    transition: all 0.5s ease-in-out;\r\n    background: linear-gradient( rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));\r\n  }\r\n}\r\n\r\n.rlv-branded-button--small {\r\n  height: 32px;\r\n  padding: 0 20px;\r\n}\r\n.rlv-branded-button--medium {\r\n  height: 40px;\r\n  padding: 0 20px;\r\n}\r\n.rlv-branded-button--large {\r\n  height: 48px;\r\n  padding: 0 24px;\r\n}\r\n",
+                    "data": "@import \"projects/relative/src/assets/base.css\";\r\n\r\n.rlv-branded-button {\r\n  box-shadow: 0px 0px 0px 1px #3e898933;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  gap: 8px;\r\n  position: relative;\r\n  height: 40px;\r\n  padding: 0 20px;\r\n  cursor: pointer;\r\n  border: 0;\r\n  border-radius: 7.5px;\r\n  line-height: 1;\r\n}\r\n\r\n.rlv-branded-button--small {\r\n  height: 32px;\r\n  padding: 0 20px;\r\n}\r\n.rlv-branded-button--medium {\r\n  height: 40px;\r\n  padding: 0 20px;\r\n}\r\n.rlv-branded-button--large {\r\n  height: 48px;\r\n  padding: 0 24px;\r\n}\r\n",
                     "styleUrl": "./branded-button.css"
                 }
             ],
@@ -688,7 +688,7 @@
         },
         {
             "name": "CardComponent",
-            "id": "component-CardComponent-4b9a7402cf36171ac5b5ce44460d00e1e737aa36f5f888d768f7040712d7a630ebb4b94fa30724c8cc8408aaf9ecc5b13149299fe7f9a33e08e591d819f3e3b9",
+            "id": "component-CardComponent-09bbebff7cf2defb120fb28df2667e94eeb6e839bc495d424572033db6b581f865579741ddd20c36e48c462a483d7666b71d7a3dcfbb6e35e9504968c33e4f35",
             "file": "projects/relative/src/lib/components/card/card.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -708,7 +708,7 @@
                     "name": "link",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 27,
+                    "line": 31,
                     "type": "ILink",
                     "decorators": []
                 },
@@ -716,21 +716,32 @@
                     "name": "options",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 26,
+                    "line": 30,
                     "type": "IOptions",
-                    "decorators": []
-                },
-                {
-                    "name": "title",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 25,
-                    "type": "string",
                     "decorators": []
                 }
             ],
             "outputsClass": [],
             "propertiesClass": [
+                {
+                    "name": "cardElement",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ElementRef",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 29,
+                    "decorators": [
+                        {
+                            "name": "ViewChild",
+                            "stringifiedArguments": "'cardElement', {static: true}"
+                        }
+                    ],
+                    "modifierKind": [
+                        170
+                    ]
+                },
                 {
                     "name": "clickPressColor",
                     "defaultValue": "'#8B8B8B'",
@@ -740,17 +751,27 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 29
+                    "line": 33
                 }
             ],
             "methodsClass": [
+                {
+                    "name": "init",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 35,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
                 {
                     "name": "relocation",
                     "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 31,
+                    "line": 41,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -773,7 +794,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { CommonModule } from '@angular/common';\r\nimport { Component, Input } from '@angular/core';\r\nimport { ClickPressureDirective } from '@relative/lib/directives/clickPressure.directive';\r\n\r\ninterface IOptions {\r\n  width?: number | string;\r\n  backgroundColor?: string;\r\n  boxShadowColor?: string;\r\n  clickable?: boolean;\r\n}\r\n\r\ninterface ILink {\r\n  text: string;\r\n  url: string;\r\n}\r\n\r\n@Component({\r\n  selector: 'rlv-card',\r\n  standalone: true,\r\n  imports: [CommonModule, ClickPressureDirective],\r\n  templateUrl: './card.component.html',\r\n  styleUrl: './card.component.css',\r\n})\r\nexport class CardComponent {\r\n  @Input() title: string;\r\n  @Input() options: IOptions;\r\n  @Input() link: ILink;\r\n\r\n  clickPressColor: string = '#8B8B8B';\r\n\r\n  relocation() {\r\n    if (this.options.clickable && this.link.url) {\r\n      location.href = this.link.url;\r\n    }\r\n  }\r\n\r\n  get styles() {\r\n    console.log('styles', this.options);\r\n    \r\n    return {\r\n      width: this.options.width,\r\n      'background-color': this.options.backgroundColor,\r\n      'box-shadow': '0 2px 4px 2px ' + this.options.boxShadowColor,\r\n    };\r\n  }\r\n\r\n  get classes() {\r\n    return {\r\n      clickable: this.options.clickable,\r\n    };\r\n  }\r\n}\r\n",
+            "sourceCode": "import { CommonModule } from '@angular/common';\r\nimport {\r\n  Component,\r\n  ElementRef,\r\n  Input, ViewChild\r\n} from '@angular/core';\r\nimport { ClickPressureDirective } from '@relative/lib/directives/clickPressure.directive';\r\n\r\ninterface IOptions {\r\n  width?: number | string;\r\n  backgroundColor?: string;\r\n  boxShadowColor?: string;\r\n  clickable?: boolean;\r\n}\r\n\r\ninterface ILink {\r\n  text: string;\r\n  url: string;\r\n}\r\n\r\n@Component({\r\n  selector: 'rlv-card',\r\n  standalone: true,\r\n  imports: [CommonModule, ClickPressureDirective],\r\n  templateUrl: './card.component.html',\r\n  styleUrl: './card.component.css',\r\n})\r\nexport class CardComponent {\r\n  @ViewChild('cardElement', { static: true }) cardElement!: ElementRef;\r\n  @Input() options: IOptions;\r\n  @Input() link: ILink;\r\n\r\n  clickPressColor: string = '#8B8B8B';\r\n\r\n  init() {\r\n    if (this.options.clickable) {\r\n      this.clickPressColor = '#000';\r\n    }\r\n  }\r\n\r\n  relocation() {\r\n    if (this.options.clickable && this.link.url) {\r\n      location.href = this.link.url;\r\n    }\r\n  }\r\n\r\n  get styles() {\r\n    return {\r\n      width: this.options.width,\r\n      'background-color': this.options.backgroundColor,\r\n      'box-shadow': '0 2px 4px 2px ' + this.options.boxShadowColor,\r\n    };\r\n  }\r\n\r\n  get classes() {\r\n    return {\r\n      clickable: this.options.clickable,\r\n    };\r\n  }\r\n}\r\n",
             "styleUrl": "./card.component.css",
             "assetsDirs": [],
             "styleUrlsData": "",
@@ -786,7 +807,7 @@
                         "name": "styles",
                         "type": "",
                         "returnType": "",
-                        "line": 37
+                        "line": 47
                     }
                 },
                 "classes": {
@@ -795,11 +816,11 @@
                         "name": "classes",
                         "type": "",
                         "returnType": "",
-                        "line": 47
+                        "line": 55
                     }
                 }
             },
-            "templateData": "<div clickPressure [theme]=\"clickPressColor\" (click)=\"relocation()\" [ngStyle]=\"styles\" [ngClass]=\"classes\" class=\"card\">\r\n  @if(title) {\r\n  <div class=\"card-header\">\r\n    <h3>{{ title }}</h3>\r\n  </div>\r\n  }\r\n  <div class=\"card-body\">\r\n    <ng-content></ng-content>\r\n  </div>\r\n  <div class=\"card-footer\">\r\n    <ng-content select=\"#footer\"></ng-content>\r\n  </div>\r\n</div>\r\n"
+            "templateData": "@if(options.clickable) {\r\n<div\r\n  clickPressure\r\n  [theme]=\"clickPressColor\"\r\n  (click)=\"relocation()\"\r\n  [ngStyle]=\"styles\"\r\n  [ngClass]=\"classes\"\r\n  class=\"card\"\r\n>\r\n  <div class=\"card-header\">\r\n    <ng-content select=\"#title\"></ng-content>\r\n  </div>\r\n  <div class=\"card-body\">\r\n    <ng-content select=\"#content\"></ng-content>\r\n  </div>\r\n  <div class=\"card-footer\">\r\n    <ng-content select=\"#footer\"></ng-content>\r\n  </div>\r\n</div>\r\n} @else {\r\n<div (click)=\"relocation()\" [ngStyle]=\"styles\" [ngClass]=\"classes\" class=\"card\">\r\n  <div class=\"card-header\">\r\n    <ng-content select=\"#title\"></ng-content>\r\n  </div>\r\n  <div class=\"card-body\">\r\n    <ng-content select=\"#content\"></ng-content>\r\n  </div>\r\n  <div class=\"card-footer\">\r\n    <ng-content select=\"#footer\"></ng-content>\r\n  </div>\r\n</div>\r\n}\r\n"
         },
         {
             "name": "ColorPaletteComponent",
@@ -2508,7 +2529,7 @@
                 "linktype": "component",
                 "name": "CardComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/6",
+                "coverageCount": "0/7",
                 "status": "low"
             },
             {

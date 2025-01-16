@@ -127,6 +127,7 @@ small {
   transform: translate(-50%, -50%) scale(0);
   animation: wave-animation 1s ease-out forwards;
   border-radius: 50%;
+  z-index: 9999;
 }
 
 @keyframes wave-animation {

@@ -1,5 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Input, ViewChild
+} from '@angular/core';
 import { ClickPressureDirective } from '@relative/lib/directives/clickPressure.directive';
 
 interface IOptions {
@@ -7,11 +11,6 @@ interface IOptions {
   backgroundColor?: string;
   boxShadowColor?: string;
   clickable?: boolean;
-}
-
-interface ILink {
-  text: string;
-  url: string;
 }
 
 @Component({
@@ -22,15 +21,15 @@ interface ILink {
   styleUrl: './card.component.css',
 })
 export class CardComponent {
-  @Input() title: string;
+  @ViewChild('cardElement', { static: true }) cardElement!: ElementRef;
   @Input() options: IOptions;
-  @Input() link: ILink;
+  @Input() link: string;
 
   clickPressColor: string = '#8B8B8B';
 
   relocation() {
-    if (this.options.clickable && this.link.url) {
-      location.href = this.link.url;
+    if (this.options.clickable && this.link) {
+      location.href = this.link;
     }
   }
 
