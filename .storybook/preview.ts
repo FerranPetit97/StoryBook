@@ -1,10 +1,18 @@
-import type { Preview } from "@storybook/angular";
-import { setCompodocJson } from "@storybook/addon-docs/angular";
-import docJson from "../documentation.json";
+import type { Preview } from '@storybook/angular';
+import { setCompodocJson } from '@storybook/addon-docs/angular';
+import docJson from '../documentation.json';
+
+// Configura compodoc
 setCompodocJson(docJson);
 
 const preview: Preview = {
   parameters: {
+    controls: {
+      disable: true,
+    },
+    docs: {
+      extractArgTypes: () => ({}),
+    },
     backgrounds: {
       default: 'light',
       values: [
@@ -15,10 +23,7 @@ const preview: Preview = {
     },
     options: {
       storySort: {
-        order: [
-          'Design System',
-          'Basics',
-        ],
+        order: ['Design System', 'Basics'],
       },
     },
   },

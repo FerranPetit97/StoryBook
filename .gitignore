@@ -96,3 +96,8 @@ stylelintcache
 # System files
 *.log
 Thumbs.db
+
+
+
+.nx/cache
+.nx/workspace-data
