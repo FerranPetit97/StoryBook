@@ -23,3 +23,7 @@ export * from './lib/components/card/card.component';
 /* Directives */
 
 export * from './lib/directives/clickPressure.directive';
+
+/* Intefaces */
+
+export * from './lib/components/modal/interfaces/modal-options.interface';

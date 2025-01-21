@@ -8,6 +8,7 @@ import { ClickPressureDirective } from '@relative/lib/directives/clickPressure.d
 
 interface IOptions {
   width?: number | string;
+  color?: string;
   backgroundColor?: string;
   boxShadowColor?: string;
   clickable?: boolean;
@@ -36,6 +37,7 @@ export class CardComponent {
   get styles() {
     return {
       width: this.options.width,
+      color: this.options.color,
       'background-color': this.options.backgroundColor,
       'box-shadow': '0 2px 4px 2px ' + this.options.boxShadowColor,
     };

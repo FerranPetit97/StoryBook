@@ -9,6 +9,7 @@ import {
   inject,
   Input,
 } from '@angular/core';
+import { IOptions } from '@relative/public-api';
 
 @Component({
   selector: 'rlv-modal',
@@ -18,9 +19,7 @@ import {
   styleUrls: ['./modal.component.css'],
 })
 export class ModalComponent {
-  @Input() title: string = 'Modal Title';
-  @Input() width: string = '400px';
-  @Input() height: string = '200px';
+  @Input() options: IOptions = {};
 
   @ViewChild('dynamicComponentContainer', {
     read: ViewContainerRef,
@@ -34,5 +33,12 @@ export class ModalComponent {
 
   close() {
     this.modalService.close();
+  }
+
+  get styles() {
+    return {
+      width: this.options.width,
+      height: this.options.height
+    }
   }
 }

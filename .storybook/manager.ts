@@ -5,7 +5,7 @@ const customTheme = create({
   base: 'light',
   brandTitle: 'RELATIVE',
   brandUrl: 'https://ferranpetit.vercel.app/',
-  brandImage: '/assets/brand.svg',
+  brandImage: '/assets/favicon/favicon.ico',
 });
 
 addons.setConfig({
