@@ -47,7 +47,7 @@ export class InputComponent implements OnInit, ControlValueAccessor {
   isSelectOpen: boolean = false;
 
   writeValue(value: string | null): void {
-    this.value = value || ''; // Si es null, se establece como una cadena vacía
+    this.value = value || '';
   }
   registerOnChange(fn: OnChangeFn<string>): void {
     this.onChange = fn;
@@ -101,8 +101,8 @@ export class InputComponent implements OnInit, ControlValueAccessor {
       this.value = inputElement.value;
     }
 
-    this.onChange(this.value); // Notifica al FormControl del cambio
-    this.valueChange.emit(this.value); // Emite el cambio hacia afuera
+    this.onChange(this.value);
+    this.valueChange.emit(this.value);
   }
 }
 

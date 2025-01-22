@@ -7,9 +7,6 @@ setCompodocJson(docJson);
 
 const preview: Preview = {
   parameters: {
-    controls: {
-      disable: true,
-    },
     docs: {
       extractArgTypes: () => ({}),
     },

@@ -11,74 +11,93 @@ const meta: Meta<BrandedButtonComponent> = {
         component: `
 ### Branded Button
 
-El **Branded Button** está diseñado para alinearse con los lineamientos de identidad visual de la marca. Este botón se utiliza principalmente para acciones secundarias o de navegación, permitiendo a los desarrolladores personalizarlo con diferentes colores y tamaños.
+El **Branded Button** es un componente diseñado para representar botones estilizados que cumplen con las directrices de la marca. Este botón puede utilizarse en diferentes contextos, ya sea para destacar una acción principal o para complementar acciones secundarias.
 
-#### Características principales:
-- **Colores personalizables**: Puedes cambiar tanto el color de fondo como el del texto.
-- **Diferentes tamaños**: Ofrece soporte para tamaños \`small\`, \`medium\` y \`large\`.
-- **Hover States**: Soporta un color de fondo diferente al pasar el cursor sobre el botón.
-- **Responsivo**: Ajusta automáticamente el ancho mínimo del botón para adaptarse al contenido (texto).
+---
 
-#### Uso básico:
+#### **Propiedades principales**
+- **Variantes de diseño**: \`solid\`, \`outline\`, \`ghost\`.
+- **Tamaños personalizables**: Desde tamaños muy pequeños (\`xs\`) hasta extra grandes (\`xl\`).
+- **Ancho completo**: Con la propiedad \`fullWidth\`.
+- **Gestión de eventos**: Expone un evento \`onClick\` para capturar interacciones.
+- **Estado deshabilitado**: Con la propiedad \`disabled\`, se desactiva la interacción del botón y se aplican estilos visuales de inactividad.
+
+---
+
+#### **Uso básico**
+
 ~~~html
 <rlv-branded-button
+  [type]="'solid'"
   [label]="'Click me'"
-  [size]="'medium'"
-  [backgroundColor]="'#3E8989'"
-  [backgroundHover]="'#316d6d'"
-  [color]="'#ffffff'"
+  [size]="'m'"
+  [fullWidth]="true"
+  [disabled]="false"
   (onClick)="miFuncion()">
 </rlv-branded-button>
 ~~~
-`,
+
+---
+
+### **Variantes**
+Las siguientes variantes están disponibles para este botón:
+- **Solid**: Fondo sólido para enfatizar acciones primarias.
+- **Outline**: Borde visible para acciones secundarias.
+- **Ghost**: Fondo transparente, ideal para contextos ligeros o minimalistas.
+
+---
+        `,
       },
     },
   },
   argTypes: {
+    type: {
+      control: 'select',
+      options: ['solid', 'outline', 'ghost'],
+      description: 'Define la variante de diseño del botón.',
+      table: {
+        type: { summary: `'solid' | 'outline' | 'ghost'` },
+        defaultValue: { summary: 'solid' },
+      },
+    },
+    size: {
+      control: 'radio',
+      options: ['xs', 's', 'm', 'lg', 'xl'],
+      description: 'Define el tamaño del botón.',
+      table: {
+        type: { summary: `'xs' | 's' | 'm' | 'lg' | 'xl'` },
+        defaultValue: { summary: 'm' },
+      },
+    },
     label: {
       control: 'text',
-      description: 'Texto que se muestra en el botón.',
+      description: 'Texto que se muestra dentro del botón.',
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: 'Button' },
       },
     },
-    backgroundColor: {
-      control: 'color',
-      description: 'Color de fondo del botón.',
+    fullWidth: {
+      control: 'boolean',
+      description:
+        'Define si el botón ocupa el ancho completo de su contenedor.',
       table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '#3E8989' },
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
       },
     },
-    backgroundHover: {
-      control: 'color',
-      description: 'Color del fondo al pasar el cursor por encima del botón.',
+    disabled: {
+      control: 'boolean',
+      description:
+        'Desactiva la interacción con el botón y aplica un estilo deshabilitado.',
       table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'black' },
-      },
-    },
-    color: {
-      control: 'color',
-      description: 'Color del texto del botón.',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'white' },
-      },
-    },
-    size: {
-      control: 'radio',
-      options: ['large', 'medium', 'small'],
-      description: 'Tamaño del botón.',
-      table: {
-        type: { summary: "'large' | 'medium' | 'small'" },
-        defaultValue: { summary: 'medium' },
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
       },
     },
     onClick: {
       action: 'clicked',
-      description: 'Evento que se dispara al hacer clic en el botón.',
+      description: 'Evento que se dispara cuando se hace clic en el botón.',
       table: {
         type: { summary: 'EventEmitter<Event>' },
       },
@@ -89,55 +108,88 @@ El **Branded Button** está diseñado para alinearse con los lineamientos de ide
 export default meta;
 type Story = StoryObj<BrandedButtonComponent>;
 
-export const Medium: Story = {
+export const Solid: Story = {
   args: {
-    label: 'Button',
-    size: 'medium',
-    backgroundColor: '#3E8989',
-    backgroundHover: '#316d6d',
-    color: '#ffffff',
+    type: 'solid',
+    label: 'Solid Button',
+    size: 'm',
+    fullWidth: false,
+    disabled: false,
   },
   parameters: {
     docs: {
       description: {
-        story:
-          'Botón de tamaño **mediano** con color de fondo principal, color de texto blanco, y color de hover definido.',
+        story: 'Botón con fondo sólido, ideal para acciones primarias.',
       },
     },
   },
 };
 
-export const Large: Story = {
+export const Outline: Story = {
   args: {
-    label: 'Button',
-    size: 'large',
-    backgroundColor: '#3E8989',
-    backgroundHover: '#316d6d',
-    color: '#ffffff',
+    type: 'outline',
+    label: 'Outline Button',
+    size: 'm',
+    fullWidth: false,
+    disabled: false,
   },
   parameters: {
     docs: {
       description: {
-        story:
-          'Botón de tamaño **grande** para llamar más la atención o enfatizar acciones importantes.',
+        story: 'Botón con borde visible, ideal para acciones secundarias.',
       },
     },
   },
 };
 
-export const Small: Story = {
+export const Ghost: Story = {
   args: {
-    label: 'Button',
-    size: 'small',
-    backgroundColor: '#3E8989',
-    backgroundHover: '#316d6d',
-    color: '#ffffff',
+    type: 'ghost',
+    label: 'Ghost Button',
+    size: 'm',
+    fullWidth: false,
+    disabled: false,
   },
   parameters: {
     docs: {
       description: {
         story:
-          'Botón de tamaño **pequeño**, ideal para espacios compactos o acciones menos destacadas.',
+          'Botón transparente, ideal para un diseño más sutil o minimalista.',
+      },
+    },
+  },
+};
+
+export const FullWidth: Story = {
+  args: {
+    type: 'solid',
+    label: 'Full Width Button',
+    size: 'm',
+    fullWidth: true,
+    disabled: false,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Botón de ancho completo con tamaño grande.',
+      },
+    },
+  },
+};
+
+export const Disabled: Story = {
+  args: {
+    type: 'solid',
+    label: 'Disabled Button',
+    size: 'm',
+    fullWidth: false,
+    disabled: true,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Botón deshabilitado con fondo sólido. Útil para indicar acciones no disponibles.',
       },
     },
   },

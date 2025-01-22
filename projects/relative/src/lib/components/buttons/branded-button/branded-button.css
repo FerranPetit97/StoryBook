@@ -1,29 +1,77 @@
 @import "projects/relative/src/assets/base.css";
 
 .rlv-branded-button {
-  box-shadow: 0px 0px 0px 1px #3e898933;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 8px;
   position: relative;
-  height: 40px;
-  padding: 0 20px;
   cursor: pointer;
   border: 0;
-  border-radius: 7.5px;
-  line-height: 1;
+  border-radius: 4px;
 }
 
-.rlv-branded-button--small {
-  height: 32px;
-  padding: 0 20px;
+.rlv-branded-button--solid {
+  box-shadow: 0px 0px 0px 1px #3e898933;
+  outline: none;
+  background-color: #3e8989;
+  color: white;
+  &:hover {
+    background-color: #316d6d;
+  }
+
+  &.rlv-branded-button--disabled {
+    box-shadow: 0px 0px 0px 1px #a0a0a0;
+    background-color: #a0a0a0;
+    cursor: not-allowed;
+  }
 }
-.rlv-branded-button--medium {
+.rlv-branded-button--outline {
+  box-shadow: #3e8989 0px 0px 0px 1px inset;
+  background-color: transparent;
+  color: #3e8989;
+  &:hover {
+    background-color: #3e898918;
+  }
+  
+  &.rlv-branded-button--disabled {
+    cursor: not-allowed;
+    background-color: #e0e0e0;
+  }
+}
+.rlv-branded-button--ghost {
+  background-color: transparent;
+  box-shadow: 0px 0px 3px 1px #3e898918 inset;
+  color: #3e8989;
+  &:hover {
+    box-shadow: none;
+    background-color: #3e898918;
+  }
+  &.rlv-branded-button--disabled {
+    box-shadow: 0px 0px 3px 1px #a0a0a0 inset;
+    background-color: transparent;
+    cursor: not-allowed;
+    color: #a0a0a0;
+  }
+}
+
+.rlv-branded-button--xs {
+  height: 24px;
+  padding: 4px 8px;
+}
+.rlv-branded-button--s {
+  height: 30px;
+  padding: 6px 12px;
+}
+.rlv-branded-button--m {
+  height: 36px;
+  padding: 8px 16px;
+}
+.rlv-branded-button--lg {
   height: 40px;
-  padding: 0 20px;
+  padding: 10px 20px;
 }
-.rlv-branded-button--large {
-  height: 48px;
-  padding: 0 24px;
+.rlv-branded-button--xl {
+  height: 44px;
+  padding: 12px 24px;
 }

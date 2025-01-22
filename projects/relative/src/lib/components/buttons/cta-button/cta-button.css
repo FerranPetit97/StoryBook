@@ -130,6 +130,7 @@
     filter: brightness(0) saturate(100%) invert(34%) sepia(74%) saturate(2141%);
   }
 }
+
 .rlv-cta-button--small {
   height: 32px;
   padding: 0 20px;

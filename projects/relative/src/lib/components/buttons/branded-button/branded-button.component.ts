@@ -3,10 +3,7 @@ import {
   Component,
   Input,
   Output,
-  EventEmitter,
-  AfterViewInit,
-  ElementRef,
-  ViewChild
+  EventEmitter
 } from '@angular/core';
 import { ClickPressureDirective } from '@relative/public-api';
 
@@ -17,60 +14,37 @@ import { ClickPressureDirective } from '@relative/public-api';
   templateUrl: './branded-button.component.html',
   styleUrls: ['./branded-button.css'],
 })
-export class BrandedButtonComponent implements AfterViewInit {
-  @ViewChild('buttonText') buttonRef!: ElementRef<HTMLDivElement>;
-  buttonMinWidth: string = '';
-
-  ngAfterViewInit() {
-    setTimeout(() => {
-      if (this.buttonRef) {
-        this.buttonMinWidth = `${this.buttonRef.nativeElement.offsetWidth + this.extraPaddingWidth}px`;
-      }
-    });
-  }
+export class BrandedButtonComponent {
+  @Input()
+  type: 'solid' | 'outline' | 'ghost' = 'solid';
 
   @Input()
-  type = 'primary';
+  size: 'xs' | 's' | 'm' | 'lg' | 'xl' = 'm';
 
   @Input()
-  backgroundColor: string = '#3E8989';
+  label: string = 'Button';
 
   @Input()
-  backgroundHover: string = 'black';
+  disabled: boolean = false;
 
   @Input()
-  color: string = 'white';
-
-  @Input()
-  size: 'small' | 'medium' | 'large' = 'medium';
-
-  @Input()
-  label = 'Button';
+  fullWidth: boolean = false;
 
   @Output()
   onClick = new EventEmitter<Event>();
-
-  isHovered = false;
 
   get classes(): string[] {
     return [
       'rlv-branded-button',
       `rlv-branded-button--${this.size}`,
+      `rlv-branded-button--${this.type}`,
+      this.disabled ? 'rlv-branded-button--disabled' : '',
     ];
   }
 
-  get extraPaddingWidth(): number {
-    let width = 40;
-
-    switch (this.size) {
-      case 'small':
-      case 'medium':
-      default:
-        width = 40;
-        break;
-      case 'large':
-        width = 48;
-    }
-    return width;
+  get styles() {
+    return {
+      width: this.fullWidth ? '100%' : 'auto',
+    };
   }
 }
