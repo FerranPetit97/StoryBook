@@ -2,7 +2,6 @@
 
 .card {
   position: relative;
-  overflow: hidden;
   min-width: 300px;
   height: auto;
   min-height: 100px;

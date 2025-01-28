@@ -9,7 +9,7 @@ import {
   inject,
   Input,
 } from '@angular/core';
-import { IOptions } from '@relative/public-api';
+import { IOptions } from './interfaces/modal-options.interface';
 
 @Component({
   selector: 'rlv-modal',

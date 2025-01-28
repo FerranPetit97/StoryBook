@@ -37,4 +37,4 @@ Add new global styles on angular project configuration 'projects/my-project-name
 
 Navigate with `cd dist/relative` use `npm link` there, then you move into your project and run `npm link @ferranpetit/relative`.
 
-If you want to see the change you should use `ng build relative --watch` on library base location directory.
+If you want to see the change you should use `nx build relative --watch` on library base location directory.

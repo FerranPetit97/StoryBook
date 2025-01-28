@@ -11,15 +11,15 @@
     "storybook": "nx run StoryBook:storybook",
     "build:storybook": "nx run StoryBook:build-storybook",
     "build:lib": "nx build relative",
+    "build:lib:dev": "nx build relative --watch",
     "vercel-build": "npm ci && npm run build:storybook",
-    "publish:lib": "cd dist/relative && npm publish --access public && cd ../.."
+    "publish:lib": "npm run build:lib && cd dist/relative && npm publish --access public && cd ../..",
+    "link:lib": "npm run build:lib:dev && cd dist/relative && npm link && cd ../.."
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "^18.1.0",
-    "@angular/common": "^18.1.0",
     "@angular/compiler": "^18.1.0",
-    "@angular/core": "^18.1.0",
     "@angular/forms": "^18.1.0",
     "@angular/platform-browser": "^18.1.0",
     "@angular/platform-browser-dynamic": "^18.1.0",

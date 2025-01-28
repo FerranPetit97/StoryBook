@@ -4,7 +4,7 @@ import {
   ElementRef,
   Input, ViewChild
 } from '@angular/core';
-import { ClickPressureDirective } from '@relative/lib/directives/clickPressure.directive';
+import { ClickPressureDirective } from '../../directives/clickPressure.directive';
 
 interface IOptions {
   width?: number | string;

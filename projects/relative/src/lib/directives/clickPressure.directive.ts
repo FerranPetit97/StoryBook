@@ -1,3 +1,4 @@
+import { OnInit } from '@angular/core';
 import {
   Directive,
   ElementRef,
@@ -10,12 +11,16 @@ import {
   selector: '[clickPressure]',
   standalone: true,
 })
-export class ClickPressureDirective {
+export class ClickPressureDirective implements OnInit {
   @Input() actived: boolean = true;
   @Input() theme: string = '#ffffff';
   @Input() intensity: number = 10;
 
   constructor(private elementRef: ElementRef, private renderer: Renderer2) {}
+
+  ngOnInit(): void {
+    this.initClass(this.elementRef.nativeElement);
+  }
 
   @HostListener('click', ['$event'])
   mouseClick(event: MouseEvent): void {
@@ -27,7 +32,7 @@ export class ClickPressureDirective {
     const relativeY = event.clientY - componentRect.top;
 
     this.createWave(relativeX, relativeY);
-    this.applyPressEffect(relativeX, relativeY);
+    this.applyPressEffect(relativeX, relativeY, componentRect);
   }
 
   private createWave(x: number, y: number): void {
@@ -45,8 +50,7 @@ export class ClickPressureDirective {
     }, 1000);
   }
 
-  private applyPressEffect(x: number, y: number): void {
-    const rect = this.elementRef.nativeElement.getBoundingClientRect();
+  private applyPressEffect(x: number, y: number, rect: any): void {
 
     const xPosition = x - rect.width / 2;
     const yPosition = y - rect.height / 2;
@@ -77,5 +81,9 @@ export class ClickPressureDirective {
         'transform 0.3s ease-out'
       );
     }, 200);
+  }
+
+  private initClass(rect: any): void {
+    this.renderer.setStyle(rect, 'overflow', `hidden`);
   }
 }

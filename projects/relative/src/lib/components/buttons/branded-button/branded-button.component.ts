@@ -5,7 +5,7 @@ import {
   Output,
   EventEmitter
 } from '@angular/core';
-import { ClickPressureDirective } from '@relative/public-api';
+import { ClickPressureDirective } from '../../../directives/clickPressure.directive';
 
 @Component({
   selector: 'rlv-branded-button',

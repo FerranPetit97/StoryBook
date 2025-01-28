@@ -7,7 +7,7 @@ import {
   ViewChild,
   ElementRef,
 } from '@angular/core';
-import { ClickPressureDirective } from '@relative/lib/directives/clickPressure.directive';
+import { ClickPressureDirective } from '../../../directives/clickPressure.directive';
 
 @Component({
   selector: 'rlv-cta-button',

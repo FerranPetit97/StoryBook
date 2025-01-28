@@ -7,7 +7,7 @@ import {
   EnvironmentInjector,
 } from '@angular/core';
 import { ModalComponent } from '../components/modal/modal.component';
-import { IOptions } from '@relative/public-api';
+import { IOptions } from '../components/modal/interfaces/modal-options.interface';
 
 @Injectable({
   providedIn: 'root',
