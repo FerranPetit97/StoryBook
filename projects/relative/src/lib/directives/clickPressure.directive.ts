@@ -61,7 +61,7 @@ export class ClickPressureDirective implements OnInit {
     this.renderer.setStyle(
       this.elementRef.nativeElement,
       'transform',
-      `perspective(500px) rotateX(${-rotateX}deg) rotateY(${-rotateY}deg)`
+      `perspective(50px) rotateX(${-rotateX}deg) rotateY(${-rotateY}deg)`
     );
     this.renderer.setStyle(
       this.elementRef.nativeElement,
@@ -73,7 +73,7 @@ export class ClickPressureDirective implements OnInit {
       this.renderer.setStyle(
         this.elementRef.nativeElement,
         'transform',
-        `perspective(500px) rotateX(0) rotateY(0)`
+        `perspective(50px) rotateX(0) rotateY(0)`
       );
       this.renderer.setStyle(
         this.elementRef.nativeElement,
